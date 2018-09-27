@@ -1,3 +1,3 @@
 ﻿  ConsoleApplication1.cpp
-d:\git\failure\lagermanagementtool\consoleapplication1\consoleapplication1\consoleapplication1.cpp(93): warning C4129: "P": nicht erkannte Folge von Escapesequenz
-  ConsoleApplication1.vcxproj -> D:\git\Failure\LagerManagementTool\ConsoleApplication1\Debug\ConsoleApplication1.exe
+d:\git\failure\salih\wochen\3\lagermanagementtool\consoleapplication1\consoleapplication1\consoleapplication1.cpp(97): warning C4129: "P": nicht erkannte Folge von Escapesequenz
+  ConsoleApplication1.vcxproj -> D:\git\Failure\Salih\Wochen\3\LagerManagementTool\ConsoleApplication1\Debug\ConsoleApplication1.exe
