@@ -10,11 +10,12 @@
 //}
 
 
-LagerObjekt::LagerObjekt(std::string newName, int newAnzahl, double newPreis)
+LagerObjekt::LagerObjekt(std::string newName, int newAnzahl, double newPreis, LagerObjekt::typ newTyp)
 {
 	name = newName;
 	anzahl = newAnzahl;
 	preis = newPreis;
+	t = newTyp;
 }
 
 LagerObjekt::~LagerObjekt()

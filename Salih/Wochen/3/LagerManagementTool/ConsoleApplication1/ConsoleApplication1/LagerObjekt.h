@@ -4,13 +4,14 @@
 class LagerObjekt
 {
 public:
-	LagerObjekt(std::string newName, int newAnzahl, double newPreis);
+	enum typ { Verkauf, Eigenbedarf };
+
+	LagerObjekt(std::string newName, int newAnzahl, double newPreis, typ newTyp);
 	~LagerObjekt();
 	
 	std::string name;
 	int anzahl;
 	double preis;
-
-
+	typ t;
 };
 
