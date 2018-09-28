@@ -1,0 +1,38 @@
+body {
+	background: #0f0f0f;
+	text-align: center;
+}
+
+#kopfzeile {
+	background: #212121;
+	border: 5px solid black;
+	margin: 20;
+}
+
+#text {
+	color: white;
+	margin: 20;
+}
+
+#upload_button {
+	margin: 20;
+}
+
+#button {
+	margin: 20;
+}
+
+#bottom {
+	margin-bottom: 0;
+	margin: 0;
+	height: 10%;
+	border: 2px solid black;
+	background: white;
+}
+
+#nologin_frame {
+	color: red;
+	background: #212121;
+	border: 2px solid black;
+	margin: 20;
+}

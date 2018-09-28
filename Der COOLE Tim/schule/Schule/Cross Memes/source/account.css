@@ -1,0 +1,30 @@
+body {
+	background: #0f0f0f;
+	margin: 0;
+	text-align: center;
+}
+
+#content {
+	background: #212121;
+	border: 5px solid black;
+	margin: 20;
+}
+
+#daten {
+	color: white;
+	text-align: center;
+}
+
+#back_button {
+	margin: 20;
+}
+
+#button {
+	margin-top: 20;
+}
+
+#info {
+	text-align: center;
+	color: white;
+	margin: 20;
+}

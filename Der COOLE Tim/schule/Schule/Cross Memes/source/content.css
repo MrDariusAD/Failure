@@ -1,0 +1,47 @@
+body {
+	background: #0f0f0f;
+	margin: 0;
+	text-align: center;
+}
+
+#content {
+	background: #212121;
+	border: 5px solid black;
+	margin: 20;
+}
+
+#titel {
+	color: white;
+	text-align: center;
+}
+
+#image {
+	margin:20;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#comment {
+	background: #121212;
+	border: 5px solid black;
+	margin: 20;
+}
+
+#write_comment {
+	margin: 30;
+	margin-right: 10%;
+	text-align:left;
+	width: 60%;
+	float: right;
+}
+
+#delete_button {
+	margin-left:auto;
+	display: table-cell;
+}
+
+#img {
+	width: 1000px;
+	height: auto;
+}
