@@ -1,0 +1,54 @@
+body {
+	background: #0f0f0f;
+	margin: 0;
+}
+
+#all_content {
+	text-align: center;
+}
+
+#content {
+	background: #2b2b2b;
+	width: 500;
+	margin: auto;
+}
+
+#kopfzeile {
+	height: 5%;
+	background-color: #333333;
+	border-bottom: 2px solid black;
+	margin-top: auto;
+	text-align: center;
+}
+
+#login_button {
+	
+}
+
+#hot_button {
+	
+}
+
+#rmd_button {
+	
+}
+
+#upload_button {
+	
+}
+
+#titel {
+	height: 0%;
+	margin-left: 5%;
+	text-align: left;
+	font-family: Impact, Charcoal, sans-serif; 
+	color: #efefef;
+}
+
+#button {
+	margin-left: 5;
+}
+
+#image_content {
+	margin: 20;
+}

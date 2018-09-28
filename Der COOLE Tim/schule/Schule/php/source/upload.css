@@ -1,0 +1,23 @@
+body {
+	background: #0f0f0f;
+	text-align: center;
+}
+
+#kopfzeile {
+	background: #212121;
+	border: 2px solid black;
+	margin: 20;
+}
+
+#text {
+	color: white;
+	margin: 20;
+}
+
+#upload_button {
+	margin: 20;
+}
+
+#button {
+	margin: 20;
+}
