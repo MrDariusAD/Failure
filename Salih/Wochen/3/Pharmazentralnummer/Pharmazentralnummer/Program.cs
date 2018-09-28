@@ -69,7 +69,7 @@ namespace Pharmazentralnummer
             Console.Clear();
             string eingabe;
 
-            Console.Write("Wilkommen im Lager Management Programm. Was möchten sie tun?\n\n\n");
+            Console.Write("Wilkommen im Pharmazentralnummer Pruefer. Was möchten sie tun?\n\n\n");
 
             Console.Write("1 - Nummer kontrollieren\n");
             Console.Write("2 - Beenden\n\n");
