@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Raven.Client.Documents;
+using Raven.Client.Documents.Linq;
 using Raven.Client.Documents.Session;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
@@ -18,7 +19,7 @@ namespace Reiseunternehmen
     {
         private static readonly string[] _datenbankUrl = {"http://localhost:8081"};
 
-        private static string _defaultDB = "Reiseunternehmen";
+        private static string _defaultDB = "Reise";
 
         private static DocumentStore _store = null;
 
@@ -30,7 +31,11 @@ namespace Reiseunternehmen
                 _store = new DocumentStore
                 {
                     Urls = _datenbankUrl,
-                    Database = _defaultDB
+                    Database = _defaultDB,
+                    Conventions = {
+                        FindCollectionName = t => t.Name
+                    }
+
                 };
                 _store.Initialize();
 
@@ -50,9 +55,8 @@ namespace Reiseunternehmen
                 using (var session = _store.OpenSession(nameDerDatenbank))
                 {
                     var p = session.Load<dynamic>(dokumentId);
-
+                    return p;
                 }
-                return true;
             }
             catch (Exception e)
             {
@@ -61,14 +65,15 @@ namespace Reiseunternehmen
             }
         }
 
+
         public static void SpeichereDokument(dynamic dokument)
         {
             using (IDocumentSession session = _store.OpenSession(dokument.GetType().Name))
             {
-
                 session.Store(dokument);
                 session.SaveChanges();
             }
+
         }
 
         public static void FuelleDatenbank<T>(List<T> objects)
