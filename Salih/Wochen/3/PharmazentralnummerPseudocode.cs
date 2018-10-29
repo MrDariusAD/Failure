@@ -3,7 +3,7 @@
 START function Program.Main()
 
 	while true
-		int aktion
+		<attr>int aktion
 		repeat
 		    <attr>aktion = call hauptmenü()
 		until <attr>aktion == 0
