@@ -1,0 +1,41 @@
+program NamenEintragen
+    <attr> Vorname
+    <attr> Nachname
+    <attr> Geschlecht
+    <obj> Liste Personen
+    <attr> weitermachen
+    repeat 
+        weitermachen = false
+        read Vorname
+        read Nachname
+        read Geschlecht
+        call Personen.add(Vorname, Nachname, Geschlecht)
+        print "Wollen sie noch eine Person eintragen? (Y/N)"
+        if Lesen = Y then
+            weitermachen = true
+    until weitermachen = false
+    print "Zum Fortfahren Enter drücken"
+    gewartet = 0
+    while ( nicht istEnterGedrückt() )
+        if gewartet > 20 then
+            return
+        else 
+            gewartet = gewartet + 1
+    <attr> count = 0
+    <attr> jungen = 0
+    <attr> mädchen = 0
+    <attr> andere = 0
+    for i = 0 to Personen.length 
+        if Personen[i].Vorname == "" und Personen[i].Nachname = "" und Personen[i].Geschlecht == "" then
+            print "Ein Datensatz war nicht vollständig"
+        else
+            SpeichereInDatenbank(Personen[i])
+            count = count + 1
+            if Geschlecht == "M then
+                jungen + jungen + 1
+            elseif Geschlecht == "W" then
+                mädchen = mädchen + 1
+            else
+                andere = andere + 1
+    print "Es wurden {count} Personen in die Datenbank eintragen. Davon {jungen} Jungen, {mädchen} Mädchen und {andere} andere Pseudo-Geschlechter"
+end program NamenEintragen
