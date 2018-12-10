@@ -35,9 +35,6 @@ namespace NetChat.Front
 
         private void options(object sender, EventArgs e)
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Optionen());C
             Optionen o = new Optionen();
             o.ShowDialog();
         }
@@ -52,8 +49,8 @@ namespace NetChat.Front
 
         private void send(string text)
         {
-            Console.WriteLine(text);
-            throw new NotImplementedException();
+            Console.WriteLine("[" + GlobalVariable.UserName + "] " + text);
+
         }
     }
 }
