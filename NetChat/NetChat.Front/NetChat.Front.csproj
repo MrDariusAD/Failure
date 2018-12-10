@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C47AEF0D-26A6-4DE6-8DB0-81D880BB9DC3}</ProjectGuid>
+    <ProjectGuid>{F3B8A90E-7F02-4701-A9DD-22F9890AC72D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NeChat</RootNamespace>
-    <AssemblyName>NeChat</AssemblyName>
+    <RootNamespace>NetChat.Front</RootNamespace>
+    <AssemblyName>NetChat.Front</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

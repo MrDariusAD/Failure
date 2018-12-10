@@ -1,4 +1,4 @@
-﻿namespace NeChat
+﻿namespace NetChat.Front
 {
     partial class Form1
     {

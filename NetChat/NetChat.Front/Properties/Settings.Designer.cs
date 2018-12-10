@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NeChat.Properties
+namespace NetChat.Front.Properties
 {
 
 
