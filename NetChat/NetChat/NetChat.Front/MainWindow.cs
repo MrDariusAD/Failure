@@ -52,5 +52,15 @@ namespace NetChat.Front
             Console.WriteLine("[" + GlobalVariable.UserName + "] " + text);
 
         }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalVariable.SafeToTemp();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            GlobalVariable.LoadFromTemp();
+        }
     }
 }

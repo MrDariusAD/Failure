@@ -30,7 +30,6 @@
         {
             this.UserName = new System.Windows.Forms.Label();
             this.pw = new System.Windows.Forms.Label();
-            this.AllowSelfHost = new System.Windows.Forms.CheckBox();
             this.IP = new System.Windows.Forms.Label();
             this.Port = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -59,18 +58,6 @@
             this.pw.Size = new System.Drawing.Size(78, 20);
             this.pw.TabIndex = 1;
             this.pw.Text = "Passwort:";
-            // 
-            // AllowSelfHost
-            // 
-            this.AllowSelfHost.AutoSize = true;
-            this.AllowSelfHost.Location = new System.Drawing.Point(24, 277);
-            this.AllowSelfHost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.AllowSelfHost.Name = "AllowSelfHost";
-            this.AllowSelfHost.Size = new System.Drawing.Size(239, 24);
-            this.AllowSelfHost.TabIndex = 2;
-            this.AllowSelfHost.Text = "Erlaube eigener Host zu sein";
-            this.AllowSelfHost.UseVisualStyleBackColor = true;
-            this.AllowSelfHost.CheckedChanged += new System.EventHandler(this.AllowSelfHost_CheckedChanged);
             // 
             // IP
             // 
@@ -151,7 +138,6 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.Port);
             this.Controls.Add(this.IP);
-            this.Controls.Add(this.AllowSelfHost);
             this.Controls.Add(this.pw);
             this.Controls.Add(this.UserName);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -168,7 +154,6 @@
 
         private System.Windows.Forms.Label UserName;
         private System.Windows.Forms.Label pw;
-        private System.Windows.Forms.CheckBox AllowSelfHost;
         private System.Windows.Forms.Label IP;
         private System.Windows.Forms.Label Port;
         private System.Windows.Forms.ProgressBar progressBar1;

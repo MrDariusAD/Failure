@@ -41,25 +41,28 @@
             this.OuterBox.Controls.Add(this.ChatTextBox);
             this.OuterBox.Controls.Add(this.Senden);
             this.OuterBox.Controls.Add(this.Chat);
-            this.OuterBox.Location = new System.Drawing.Point(12, 12);
+            this.OuterBox.Location = new System.Drawing.Point(18, 18);
+            this.OuterBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OuterBox.Name = "OuterBox";
-            this.OuterBox.Size = new System.Drawing.Size(776, 426);
+            this.OuterBox.Size = new System.Drawing.Size(1164, 655);
             this.OuterBox.TabIndex = 0;
             this.OuterBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             // 
             // ChatTextBox
             // 
-            this.ChatTextBox.Location = new System.Drawing.Point(20, 396);
+            this.ChatTextBox.Location = new System.Drawing.Point(30, 609);
+            this.ChatTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ChatTextBox.Name = "ChatTextBox";
-            this.ChatTextBox.Size = new System.Drawing.Size(648, 20);
+            this.ChatTextBox.Size = new System.Drawing.Size(970, 26);
             this.ChatTextBox.TabIndex = 2;
             this.ChatTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChatTextBox_KeyDown);
             // 
             // Senden
             // 
-            this.Senden.Location = new System.Drawing.Point(674, 396);
+            this.Senden.Location = new System.Drawing.Point(1011, 609);
+            this.Senden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Senden.Name = "Senden";
-            this.Senden.Size = new System.Drawing.Size(75, 23);
+            this.Senden.Size = new System.Drawing.Size(112, 35);
             this.Senden.TabIndex = 1;
             this.Senden.Text = "Senden";
             this.Senden.UseVisualStyleBackColor = true;
@@ -68,21 +71,26 @@
             // 
             this.Chat.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Chat.FormattingEnabled = true;
-            this.Chat.Location = new System.Drawing.Point(20, 22);
+            this.Chat.ItemHeight = 20;
+            this.Chat.Location = new System.Drawing.Point(30, 34);
+            this.Chat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Chat.Name = "Chat";
-            this.Chat.Size = new System.Drawing.Size(729, 368);
+            this.Chat.Size = new System.Drawing.Size(1092, 564);
             this.Chat.TabIndex = 0;
             this.Chat.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.OuterBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainWindow";
             this.Text = "NetChat";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             this.OuterBox.ResumeLayout(false);
             this.OuterBox.PerformLayout();
