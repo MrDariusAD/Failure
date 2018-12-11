@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetChat.Server.Console
-{
-    public class Class1
-    {
+namespace NetChat.Server.Console {
+    class Program {
+        static void Main(string[] args) {
+
+        }
     }
 }
