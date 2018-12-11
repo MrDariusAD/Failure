@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace NetChat.Client.Core
 {
-    public class Connection
+    public class NetChatConnection
     {
-        public Connection(string connectionUrl, int connectionPort, string username) {
+        public NetChatConnection(string connectionUrl, int connectionPort, string username) {
             ConnectionUrl = connectionUrl;
             ConnectionPort = connectionPort;
             Username = username;

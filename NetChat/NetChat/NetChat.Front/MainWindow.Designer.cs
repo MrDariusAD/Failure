@@ -1,4 +1,6 @@
-﻿namespace NetChat.Front
+﻿using NetChat.Client.Core;
+
+namespace NetChat.Front
 {
     partial class MainWindow
     {
@@ -98,7 +100,6 @@
             this.OuterBox.ResumeLayout(false);
             this.OuterBox.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
