@@ -30,11 +30,13 @@ namespace NetChat.Front
 
         public static void LoadFromTemp()
         {
-            string[] content = File.ReadAllLines(path);
-            UserName = content[0].Replace("User:", "");
-            IP = content[1].Replace("IP:", "");
-            Port = int.Parse(content[2].Replace("Port:", ""));
-            PW = content[3].Replace("PW:", "");
+            if(File.Exists(path)) {
+                string[] content = File.ReadAllLines(path);
+                UserName = content[0].Replace("User:", "");
+                IP = content[1].Replace("IP:", "");
+                Port = int.Parse(content[2].Replace("Port:", ""));
+                PW = content[3].Replace("PW:", "");
+            }
         }
     }
 }

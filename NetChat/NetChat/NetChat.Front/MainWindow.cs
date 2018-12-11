@@ -66,10 +66,39 @@ namespace NetChat.Front
         private void MainWindow_Load(object sender, EventArgs e)
         {
             GlobalVariable.LoadFromTemp();
+            ResizeWindow();
         }
         
         private void Senden_Click(object sender, EventArgs e) {
             Send(ChatTextBox.Text);
+        }
+
+        private void MainWindow_Resize(object sender, EventArgs e)
+        {
+            ResizeWindow();
+        }
+
+        public void ResizeWindow()
+        {
+            int x = this.Width,
+               y = this.Height;
+            OuterBox.Width = x - 60;
+            OuterBox.Height = y - 80;
+            OuterBox.Top = 22;
+            OuterBox.Left = 22;
+            x = OuterBox.Width;
+            y = OuterBox.Height;
+            Chat.Width = x - 40;
+            Chat.Height = y - 50;
+            Chat.Left = 20;
+            Chat.Top = 20;
+            ChatTextBox.Width = x - 130;
+            ChatTextBox.Height = 20;
+            Senden.Height = 20;
+            Senden.Width = 80;
+            Senden.Left = x - 100;
+            ChatTextBox.Top = y - 27;
+            Senden.Top = ChatTextBox.Top;
         }
     }
 }
