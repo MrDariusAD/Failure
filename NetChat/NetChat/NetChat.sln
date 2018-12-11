@@ -7,7 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChat.Client.Core", "NetC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{DC1DACDA-37D5-4867-AA10-18FB7EF8C5B3}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChat.Front", "..\NetChat.Front\NetChat.Front.csproj", "{F3B8A90E-7F02-4701-A9DD-22F9890AC72D}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChat.Front", "NetChat.Front\NetChat.Front.csproj", "{F3B8A90E-7F02-4701-A9DD-22F9890AC72D}"
+>>>>>>> cbeb0ee1f7a66e28cd1a4f42e3712ea97b25d14a
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7ACB5451-7849-4192-9DC5-894E3753961B} = {DC1DACDA-37D5-4867-AA10-18FB7EF8C5B3}
+		{F3B8A90E-7F02-4701-A9DD-22F9890AC72D} = {DC1DACDA-37D5-4867-AA10-18FB7EF8C5B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {18BDC0DF-DB93-4333-8F8E-53215CAEEEA1}
