@@ -54,6 +54,16 @@ namespace NetChat.Front
 
         }
 
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalVariable.SafeToTemp();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            GlobalVariable.LoadFromTemp();
+        }
+        
         private void Senden_Click(object sender, EventArgs e) {
             
         }

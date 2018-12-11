@@ -17,11 +17,6 @@ namespace NetChat.Front
             InitializeComponent();
         }
 
-        private void AllowSelfHost_CheckedChanged(object sender, EventArgs e)
-        {
-            GlobalVariable.allowSelfHost = AllowSelfHost.Checked;
-        }
-
         private void UserNameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -33,7 +28,6 @@ namespace NetChat.Front
         private void Optionen_Load(object sender, EventArgs e)
         {
             UserNameTextBox.Text = GlobalVariable.UserName;
-            AllowSelfHost.Checked = GlobalVariable.allowSelfHost;
             pwTextBox.Text = GlobalVariable.PW;
             PortTextBox.Text = GlobalVariable.Port.ToString();
             IPTextBox.Text = GlobalVariable.IP;
@@ -83,10 +77,10 @@ namespace NetChat.Front
         private void Optionen_FormClosing(object sender, FormClosingEventArgs e)
         {
             GlobalVariable.UserName = UserNameTextBox.Text;
-            GlobalVariable.allowSelfHost = AllowSelfHost.Checked;
             GlobalVariable.PW = pwTextBox.Text;
             GlobalVariable.Port = int.Parse(PortTextBox.Text); 
             GlobalVariable.IP = IPTextBox.Text;
+            GlobalVariable.SafeToTemp();
         }
     }
 }
