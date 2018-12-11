@@ -45,6 +45,7 @@
             this.OuterBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OuterBox.Name = "OuterBox";
             this.OuterBox.Size = new System.Drawing.Size(1164, 655);
+
             this.OuterBox.TabIndex = 0;
             this.OuterBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             // 
@@ -54,6 +55,7 @@
             this.ChatTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ChatTextBox.Name = "ChatTextBox";
             this.ChatTextBox.Size = new System.Drawing.Size(970, 26);
+
             this.ChatTextBox.TabIndex = 2;
             this.ChatTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChatTextBox_KeyDown);
             // 
@@ -66,6 +68,7 @@
             this.Senden.TabIndex = 1;
             this.Senden.Text = "Senden";
             this.Senden.UseVisualStyleBackColor = true;
+            this.Senden.Click += new System.EventHandler(this.Senden_Click);
             // 
             // Chat
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NetChat.
 
 namespace NetChat.Front
 {
@@ -61,6 +62,10 @@ namespace NetChat.Front
         private void MainWindow_Load(object sender, EventArgs e)
         {
             GlobalVariable.LoadFromTemp();
+        }
+        
+        private void Senden_Click(object sender, EventArgs e) {
+            
         }
     }
 }
