@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,23 +19,22 @@ namespace NetChat.Front
             InitializeComponent();
         }
 
+        private NetChatConnection _connection;
         private void MainWindow_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
-            {
-                ContextMenu cm = new ContextMenu();
-                cm.MenuItems.Add("Optionen", new EventHandler(options));
-                cm.MenuItems.Add("Verbindung herstellen", new EventHandler(InitConnection));
-                cm.Show(this, new Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 20));
-            }
+            if (e.Button != MouseButtons.Right) return;
+            ContextMenu cm = new ContextMenu();
+            cm.MenuItems.Add("Optionen", new EventHandler(Options));
+            cm.MenuItems.Add("Verbindung herstellen", new EventHandler(InitConnection));
+            cm.Show(this, new Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 20));
         }
 
         private void InitConnection(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName);
         }
 
-        private void options(object sender, EventArgs e)
+        private void Options(object sender, EventArgs e)
         {
             Optionen o = new Optionen();
             o.ShowDialog();
@@ -44,18 +44,22 @@ namespace NetChat.Front
         {
             if(e.KeyCode == Keys.Enter)
             {
-                send(ChatTextBox.Text);
+                Send(ChatTextBox.Text);
             }
         }
 
-        private void send(string text)
+        private void Send(string text)
         {
-            Console.WriteLine("[" + GlobalVariable.UserName + "] " + text);
-
+            if (_connection == null) {
+                MessageBox.Show("Bitte zuerst Verbindung herstellen");
+                return;
+            }
+            Console.WriteLine($@"[{GlobalVariable.UserName}]: {text}");
+            _connection.SendNudes(text);
         }
 
         private void Senden_Click(object sender, EventArgs e) {
-            
+            Send(ChatTextBox.Text);
         }
     }
 }

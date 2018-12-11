@@ -13,9 +13,7 @@ namespace NetChat.Client.Core {
         private IPEndPoint _remoteEp;
         public bool IsInit { get; }
         public NetChatSocket(string ipAdressString, int port) {
-            IsInit = false;
             InitSocket(ipAdressString, port);
-            IsInit = true;
         }
 
         public void InitSocket(string ipAdressString, int port) {
