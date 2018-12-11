@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3B8A90E-7F02-4701-A9DD-22F9890AC72D}</ProjectGuid>
+    <ProjectGuid>{3634230B-0184-466F-8B12-ED55FB679788}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>NetChat.Front</RootNamespace>
     <AssemblyName>NetChat.Front</AssemblyName>

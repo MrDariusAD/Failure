@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,5 +15,11 @@ namespace NetChat.Front
         public static String IP = "127.0.0.1";
         public static int Port = 4308;
         public static String PW = "1234";
+
+        public static void SafeToTemp()
+        {
+            FileStream fileStream = File.Create(System.IO.Path.GetTempPath() + "NetChat.config");
+
+        }
     }
 }
