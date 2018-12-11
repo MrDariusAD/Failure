@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace NetChat.Client.Core {
     public class Message {
-        public Message(string content, bool isCommand, User fromUser, Friend targetFriend) {
+        public Message(string content, bool isCommand, string username) {
             Content = content ?? "";
             IsCommand = isCommand;
-            FromUser = fromUser;
-            TargetFriend = targetFriend;
+            Username = username;
         }
-        public User FromUser { get; }
-        public Friend TargetFriend { get; }
-
+        public string Username { get; }
         public string Content { get; set; }
         public bool IsCommand { get; }
         public override string ToString() {
-            return $"--{IsCommand}//<{FromUser.Username}>\\\\<{TargetFriend.Username}>{{{Content}}}//<EOF>";
+            return $"--{IsCommand}//<{Username}>\\\\{{{Content}}}//<EOF>";
         }
     }
 }

@@ -9,29 +9,20 @@ namespace NetChat.Client.Core
 {
     public class Connection
     {
-        public Connection(string connectionUrl, int connectionPort, User connectedUser, string passwordInput) {
+        public Connection(string connectionUrl, int connectionPort, string username, string passwordInput) {
             ConnectionUrl = connectionUrl;
             ConnectionPort = connectionPort;
-            ConnectedUser = connectedUser;
+            Username = username;
             _socket = new NetChatSocket(ConnectionUrl, connectionPort);
-            IsAuthenticated = Authenticate(passwordInput);
         }
         public string ConnectionUrl { get; }
         public int ConnectionPort { get; }
-        public User ConnectedUser { get; }
+        public string Username { get; }
         private NetChatSocket _socket;
-        public bool IsAuthenticated { get; }
-
-        //TODO: passwordInput muss in Authenticate in einen Hash umgewandelt werden (MD5)
-        public bool Authenticate(string passwordInput) {
-            return ConnectedUser.CheckPassword(passwordInput);
-        }
-
-        public void SendNudes(string messageString, Friend targetFriend) {
+        public void SendNudes(string messageString) {
             if (!_socket.IsInit) throw new Exception("Uninitialized Socket");
-            var message = new Message(messageString, false, ConnectedUser, targetFriend);
+            var message = new Message(messageString, false, Username);
             _socket.SendMessage(message);
-            ConnectedUser.Friends.Where(x => x.Username == targetFriend.Username).ToList()[0]?.Messages.Add(message);
 
         }
 
