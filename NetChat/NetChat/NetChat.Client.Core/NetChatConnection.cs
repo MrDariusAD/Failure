@@ -9,7 +9,7 @@ namespace NetChat.Client.Core
 {
     public class Connection
     {
-        public Connection(string connectionUrl, int connectionPort, string username, string passwordInput) {
+        public Connection(string connectionUrl, int connectionPort, string username) {
             ConnectionUrl = connectionUrl;
             ConnectionPort = connectionPort;
             Username = username;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NetChat.
 
 namespace NetChat.Front
 {
@@ -51,6 +52,10 @@ namespace NetChat.Front
         {
             Console.WriteLine("[" + GlobalVariable.UserName + "] " + text);
 
+        }
+
+        private void Senden_Click(object sender, EventArgs e) {
+            
         }
     }
 }

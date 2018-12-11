@@ -41,46 +41,53 @@
             this.OuterBox.Controls.Add(this.ChatTextBox);
             this.OuterBox.Controls.Add(this.Senden);
             this.OuterBox.Controls.Add(this.Chat);
-            this.OuterBox.Location = new System.Drawing.Point(12, 12);
+            this.OuterBox.Location = new System.Drawing.Point(16, 15);
+            this.OuterBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OuterBox.Name = "OuterBox";
-            this.OuterBox.Size = new System.Drawing.Size(776, 426);
+            this.OuterBox.Size = new System.Drawing.Size(1035, 524);
             this.OuterBox.TabIndex = 0;
             this.OuterBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             // 
             // ChatTextBox
             // 
-            this.ChatTextBox.Location = new System.Drawing.Point(20, 396);
+            this.ChatTextBox.Location = new System.Drawing.Point(27, 487);
+            this.ChatTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ChatTextBox.Name = "ChatTextBox";
-            this.ChatTextBox.Size = new System.Drawing.Size(648, 20);
+            this.ChatTextBox.Size = new System.Drawing.Size(863, 22);
             this.ChatTextBox.TabIndex = 2;
             this.ChatTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChatTextBox_KeyDown);
             // 
             // Senden
             // 
-            this.Senden.Location = new System.Drawing.Point(674, 396);
+            this.Senden.Location = new System.Drawing.Point(899, 487);
+            this.Senden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Senden.Name = "Senden";
-            this.Senden.Size = new System.Drawing.Size(75, 23);
+            this.Senden.Size = new System.Drawing.Size(100, 28);
             this.Senden.TabIndex = 1;
             this.Senden.Text = "Senden";
             this.Senden.UseVisualStyleBackColor = true;
+            this.Senden.Click += new System.EventHandler(this.Senden_Click);
             // 
             // Chat
             // 
             this.Chat.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Chat.FormattingEnabled = true;
-            this.Chat.Location = new System.Drawing.Point(20, 22);
+            this.Chat.ItemHeight = 16;
+            this.Chat.Location = new System.Drawing.Point(27, 27);
+            this.Chat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Chat.Name = "Chat";
-            this.Chat.Size = new System.Drawing.Size(729, 368);
+            this.Chat.Size = new System.Drawing.Size(971, 452);
             this.Chat.TabIndex = 0;
             this.Chat.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.OuterBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainWindow";
             this.Text = "NetChat";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
