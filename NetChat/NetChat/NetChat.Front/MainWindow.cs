@@ -8,7 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Threading;
 using NetChat.Client.Core;
 using NetChat.Server.Console;
 
@@ -39,7 +41,7 @@ namespace NetChat.Front
                 cm.MenuItems.Add("Server erstellen", new EventHandler(InitServer));
             else
                 cm.MenuItems.Add("Server beenden", new EventHandler(EndServer));
-            cm.Show(this, new Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
+            cm.Show(this, new System.Drawing.Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
         }
 
         private void EndServer(object sender, EventArgs e)
@@ -64,6 +66,12 @@ namespace NetChat.Front
         {
             _server = new NetChatServer(GlobalVariable.Port);
             _server.StartServer();
+
+            if (null == System.Windows.Application.Current)
+            {
+                new System.Windows.Application();
+            }
+
         }
 
         private void InitConnection(object sender, EventArgs e)
@@ -82,8 +90,11 @@ namespace NetChat.Front
                 Thread.Sleep(100);
                 foreach (Client.Core.Message m in _connection.RecievedMessages)
                 {
-                    Chat.Items.Add($"[{m.Username}] {m.Content}");
-                    Chat.SelectedIndex = Chat.Items.Count - 1;
+                    System.Windows.Application.Current.Dispatcher.Invoke(new Action(() => {
+                        Chat.Items.Add($"[{m.Username}] {m.Content}");
+                        Chat.SelectedIndex = Chat.Items.Count - 1;
+                    }));
+
                 }
                 _connection.RecievedMessages.Clear();
             }
@@ -107,7 +118,7 @@ namespace NetChat.Front
         private void Send(string text)
         {
             if (_connection == null) {
-                MessageBox.Show("Bitte zuerst Verbindung herstellen");
+                System.Windows.Forms.MessageBox.Show("Bitte zuerst Verbindung herstellen");
                 return;
             }
             ChatTextBox.Clear();
