@@ -39,6 +39,7 @@ namespace NetChat.Front
         private void InitConnection(object sender, EventArgs e)
         {
             _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName);
+            _connection.
         }
 
         private void Options(object sender, EventArgs e)
