@@ -19,7 +19,6 @@ namespace NetChat.Front
         private NetChatServer _server;
         private NetChatConnection _connection;
         private Thread ChatUpdater;
-        private bool KeepUpdating = true;
 
         public MainWindow()
         {
@@ -55,7 +54,6 @@ namespace NetChat.Front
 
         private void DestroyConnection(object sender, EventArgs e)
         {
-            KeepUpdating = false;
             _connection.Destroy();
             _connection = null;
         }
@@ -71,23 +69,17 @@ namespace NetChat.Front
             _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName);
             if (_connection.SocketIsNull())
                 _connection = null;
-            ChatUpdater = new Thread(new ParameterizedThreadStart(updater));
-            ChatUpdater.Start(this);
+            ChatUpdater = new Thread(updater);
         }
 
-        private void updater(object window)
+        private void updater()
         {
-            var mainWinow = window as MainWindow;
-            while (KeepUpdating)
+            Thread.Sleep(100);
+            foreach(Client.Core.Message m in _connection.RecievedMessages)
             {
-                Thread.Sleep(100);
-                foreach (Client.Core.Message m in _connection.RecievedMessages)
-                {
-                    mainWinow.Chat.Items.Add($"[{m.Username}] {m.Content}");
-                    mainWinow.Chat.SelectedIndex = Chat.Items.Count - 1;
-                }
-                _connection.RecievedMessages.Clear();
+                ShowMessage(m.Username, m.Content);
             }
+            _connection.RecievedMessages.Clear();
         }
 
         private void Options(object sender, EventArgs e)
@@ -111,6 +103,7 @@ namespace NetChat.Front
                 MessageBox.Show("Bitte zuerst Verbindung herstellen");
                 return;
             }
+            ShowMessage(GlobalVariable.UserName, text);
             ChatTextBox.Clear();
             _connection.SendNudes(text);
         }

@@ -45,16 +45,16 @@ namespace NetChat.Client.Core
 
         public void Destroy()
         {
-            _socket.IsInit = false;
             _socket.DestroyConnection();
         }
 
         public void ChatUpdater()
         {
-            if (!_socket.IsInit)
+            if (_socket.IsInit)
                 return;
             while (ContinueWaiting)
             {
+                System.Console.WriteLine("1");
                 if (_socket._socket.Available == 0) continue;
                 byte[] readBytes = new byte[_socket._socket.Available];
                 int size = _socket._socket.Receive(readBytes);
