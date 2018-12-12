@@ -26,7 +26,13 @@ namespace NetChat.Front
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("Optionen", new EventHandler(Options));
             cm.MenuItems.Add("Verbindung herstellen", new EventHandler(InitConnection));
+            cm.MenuItems.Add("Server erstellen", new EventHandler(InitServer));
             cm.Show(this, new Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 20));
+        }
+
+        private void InitServer(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void InitConnection(object sender, EventArgs e)
@@ -54,8 +60,14 @@ namespace NetChat.Front
                 MessageBox.Show("Bitte zuerst Verbindung herstellen");
                 return;
             }
-            Console.WriteLine($@"[{GlobalVariable.UserName}]: {text}");
+            ShowMessage(GlobalVariable.UserName, text);
             _connection.SendNudes(text);
+        }
+
+        public void ShowMessage(String user, String msg)
+        {
+            Chat.Items.Add($"[{user}] {msg}");
+            Chat.SelectedIndex = Chat.Items.Count - 1;
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)

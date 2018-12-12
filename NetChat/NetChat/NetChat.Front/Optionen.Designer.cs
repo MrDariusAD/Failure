@@ -32,7 +32,6 @@
             this.pw = new System.Windows.Forms.Label();
             this.IP = new System.Windows.Forms.Label();
             this.Port = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.pwTextBox = new System.Windows.Forms.TextBox();
             this.IPTextBox = new System.Windows.Forms.TextBox();
@@ -79,15 +78,6 @@
             this.Port.TabIndex = 4;
             this.Port.Text = "Port:";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(8, 638);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(416, 35);
-            this.progressBar1.TabIndex = 5;
-            this.progressBar1.Value = 100;
-            // 
             // UserNameTextBox
             // 
             this.UserNameTextBox.Location = new System.Drawing.Point(198, 26);
@@ -130,12 +120,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 692);
+            this.ClientSize = new System.Drawing.Size(441, 267);
             this.Controls.Add(this.PortTextBox);
             this.Controls.Add(this.IPTextBox);
             this.Controls.Add(this.pwTextBox);
             this.Controls.Add(this.UserNameTextBox);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.Port);
             this.Controls.Add(this.IP);
             this.Controls.Add(this.pw);
@@ -147,6 +136,8 @@
             this.Load += new System.EventHandler(this.Optionen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
 
         }
 
@@ -156,7 +147,6 @@
         private System.Windows.Forms.Label pw;
         private System.Windows.Forms.Label IP;
         private System.Windows.Forms.Label Port;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox UserNameTextBox;
         private System.Windows.Forms.TextBox pwTextBox;
         private System.Windows.Forms.TextBox IPTextBox;
