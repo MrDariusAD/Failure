@@ -22,6 +22,7 @@ namespace NetChat.Front
         private NetChatConnection _connection;
         private void MainWindow_MouseDown(object sender, MouseEventArgs e)
         {
+            ShowMessage("ICH", "HELLO WORLD");
             if (e.Button != MouseButtons.Right) return;
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("Optionen", new EventHandler(Options));
