@@ -71,20 +71,19 @@ namespace NetChat.Front
             _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName);
             if (_connection.SocketIsNull())
                 _connection = null;
-            ChatUpdater = new Thread(new ParameterizedThreadStart(updater));
-            ChatUpdater.Start(this);
+            ChatUpdater = new Thread(updater);
+            ChatUpdater.Start();
         }
 
-        private void updater(object window)
+        private void updater()
         {
-            var mainWinow = window as MainWindow;
             while (KeepUpdating)
             {
                 Thread.Sleep(100);
                 foreach (Client.Core.Message m in _connection.RecievedMessages)
                 {
-                    mainWinow.Chat.Items.Add($"[{m.Username}] {m.Content}");
-                    mainWinow.Chat.SelectedIndex = Chat.Items.Count - 1;
+                    Chat.Items.Add($"[{m.Username}] {m.Content}");
+                    Chat.SelectedIndex = Chat.Items.Count - 1;
                 }
                 _connection.RecievedMessages.Clear();
             }
