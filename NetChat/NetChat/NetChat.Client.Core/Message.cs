@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace NetChat.Client.Core {
     public class Message {
+
+        public string Username { get; }
+        public string Content { get; set; }
+        public bool IsCommand { get; }
+
         public Message(string content, bool isCommand, string username) {
             Content = content ?? "";
             IsCommand = isCommand;
@@ -19,9 +24,6 @@ namespace NetChat.Client.Core {
             Content = receivedMessage.Substring(receivedMessage.IndexOf('{'),
                 (receivedMessage.IndexOf('}') - receivedMessage.IndexOf('{')));
         }
-        public string Username { get; }
-        public string Content { get; set; }
-        public bool IsCommand { get; }
         public override string ToString() {
             return $"--{IsCommand}//<{Username}>\\\\{{{Content}}}//<EOF>";
         }

@@ -21,9 +21,7 @@ namespace NetChat.Front
             }
             base.Dispose(disposing);
         }
-
-        #region Vom Windows Form-Designer generierter Code
-
+        
         /// <summary>
         /// Erforderliche Methode für die Designerunterstützung.
         /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
@@ -95,8 +93,6 @@ namespace NetChat.Front
             this.ResumeLayout(false);
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Panel OuterBox;
         private System.Windows.Forms.TextBox ChatTextBox;

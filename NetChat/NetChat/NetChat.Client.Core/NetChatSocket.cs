@@ -5,19 +5,33 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace NetChat.Client.Core {
-    class NetChatSocket {
-        private Socket _socket;
+namespace NetChat.Client.Core
+{
+    class NetChatSocket
+    {
+        public Socket _socket;
         private IPAddress _ipAdress;
         private IPEndPoint _remoteEp;
         public bool IsInit { get; }
-        public NetChatSocket(string ipAdressString, int port) {
-            InitSocket(ipAdressString, port);
+
+        public NetChatSocket(string ipAdressString, int port)
+        {
+            try
+            {
+                InitSocket(ipAdressString, port);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Die Verbindung ist fehlgeschlagen", "Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             IsInit = true;
         }
 
-        public void InitSocket(string ipAdressString, int port) {
+        public void InitSocket(string ipAdressString, int port)
+        {
             _socket = new Socket(AddressFamily.InterNetwork,
                 SocketType.Stream, ProtocolType.Tcp);
             _ipAdress = IPAddress.Parse(ipAdressString);
@@ -25,12 +39,14 @@ namespace NetChat.Client.Core {
             _socket.Connect(_remoteEp);
         }
 
-        public void SendMessage(Message message) {
-            var messageAsBytes = Encoding.ASCII.GetBytes(message.ToString());
+        public void SendMessage(Message message)
+        {
+            byte[] messageAsBytes = Encoding.ASCII.GetBytes(message.ToString());
             _socket.Send(messageAsBytes);
         }
 
-        public void DestroyConnection() {
+        public void DestroyConnection()
+        {
             _socket.Close();
         }
     }

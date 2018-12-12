@@ -7,43 +7,57 @@ using System.Threading;
 using System.Threading.Tasks;
 using NetChat.Client.Core;
 
-namespace NetChat.Server.Console {
+namespace NetChat.Server.Console
+{
     public class Connection
     {
-        public Connection(Socket socket) {
-            Socket = socket ?? throw new ArgumentNullException(nameof(socket));
-            Thread = new Thread(ProcessMessages);
-            Username = "#Unknown";
-            RecievedMessages = new List<Message>();
-        }
 
+        public NetChatServerSocket ServerSocket { get; }
         public Socket Socket { get; set; }
         public Thread Thread { get; set; }
         public string Username { get; set; }
         public List<Message> RecievedMessages { get; set; }
 
-        public void ProcessMessages() {
-            while (true) {
+        public Connection(Socket socket, NetChatServerSocket ServerSocket)
+        {
+            this.ServerSocket = ServerSocket;
+            Socket = socket ?? throw new ArgumentNullException(nameof(socket));
+            Thread = new Thread(ProcessMessages);
+            Username = "#Unknown";
+            RecievedMessages = new List<Message>();
+            StartThread();
+        }
+
+        public void ProcessMessages()
+        {
+            while (true)
+            {
                 if (Socket.Available == 0) continue;
-                byte[] readBytes = { };
-                Socket.Receive(readBytes);
-                var received = Encoding.ASCII.GetString(readBytes);
-                var receivedMessage = new Message(received);
+                byte[] readBytes = new byte[Socket.Available];
+                int size = Socket.Receive(readBytes);
+                string received = Encoding.ASCII.GetString(readBytes);
+                System.Console.WriteLine("Received Raw: " + received);
+                Message receivedMessage = new Message(received);
                 RecievedMessages.Add(receivedMessage);
+                ServerSocket.SendToOthers(receivedMessage);
                 if (receivedMessage.Username != Username) Username = receivedMessage.Username;
                 System.Console.WriteLine($"Neue Nachricht erhalten: {received}");
             }
         }
 
-        public void StartThread() {
-            Thread = new Thread(ProcessMessages);
+        public void StartThread()
+        {
             Thread.Start();
         }
 
-        public void StopThread() {
+        public void StopThread()
+        {
             Thread.Abort();
         }
 
-
+        internal void Close()
+        {
+            Socket.Close();
+        }
     }
 }

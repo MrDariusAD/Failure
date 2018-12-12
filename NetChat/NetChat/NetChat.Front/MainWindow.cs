@@ -6,40 +6,80 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetChat.Client.Core;
+using NetChat.Server.Console;
 
 namespace NetChat.Front
 {
     public partial class MainWindow : Form
     {
+        private NetChatServer _server;
+        private NetChatConnection _connection;
+        private Thread ChatUpdater;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private NetChatConnection _connection;
         private void MainWindow_MouseDown(object sender, MouseEventArgs e)
         {
-            ShowMessage("ICH", "HELLO WORLD");
             if (e.Button != MouseButtons.Right) return;
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add("Optionen", new EventHandler(Options));
-            cm.MenuItems.Add("Verbindung herstellen", new EventHandler(InitConnection));
-            cm.MenuItems.Add("Server erstellen", new EventHandler(InitServer));
-            cm.Show(this, new Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 20));
+            if(_connection == null)
+                cm.MenuItems.Add("Verbindung herstellen", new EventHandler(InitConnection));
+            else
+                cm.MenuItems.Add("Verbindung trennen", new EventHandler(DestroyConnection));
+            if (_server == null)
+                cm.MenuItems.Add("Server erstellen", new EventHandler(InitServer));
+            else
+                cm.MenuItems.Add("Server beenden", new EventHandler(EndServer));
+            cm.Show(this, new Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
+        }
+
+        private void EndServer(object sender, EventArgs e)
+        {
+            DestroyServer();
+        }
+
+        private void DestroyServer()
+        {
+            _server.Destroy();
+            _server = null;
+        }
+
+        private void DestroyConnection(object sender, EventArgs e)
+        {
+            _connection.Destroy();
+            _connection = null;
         }
 
         private void InitServer(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _server = new NetChatServer(GlobalVariable.Port);
+            _server.StartServer();
         }
 
         private void InitConnection(object sender, EventArgs e)
         {
             _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName);
-            _connection.
+            if (_connection.SocketIsNull())
+                _connection = null;
+            ChatUpdater = new Thread(updater);
+        }
+
+        private void updater()
+        {
+            Thread.Sleep(100);
+            foreach(Client.Core.Message m in _connection.RecievedMessages)
+            {
+                ShowMessage(m.Username, m.Content);
+            }
+            _connection.RecievedMessages.Clear();
         }
 
         private void Options(object sender, EventArgs e)
@@ -52,6 +92,7 @@ namespace NetChat.Front
         {
             if(e.KeyCode == Keys.Enter)
             {
+                e.Handled = true;
                 Send(ChatTextBox.Text);
             }
         }
@@ -63,6 +104,7 @@ namespace NetChat.Front
                 return;
             }
             ShowMessage(GlobalVariable.UserName, text);
+            ChatTextBox.Clear();
             _connection.SendNudes(text);
         }
 
@@ -75,6 +117,8 @@ namespace NetChat.Front
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             GlobalVariable.SafeToTemp();
+            if(_server != null)
+                DestroyServer();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)

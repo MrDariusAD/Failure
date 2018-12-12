@@ -104,6 +104,10 @@
       <Project>{7acb5451-7849-4192-9dc5-894e3753961b}</Project>
       <Name>NetChat.Client.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NetChat.Server.Console\NetChat.Server.Console.csproj">
+      <Project>{7C553BD7-BAD3-4665-846A-8C6A6265700C}</Project>
+      <Name>NetChat.Server.Console</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

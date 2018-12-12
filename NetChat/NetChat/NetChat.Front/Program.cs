@@ -14,9 +14,15 @@ namespace NetChat.Front
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainWindow());
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error NetChat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
