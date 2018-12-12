@@ -19,6 +19,7 @@ namespace NetChat.Front
         private NetChatServer _server;
         private NetChatConnection _connection;
         private Thread ChatUpdater;
+        private bool KeepUpdating = true;
 
         public MainWindow()
         {
@@ -54,6 +55,7 @@ namespace NetChat.Front
 
         private void DestroyConnection(object sender, EventArgs e)
         {
+            KeepUpdating = false;
             _connection.Destroy();
             _connection = null;
         }
@@ -70,16 +72,21 @@ namespace NetChat.Front
             if (_connection.SocketIsNull())
                 _connection = null;
             ChatUpdater = new Thread(updater);
+            ChatUpdater.Start();
         }
 
         private void updater()
         {
-            Thread.Sleep(100);
-            foreach(Client.Core.Message m in _connection.RecievedMessages)
+            while (KeepUpdating)
             {
-                ShowMessage(m.Username, m.Content);
+                Thread.Sleep(100);
+                foreach (Client.Core.Message m in _connection.RecievedMessages)
+                {
+                    Chat.Items.Add($"[{m.Username}] {m.Content}");
+                    Chat.SelectedIndex = Chat.Items.Count - 1;
+                }
+                _connection.RecievedMessages.Clear();
             }
-            _connection.RecievedMessages.Clear();
         }
 
         private void Options(object sender, EventArgs e)
@@ -103,7 +110,6 @@ namespace NetChat.Front
                 MessageBox.Show("Bitte zuerst Verbindung herstellen");
                 return;
             }
-            ShowMessage(GlobalVariable.UserName, text);
             ChatTextBox.Clear();
             _connection.SendNudes(text);
         }
