@@ -11,6 +11,14 @@ namespace NetChat.Client.Core {
             IsCommand = isCommand;
             Username = username;
         }
+
+        public Message(string receivedMessage) {
+            IsCommand = receivedMessage.Substring(3, receivedMessage.IndexOf('/', 3)) == "true";
+            Username = receivedMessage.Substring(receivedMessage.IndexOf('<'),
+                (receivedMessage.IndexOf('>') - receivedMessage.IndexOf('<')));
+            Content = receivedMessage.Substring(receivedMessage.IndexOf('{'),
+                (receivedMessage.IndexOf('}') - receivedMessage.IndexOf('{')));
+        }
         public string Username { get; }
         public string Content { get; set; }
         public bool IsCommand { get; }
