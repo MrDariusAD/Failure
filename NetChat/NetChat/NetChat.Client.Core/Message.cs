@@ -13,7 +13,7 @@ namespace NetChat.Client.Core {
         }
 
         public Message(string receivedMessage) {
-            IsCommand = receivedMessage.Substring(3, receivedMessage.IndexOf('/', 3)) == "true";
+            IsCommand = receivedMessage.Substring(3, receivedMessage.IndexOf('/', 3)) == "True";
             Username = receivedMessage.Substring(receivedMessage.IndexOf('<'),
                 (receivedMessage.IndexOf('>') - receivedMessage.IndexOf('<')));
             Content = receivedMessage.Substring(receivedMessage.IndexOf('{'),
