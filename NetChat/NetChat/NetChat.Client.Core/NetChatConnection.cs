@@ -58,7 +58,7 @@ namespace NetChat.Client.Core
                 byte[] readBytes = new byte[_socket._socket.Available];
                 int size = _socket._socket.Receive(readBytes);
                 string received = Encoding.ASCII.GetString(readBytes);
-                System.Console.WriteLine("Received Raw: " + received);
+                System.Console.WriteLine("Client - Received Raw: " + received);
                 Message receivedMessage = new Message(received);
                 RecievedMessages.Add(receivedMessage);
             }
