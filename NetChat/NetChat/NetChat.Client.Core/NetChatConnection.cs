@@ -23,7 +23,10 @@ namespace NetChat.Client.Core
             if (!_socket.IsInit) throw new Exception("Uninitialized Socket");
             var message = new Message(messageString, false, Username);
             _socket.SendMessage(message);
+        }
 
+        public void Destroy() {
+            _socket.DestroyConnection();
         }
 
     }

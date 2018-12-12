@@ -29,5 +29,9 @@ namespace NetChat.Client.Core {
             var messageAsBytes = Encoding.ASCII.GetBytes(message.ToString());
             _socket.Send(messageAsBytes);
         }
+
+        public void DestroyConnection() {
+            _socket.Close();
+        }
     }
 }
