@@ -45,7 +45,6 @@ namespace NetChat.Client.Core
 
         public void Destroy()
         {
-            _socket.IsInit = false;
             _socket.DestroyConnection();
         }
 

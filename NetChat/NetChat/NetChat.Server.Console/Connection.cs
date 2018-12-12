@@ -28,16 +28,6 @@ namespace NetChat.Server.Console
             StartThread();
         }
 
-        bool SocketConnected()
-        {
-            bool part1 = Socket.Poll(1000, SelectMode.SelectRead);
-            bool part2 = (Socket.Available == 0);
-            if (part1 && part2)
-                return false;
-            else
-                return true;
-        }
-
         public void ProcessMessages()
         {
             while (true)
