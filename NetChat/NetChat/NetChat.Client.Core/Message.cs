@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.AccessControl;
+using Xunit.Sdk;
 
 namespace NetChat.Client.Core {
     public class Message {
@@ -14,18 +16,15 @@ namespace NetChat.Client.Core {
         }
 
         public Message(string receivedMessage) {
-            var one = receivedMessage.Substring(2, receivedMessage.IndexOf('/', 3));
-            var two = 
+            string[] seperator = {"-/-"};
+            var proerties = receivedMessage.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
+            IsCommand = proerties[0] == "True";
+            Username = proerties[1];
+            Content = proerties[2];
 
-            IsCommand = receivedMessage.Substring(2, receivedMessage.IndexOf('/', 3)) == "True";
-            Username = receivedMessage.Substring(receivedMessage.IndexOf('<')+1,
-                (receivedMessage.IndexOf('>') - receivedMessage.IndexOf('<'))-1);
-
-            Content = receivedMessage.Substring(receivedMessage.IndexOf('{',receivedMessage.IndexOf('\\'))+2,
-                (receivedMessage.IndexOf('}', receivedMessage.IndexOf('\\')) - receivedMessage.IndexOf('{', receivedMessage.IndexOf('\\'))-2));
         }
         public override string ToString() {
-            return $"--{IsCommand}//<{Username}>\\\\{{{Content}}}//<EOF>";
+            return $"{IsCommand}-/-{Username}-/-{Content}";
         }
     }
 }
