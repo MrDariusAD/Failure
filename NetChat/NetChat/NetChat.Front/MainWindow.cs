@@ -1,6 +1,7 @@
 ﻿using NetChat.Client.Core;
 using NetChat.Server.Console;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
