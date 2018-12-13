@@ -43,6 +43,7 @@ namespace NetChat.Front {
 
         private void PortTextBox_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Enter)
             {
                 GlobalVariable.Port = int.Parse(IPTextBox.Text);
