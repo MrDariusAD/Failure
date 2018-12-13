@@ -14,15 +14,15 @@ namespace NetChat.Client.Core {
         [Fact]
         public void Message_ctor_String_wird_uebergeben_Korrektes_Message_Objekt_ist_das_Ergebnis() {
             //Arrange
-            var receivedMessage = "--{false}//<MrDariusAD>\\\\{{Hello my baby}}//<EOF>";
+            var receivedMessage = "--{False}//<I3lackRacer>\\\\{{test}}//<EOF>";
             Message message;
 
             //Act
             message = new Message(receivedMessage);
 
             //Assert
-            message.Username.Should().Be("MrDariusAD");
-            message.Content.Should().Be("Hello my baby");
+            message.Username.Should().Be("I3lackRacer");
+            message.Content.Should().Be("test");
             message.IsCommand.Should().Be(false);
 
         }

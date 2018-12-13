@@ -14,7 +14,10 @@ namespace NetChat.Client.Core {
         }
 
         public Message(string receivedMessage) {
-            IsCommand = receivedMessage.Substring(3, receivedMessage.IndexOf('/', 3)) == "True";
+            var one = receivedMessage.Substring(2, receivedMessage.IndexOf('/', 3));
+            var two = 
+
+            IsCommand = receivedMessage.Substring(2, receivedMessage.IndexOf('/', 3)) == "True";
             Username = receivedMessage.Substring(receivedMessage.IndexOf('<')+1,
                 (receivedMessage.IndexOf('>') - receivedMessage.IndexOf('<'))-1);
 
@@ -22,7 +25,7 @@ namespace NetChat.Client.Core {
                 (receivedMessage.IndexOf('}', receivedMessage.IndexOf('\\')) - receivedMessage.IndexOf('{', receivedMessage.IndexOf('\\'))-2));
         }
         public override string ToString() {
-            return $"--{IsCommand}//<{Username}>\\\\{{{Content}}}//<WOF>";
+            return $"--{IsCommand}//<{Username}>\\\\{{{Content}}}//<EOF>";
         }
     }
 }
