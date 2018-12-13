@@ -1,7 +1,4 @@
-﻿using NetChat.Client.Core;
-
-namespace NetChat.Front
-{
+﻿namespace NetChat.Front {
     partial class MainWindow
     {
         /// <summary>

@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Threading;
-using NetChat.Client.Core;
+﻿using NetChat.Client.Core;
 using NetChat.Server.Console;
+using System;
+using System.Threading;
+using System.Windows.Forms;
 
-namespace NetChat.Front
-{
+namespace NetChat.Front {
     public partial class MainWindow : Form
     {
         private NetChatServer _server;
