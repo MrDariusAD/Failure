@@ -50,7 +50,16 @@ namespace NetChat.Client.Core {
                 return;
             while (ContinueWaiting)
             {
-                if (_socket._socket.Available == 0) continue;
+                try
+                {
+                    if (_socket._socket.Available == 0)
+                        continue;
+                }
+                catch (ObjectDisposedException ex)
+                {
+                    Destroy();
+                    break;
+                }
                 byte[] readBytes = new byte[_socket._socket.Available];
                 int size = _socket._socket.Receive(readBytes);
                 string received = Encoding.ASCII.GetString(readBytes);

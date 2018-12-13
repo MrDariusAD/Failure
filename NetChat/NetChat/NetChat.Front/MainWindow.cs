@@ -77,7 +77,9 @@ namespace NetChat.Front {
             while (KeepUpdating)
             {
                 Thread.Sleep(100);
-                foreach (Client.Core.Message m in _connection.RecievedMessages)
+                if (_connection == null)
+                    break;
+                foreach (Client.Core.Message m in _connection.RecievedMessages.Where(x => x != null).ToList())
                 {
                     System.Windows.Application.Current.Dispatcher.Invoke(new Action(() => {
                         Chat.Items.Add($"[{m.Username}] {m.Content}");

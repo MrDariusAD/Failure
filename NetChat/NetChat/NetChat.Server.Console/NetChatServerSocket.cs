@@ -29,7 +29,7 @@ namespace NetChat.Server.Console {
 
         public void SendToOthers(Client.Core.Message toSend)
         {
-            foreach (Connection others in Connections.Where(x => x.Username != toSend.Username).ToList())
+            foreach (Connection others in Connections)
             {
                 byte[] messageAsBytes = Encoding.ASCII.GetBytes(toSend.ToString());
                 others.Socket.Send(messageAsBytes);
