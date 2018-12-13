@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NetChat.Client.Core {
+﻿namespace NetChat.Client.Core {
     public class Message {
 
         public string Username { get; }

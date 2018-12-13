@@ -1,9 +1,4 @@
-﻿using System.Threading;
-using System.Collections.Generic;
-using System.Linq;
-using System;
-
-namespace NetChat.Server.Console {
+﻿namespace NetChat.Server.Console {
 
     public class NetChatServer {
 

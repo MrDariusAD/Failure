@@ -1,5 +1,4 @@
-﻿namespace NetChat.Front
-{
+﻿namespace NetChat.Front {
     partial class Optionen
     {
         /// <summary>
