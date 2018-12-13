@@ -102,13 +102,15 @@ namespace NetChat.Front {
         {
             if(e.KeyCode == Keys.Enter)
             {
-                e.Handled = true;
                 Send(ChatTextBox.Text);
+                e.Handled = true;
             }
         }
 
         private void Send(string text)
         {
+            if (text.Length == 0)
+                return;
             if (_connection == null) {
                 System.Windows.Forms.MessageBox.Show("Bitte zuerst Verbindung herstellen");
                 return;
