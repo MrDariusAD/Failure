@@ -32,16 +32,23 @@ namespace NetChat.Server.Console
         {
             while (true)
             {
-                if (Socket.Available == 0) continue;
+                try
+                {
+                    if (Socket.Available == 0)
+                        continue;
+                } catch(ObjectDisposedException ex)
+                {
+                    Close();
+                    break;
+                }
                 byte[] readBytes = new byte[Socket.Available];
                 int size = Socket.Receive(readBytes);
                 string received = Encoding.ASCII.GetString(readBytes);
-                System.Console.WriteLine("Received Raw: " + received);
                 Message receivedMessage = new Message(received);
                 RecievedMessages.Add(receivedMessage);
                 ServerSocket.SendToOthers(receivedMessage);
                 if (receivedMessage.Username != Username) Username = receivedMessage.Username;
-                System.Console.WriteLine($"Neue Nachricht erhalten: {received}");
+                System.Console.WriteLine($"Server - Neue Nachricht erhalten: {received}");
             }
         }
 
