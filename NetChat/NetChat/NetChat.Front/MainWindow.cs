@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace NetChat.Front {
     public partial class MainWindow : Form
@@ -75,6 +76,7 @@ namespace NetChat.Front {
 
         private void updater()
         {
+            KeepUpdating = true;
             while (KeepUpdating)
             {
                 Thread.Sleep(100);
@@ -127,6 +129,8 @@ namespace NetChat.Front {
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            _connection.ContinueWaiting = false;
+            KeepUpdating = false;
             GlobalVariable.SafeToTemp();
             if(_server != null)
                 DestroyServer();

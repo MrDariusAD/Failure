@@ -5,7 +5,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace NetChat.Server.Console {
+namespace NetChat.Server.Console
+{
     public class NetChatServerSocket
     {
 
@@ -29,10 +30,23 @@ namespace NetChat.Server.Console {
 
         public void SendToOthers(Client.Core.Message toSend)
         {
+            List<Connection> ToBeRemoved = new List<Connection>();
             foreach (Connection others in Connections)
             {
-                byte[] messageAsBytes = Encoding.ASCII.GetBytes(toSend.ToString());
-                others.Socket.Send(messageAsBytes);
+                try
+                {
+                    byte[] messageAsBytes = Encoding.ASCII.GetBytes(toSend.ToString());
+                    others.Socket.Send(messageAsBytes);
+                }
+                catch (SocketException)
+                {
+                    ToBeRemoved.Add(others);
+                }
+            }
+            foreach (Connection DeadConnection in ToBeRemoved)
+            {
+                DeadConnection.Close();
+                Connections.Remove(DeadConnection);
             }
         }
 
