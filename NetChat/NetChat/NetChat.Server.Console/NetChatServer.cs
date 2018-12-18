@@ -1,11 +1,13 @@
-﻿namespace NetChat.Server.Console {
+﻿using System;
+
+namespace NetChat.Server.Console {
 
     public class NetChatServer {
 
         public  NetChatServerSocket Socket { get; }
 
-        public NetChatServer(int port) {
-            Socket = new NetChatServerSocket(port);
+        public NetChatServer(String ip, int port) {
+            Socket = new NetChatServerSocket(ip, port);
         }
 
         public void StartServer() {

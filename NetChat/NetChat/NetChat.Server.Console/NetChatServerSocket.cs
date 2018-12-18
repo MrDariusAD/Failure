@@ -18,7 +18,7 @@ namespace NetChat.Server.Console
         public Thread AccepterThread { get; set; }
         public List<Connection> Connections { get; set; }
         public Thread NullClearerThread { get; set; }
-        private bool ContinueAccepting = true;
+        public bool ContinueAccepting = true;
 
         public void ClearNullThreads()
         {
@@ -59,12 +59,12 @@ namespace NetChat.Server.Console
             NullClearerThread.Abort();
         }
 
-        public NetChatServerSocket(int port)
+        public NetChatServerSocket(string ip, int port)
         {
             NullClearerThread = new Thread(ClearNullThreads);
             Connections = new List<Connection>();
             ConnectedClients = 0;
-            InitSocket("127.0.0.1", port);
+            InitSocket(ip, port);
             RemoteIp = RemoteEp.Address.ToString();
         }
 

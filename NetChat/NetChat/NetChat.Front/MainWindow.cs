@@ -55,7 +55,7 @@ namespace NetChat.Front {
 
         private void InitServer(object sender, EventArgs e)
         {
-            _server = new NetChatServer(GlobalVariable.Port);
+            _server = new NetChatServer(GlobalVariable.IP, GlobalVariable.Port);
             _server.StartServer();
 
             if (null == System.Windows.Application.Current)
@@ -67,11 +67,16 @@ namespace NetChat.Front {
 
         private void InitConnection(object sender, EventArgs e)
         {
+            ShowMessage("INFO", $"Verbinde zu {GlobalVariable.IP}:{GlobalVariable.Port} - With the Username: {GlobalVariable.UserName}");
             _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName);
             if (_connection.SocketIsNull())
                 _connection = null;
-            ChatUpdater = new Thread(updater);
-            ChatUpdater.Start();
+            if (_connection.IsInit())
+            {
+                ChatUpdater = new Thread(updater);
+                ChatUpdater.Start();
+                ShowMessage("INFO", "Eine Verbindung wurde hergestellt");
+            }
         }
 
         private void updater()
@@ -84,7 +89,8 @@ namespace NetChat.Front {
                     break;
                 foreach (Client.Core.Message m in _connection.RecievedMessages.Where(x => x != null).ToList())
                 {
-                    System.Windows.Application.Current.Dispatcher.Invoke(new Action(() => {
+                    System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
                         Chat.Items.Add($"[{m.Username}] {m.Content}");
                         Chat.SelectedIndex = Chat.Items.Count - 1;
                     }));
@@ -114,7 +120,7 @@ namespace NetChat.Front {
             if (text.Length == 0)
                 return;
             if (_connection == null) {
-                System.Windows.Forms.MessageBox.Show("Bitte zuerst Verbindung herstellen");
+                MessageBox.Show("Bitte zuerst Verbindung herstellen", "Keine Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             ChatTextBox.Clear();
@@ -129,7 +135,7 @@ namespace NetChat.Front {
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _connection.ContinueWaiting = false;
+            NetChatConnection.ContinueWaiting = false;
             KeepUpdating = false;
             GlobalVariable.SafeToTemp();
             if(_server != null)

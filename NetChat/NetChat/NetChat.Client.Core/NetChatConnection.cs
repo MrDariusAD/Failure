@@ -12,7 +12,7 @@ namespace NetChat.Client.Core {
         public List<Message> RecievedMessages;
         private NetChatSocket _socket;
         private Thread updateMessages;
-        public bool ContinueWaiting = true;
+        public static bool ContinueWaiting = true;
 
         public NetChatConnection(string connectionUrl, int connectionPort, string username)
         {
@@ -37,6 +37,11 @@ namespace NetChat.Client.Core {
             if (!_socket.IsInit) throw new Exception("Uninitialized Socket");
             var message = new Message(messageString, false, Username);
             _socket.SendMessage(message);
+        }
+
+        public bool IsInit()
+        {
+            return _socket.IsInit;
         }
 
         public void Destroy()
