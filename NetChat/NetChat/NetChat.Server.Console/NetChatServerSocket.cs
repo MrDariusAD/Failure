@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using NetChat.Client;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -85,6 +86,7 @@ namespace NetChat.Server.Console
                 SocketType.Stream, ProtocolType.Tcp);
             IpAddress = IPAddress.Parse(ipAdressString);
             RemoteEp = new IPEndPoint(IpAddress, port);
+            Logger.Debug("INIT Server on: " + IpAddress.ToString() + ":" + port);
             Socket.Bind(RemoteEp);
         }
 

@@ -10,7 +10,7 @@ namespace NetChat.Client.Core {
         public Socket _socket;
         private IPAddress _ipAdress;
         private IPEndPoint _remoteEp;
-        public bool IsInit { get; }
+        public bool IsInit { get; private set; }
 
         public NetChatSocket(string ipAdressString, int port)
         {
@@ -38,7 +38,14 @@ namespace NetChat.Client.Core {
         public void SendMessage(Message message)
         {
             byte[] messageAsBytes = Encoding.ASCII.GetBytes(message.ToString());
-            _socket.Send(messageAsBytes);
+            try
+            {
+                _socket.Send(messageAsBytes);
+            }catch(SocketException se)
+            {
+                DestroyConnection();
+                IsInit = false;
+            }
         }
 
         public void DestroyConnection()

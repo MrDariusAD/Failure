@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logger.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageTest.cs" />
     <Compile Include="NetChatConnection.cs" />

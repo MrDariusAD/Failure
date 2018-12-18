@@ -10,6 +10,7 @@ namespace NetChat.Front {
         [STAThread]
         static void Main()
         {
+            Logger.Start();
             try
             {
                 Application.EnableVisualStyles();
@@ -17,7 +18,8 @@ namespace NetChat.Front {
                 Application.Run(new MainWindow());
             }catch(Exception e)
             {
-                MessageBox.Show(e.ToString(), "Error NetChat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.Error(e.ToString());
+                MessageBox.Show("This error will also be Logged in the Logger.Log - " + Logger.path  + "\n\n" + e.ToString(), "Error NetChat", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
