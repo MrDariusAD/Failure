@@ -56,7 +56,7 @@ namespace NetChat.Front {
 
         private void InitServer(object sender, EventArgs e)
         {
-            _server = new NetChatServer(GlobalVariable.IP, GlobalVariable.Port);
+            _server = new NetChatServer(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.PW);
             _server.StartServer();
 
             if (null == System.Windows.Application.Current)
@@ -69,7 +69,7 @@ namespace NetChat.Front {
         private void InitConnection(object sender, EventArgs e)
         {
             ShowMessage("INFO", $"Verbinde zu {GlobalVariable.IP}:{GlobalVariable.Port} - With the Username: {GlobalVariable.UserName}");
-            _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName);
+            _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName, GlobalVariable.PW);
             if (_connection.SocketIsNull())
                 _connection = null;
             if (_connection.IsInit())
@@ -140,7 +140,8 @@ namespace NetChat.Front {
                 return;
             stillSending = true;
             ChatTextBox.Clear();
-            if(!_connection.SendNudes(text))
+            Client.Core.Message m = new Client.Core.Message(text, IsCommand(text), GlobalVariable.UserName);
+            if(!_connection.SendNudes(m))
             {
                 if (!_connection.IsInit())
                     _connection.Destroy();
@@ -149,6 +150,13 @@ namespace NetChat.Front {
             }
             Logger.Debug("False");
             stillSending = false;
+        }
+
+        private bool IsCommand(String text)
+        {
+            if (text[0] == '/')
+                return true;
+            return false;
         }
 
         public void ShowMessage(String user, String msg)

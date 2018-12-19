@@ -14,7 +14,7 @@ namespace NetChat.Client.Core {
         private Thread updateMessages;
         public static bool ContinueWaiting = true;
 
-        public NetChatConnection(string connectionUrl, int connectionPort, string username)
+        public NetChatConnection(string connectionUrl, int connectionPort, string username, string password)
         {
             RecievedMessages = new List<Message>();
             ConnectionUrl = connectionUrl;
@@ -30,15 +30,16 @@ namespace NetChat.Client.Core {
             {
                 updateMessages = new Thread(ChatUpdater);
                 updateMessages.Start();
+                Message m = new Message("/pw:" + password, true, username);
+                SendNudes(m);
             }
         }
-        public bool SendNudes(string messageString)
+        public bool SendNudes(Message message)
         {
             if (!_socket.IsInit)
             {
                 return false;
             }
-            var message = new Message(messageString, false, Username);
             if (_socket.SendMessage(message))
                 return true;
             return false;
@@ -73,7 +74,7 @@ namespace NetChat.Client.Core {
                 byte[] readBytes = new byte[_socket._socket.Available];
                 int size = _socket._socket.Receive(readBytes);
                 string received = Encoding.ASCII.GetString(readBytes);
-                System.Console.WriteLine("Client - Received Raw: " + received);
+                Console.WriteLine("Client - Received Raw: " + received);
                 Message receivedMessage = new Message(received);
                 RecievedMessages.Add(receivedMessage);
             }

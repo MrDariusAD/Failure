@@ -1,4 +1,5 @@
 ﻿using NetChat.Client;
+using NetChat.Client.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,9 @@ namespace NetChat.Server.Console
         public int ConnectedClients { get; set; }
         public Thread AccepterThread { get; set; }
         public List<Connection> Connections { get; set; }
+
+        private string pw;
+
         public Thread NullClearerThread { get; set; }
         public bool ContinueAccepting = true;
 
@@ -30,7 +34,7 @@ namespace NetChat.Server.Console
             }
         }
 
-        public void SendToOthers(Client.Core.Message toSend)
+        public void SendToOthers(Message toSend)
         {
             List<Connection> ToBeRemoved = new List<Connection>();
             foreach (Connection others in Connections)
@@ -52,6 +56,19 @@ namespace NetChat.Server.Console
             }
         }
 
+        internal void HandleCommand(Message receivedMessage)
+        {
+            if (receivedMessage.Content.ToLower().Contains("/kill"))
+                DestroyServer();
+            if (receivedMessage.Content.ToLower().Contains("/msg")) {
+                String msg = receivedMessage.Content.Substring(5);
+                if (String.IsNullOrEmpty(msg))
+                    return;
+                Message m = new Message(msg, false, "Server");
+                SendToOthers(m);
+            }
+        }
+
         public void StartNullClearerThread()
         {
             NullClearerThread.Start();
@@ -61,8 +78,9 @@ namespace NetChat.Server.Console
             NullClearerThread.Abort();
         }
 
-        public NetChatServerSocket(string ip, int port)
+        public NetChatServerSocket(string ip, int port, String pw)
         {
+            this.pw = pw;
             NullClearerThread = new Thread(ClearNullThreads);
             Connections = new List<Connection>();
             ConnectedClients = 0;
@@ -123,7 +141,7 @@ namespace NetChat.Server.Console
                 try
                 {
                     Socket worksocket = Socket.Accept();
-                    Connection connection = new Connection(worksocket, this);
+                    Connection connection = new Connection(worksocket, this, pw);
                     System.Console.WriteLine($"Neue Connection: {RemoteIp}");
                     Connections.Add(connection);
                     ConnectedClients++;

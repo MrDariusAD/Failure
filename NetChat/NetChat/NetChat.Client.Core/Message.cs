@@ -12,13 +12,15 @@ namespace NetChat.Client.Core {
         public Message(string content, bool isCommand, string username) {
             Content = content ?? "";
             IsCommand = isCommand;
+            if (content[0] == '/')
+                this.IsCommand = true;
             Username = username;
         }
 
         public Message(string receivedMessage) {
             string[] seperator = {"-/-"};
             var proerties = receivedMessage.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
-            IsCommand = proerties[0] == "True";
+            IsCommand = proerties[0].ToUpper().Contains("TRUE");
             Username = proerties[1];
             Content = proerties[2];
 

@@ -8,6 +8,7 @@ using System.Threading;
 namespace NetChat.Server.Console {
     public class Connection
     {
+        private string PW;
 
         public NetChatServerSocket ServerSocket { get; }
         public Socket Socket { get; set; }
@@ -15,8 +16,9 @@ namespace NetChat.Server.Console {
         public string Username { get; set; }
         public List<Message> RecievedMessages { get; set; }
 
-        public Connection(Socket socket, NetChatServerSocket ServerSocket)
+        public Connection(Socket socket, NetChatServerSocket ServerSocket, String pw)
         {
+            this.PW = pw;
             this.ServerSocket = ServerSocket;
             Socket = socket ?? throw new ArgumentNullException(nameof(socket));
             Thread = new Thread(ProcessMessages);
@@ -33,7 +35,7 @@ namespace NetChat.Server.Console {
                 {
                     if (Socket.Available == 0)
                         continue;
-                } catch(ObjectDisposedException ex)
+                } catch(ObjectDisposedException)
                 {
                     Close();
                     break;
@@ -42,11 +44,39 @@ namespace NetChat.Server.Console {
                 int size = Socket.Receive(readBytes);
                 string received = Encoding.ASCII.GetString(readBytes);
                 Message receivedMessage = new Message(received);
-                RecievedMessages.Add(receivedMessage);
-                ServerSocket.SendToOthers(receivedMessage);
-                if (receivedMessage.Username != Username) Username = receivedMessage.Username;
+                if (receivedMessage.IsCommand)
+                {
+                    if (receivedMessage.Content.StartsWith("/pw:"))
+                    {
+                        if (!IsPasswortValide(receivedMessage.Content))
+                        {
+                            Message m = new Message("Das Passwort ist falsch", false, "Server");
+                            byte[] messageAsBytes = Encoding.ASCII.GetBytes(m.ToString());
+                            Socket.Send(messageAsBytes);
+                            Close();
+                        }
+                    }
+                    else
+                        ServerSocket.HandleCommand(receivedMessage);
+                }
+                else
+                {
+                    ServerSocket.SendToOthers(receivedMessage);
+                    RecievedMessages.Add(receivedMessage);
+                }
+                //if (receivedMessage.Username != Username)
+                //    Username = receivedMessage.Username;
                 System.Console.WriteLine($"Server - Neue Nachricht erhalten: {received}");
             }
+        }
+
+        private bool IsPasswortValide(string pw)
+        {
+            pw = pw.Substring(4);
+            System.Console.WriteLine("PW: " + pw);
+            if (PW == pw)
+                return true;
+            return false;
         }
 
         public void StartThread()
