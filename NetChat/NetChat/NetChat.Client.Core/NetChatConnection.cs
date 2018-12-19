@@ -32,11 +32,16 @@ namespace NetChat.Client.Core {
                 updateMessages.Start();
             }
         }
-        public void SendNudes(string messageString)
+        public bool SendNudes(string messageString)
         {
-            if (!_socket.IsInit) throw new Exception("Uninitialized Socket");
+            if (!_socket.IsInit)
+            {
+                return false;
+            }
             var message = new Message(messageString, false, Username);
-            _socket.SendMessage(message);
+            if (_socket.SendMessage(message))
+                return true;
+            return false;
         }
 
         public bool IsInit()
@@ -60,7 +65,7 @@ namespace NetChat.Client.Core {
                     if (_socket._socket.Available == 0)
                         continue;
                 }
-                catch (ObjectDisposedException ex)
+                catch (ObjectDisposedException)
                 {
                     Destroy();
                     break;

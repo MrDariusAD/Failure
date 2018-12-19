@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalVariable.cs" />
-    <Compile Include="Logger.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +100,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{aa4c37c7-970f-4a17-92e6-1a271e5c05ea}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NetChat.Client.Core\NetChat.Client.Core.csproj">
       <Project>{7acb5451-7849-4192-9dc5-894e3753961b}</Project>
       <Name>NetChat.Client.Core</Name>

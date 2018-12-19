@@ -18,7 +18,7 @@ namespace NetChat.Client.Core {
             {
                 InitSocket(ipAdressString, port);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Die Verbindung ist fehlgeschlagen", "Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -35,17 +35,29 @@ namespace NetChat.Client.Core {
             _socket.Connect(_remoteEp);
         }
 
-        public void SendMessage(Message message)
+        public bool SendMessage(Message message)
         {
             byte[] messageAsBytes = Encoding.ASCII.GetBytes(message.ToString());
             try
             {
                 _socket.Send(messageAsBytes);
-            }catch(SocketException se)
+                return true;
+            }catch(SocketException)
             {
                 DestroyConnection();
                 IsInit = false;
+                return false;
             }
+        }
+
+        private bool SocketConnected()
+        {
+            bool part1 = _socket.Poll(1000, SelectMode.SelectRead);
+            bool part2 = (_socket.Available == 0);
+            if (part1 && part2)
+                return false;
+            else
+                return true;
         }
 
         public void DestroyConnection()

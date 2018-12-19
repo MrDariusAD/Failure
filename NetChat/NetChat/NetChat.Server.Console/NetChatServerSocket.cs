@@ -1,4 +1,5 @@
 ﻿using NetChat.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -65,8 +66,21 @@ namespace NetChat.Server.Console
             NullClearerThread = new Thread(ClearNullThreads);
             Connections = new List<Connection>();
             ConnectedClients = 0;
-            InitSocket(ip, port);
+            InitSocket(GetLocalIPAddress(), port);
             RemoteIp = RemoteEp.Address.ToString();
+        }
+
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
         public void DestroyServer()
@@ -84,9 +98,9 @@ namespace NetChat.Server.Console
         {
             Socket = new Socket(AddressFamily.InterNetwork,
                 SocketType.Stream, ProtocolType.Tcp);
+            Logger.Debug("Init Server on " + ipAdressString + ":" + port);
             IpAddress = IPAddress.Parse(ipAdressString);
             RemoteEp = new IPEndPoint(IpAddress, port);
-            Logger.Debug("INIT Server on: " + IpAddress.ToString() + ":" + port);
             Socket.Bind(RemoteEp);
         }
 

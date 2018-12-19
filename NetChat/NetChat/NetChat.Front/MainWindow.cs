@@ -13,6 +13,7 @@ namespace NetChat.Front {
         private NetChatConnection _connection;
         private Thread ChatUpdater;
         private bool KeepUpdating = true;
+        private bool stillSending;
 
         public MainWindow()
         {
@@ -79,6 +80,13 @@ namespace NetChat.Front {
             }
         }
 
+        private delegate void delUpdateListBox(String user, String text);
+
+        private void UpdateListBox(String user, String msg)
+        {
+            ShowMessage(user, msg);
+        }
+
         private void updater()
         {
             KeepUpdating = true;
@@ -89,11 +97,13 @@ namespace NetChat.Front {
                     break;
                 foreach (Client.Core.Message m in _connection.RecievedMessages.Where(x => x != null).ToList())
                 {
-                    System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
-                    {
-                        Chat.Items.Add($"[{m.Username}] {m.Content}");
-                        Chat.SelectedIndex = Chat.Items.Count - 1;
-                    }));
+                    delUpdateListBox delUpdate = new delUpdateListBox(UpdateListBox);
+                    this.Chat.BeginInvoke(delUpdate, new String[]{ m.Username, m.Content} );
+                    //System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
+                    //{
+                    //    Chat.Items.Add($"[{m.Username}] {m.Content}");
+                    //    Chat.SelectedIndex = Chat.Items.Count - 1;
+                    //}));
 
                 }
                 _connection.RecievedMessages.Clear();
@@ -117,18 +127,33 @@ namespace NetChat.Front {
 
         private void Send(string text)
         {
+            Logger.Debug("True");
             if (text.Length == 0)
+            {
                 return;
+            }
             if (_connection == null) {
                 MessageBox.Show("Bitte zuerst Verbindung herstellen", "Keine Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (stillSending)
+                return;
+            stillSending = true;
             ChatTextBox.Clear();
-            _connection.SendNudes(text);
+            if(!_connection.SendNudes(text))
+            {
+                if (!_connection.IsInit())
+                    _connection.Destroy();
+                    _connection = null;
+                ShowMessage("INFO", "Der Server ist nicht mehr erreichbar. Die Verbindung wurde beendet");
+            }
+            Logger.Debug("False");
+            stillSending = false;
         }
 
         public void ShowMessage(String user, String msg)
         {
+            Logger.Info($"[{user}] {msg}");
             Chat.Items.Add($"[{user}] {msg}");
             Chat.SelectedIndex = Chat.Items.Count - 1;
         }
