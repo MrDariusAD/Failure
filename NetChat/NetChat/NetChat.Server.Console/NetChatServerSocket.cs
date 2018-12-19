@@ -103,6 +103,8 @@ namespace NetChat.Server.Console
 
         public void DestroyServer()
         {
+            Message endingMessage = new Message("/endConnection", true, "Server");
+            SendToOthers(endingMessage);
             ContinueAccepting = false;
             Socket.Close();
             foreach (Connection c in Connections)

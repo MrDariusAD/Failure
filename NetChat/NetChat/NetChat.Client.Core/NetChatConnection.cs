@@ -76,10 +76,22 @@ namespace NetChat.Client.Core {
                 string received = Encoding.ASCII.GetString(readBytes);
                 Console.WriteLine("Client - Received Raw: " + received);
                 Message receivedMessage = new Message(received);
-                RecievedMessages.Add(receivedMessage);
+                if (receivedMessage.IsCommand)
+                    HandleCommand(receivedMessage);
+                else
+                    RecievedMessages.Add(receivedMessage);
             }
         }
 
+        private void HandleCommand(Message receivedMessage)
+        {
+            if(receivedMessage.Content == "/endConnection")
+            {
+                Message endingMessage = new Message("Der Server wurde beendet und die Verbindung getrennt", true, "INFO");
+                RecievedMessages.Add(endingMessage);
+                Destroy();
+            }
+        }
 
         public bool SocketIsNull()
         {

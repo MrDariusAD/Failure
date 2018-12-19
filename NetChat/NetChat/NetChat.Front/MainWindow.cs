@@ -30,10 +30,12 @@ namespace NetChat.Front {
             else
                 cm.MenuItems.Add("Verbindung trennen", new EventHandler(DestroyConnection));
             if (_server == null)
+                //Es ist nur bei INITSERVER so
                 cm.MenuItems.Add("Server erstellen", new EventHandler(InitServer));
             else
                 cm.MenuItems.Add("Server beenden", new EventHandler(EndServer));
             cm.Show(this, new System.Drawing.Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
+            //Hier ist es nomal groß
         }
 
         private void EndServer(object sender, EventArgs e)
@@ -56,14 +58,15 @@ namespace NetChat.Front {
 
         private void InitServer(object sender, EventArgs e)
         {
+            ShowMessage("INFO", "Der Server wird gestartet" );
             _server = new NetChatServer(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.PW);
             _server.StartServer();
+            ShowMessage("INFO", "Der Server wurde gestartet - IP: " + GlobalVariable.IP + ":" + GlobalVariable.Port);
 
-            if (null == System.Windows.Application.Current)
-            {
-                new System.Windows.Application();
-            }
-
+            //if (null == System.Windows.Application.Current)
+            //{
+            //    new System.Windows.Application();
+            //}
         }
 
         private void InitConnection(object sender, EventArgs e)
