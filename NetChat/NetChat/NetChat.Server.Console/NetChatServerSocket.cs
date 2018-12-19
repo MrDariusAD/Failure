@@ -44,7 +44,7 @@ namespace NetChat.Server.Console
                     byte[] messageAsBytes = Encoding.ASCII.GetBytes(toSend.ToString());
                     others.Socket.Send(messageAsBytes);
                 }
-                catch (SocketException)
+                catch (Exception)
                 {
                     ToBeRemoved.Add(others);
                 }
