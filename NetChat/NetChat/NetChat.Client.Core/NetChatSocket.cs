@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace NetChat.Client.Core {
-    class NetChatSocket
+    public class NetChatSocket
     {
         public Socket _socket;
         private IPAddress _ipAdress;
@@ -42,10 +42,16 @@ namespace NetChat.Client.Core {
             {
                 _socket.Send(messageAsBytes);
                 return true;
-            }catch(SocketException)
+            }
+            catch (SocketException)
             {
                 DestroyConnection();
                 IsInit = false;
+                return false;
+            }
+            catch (ObjectDisposedException e)
+            {
+                Logger.Error(e);
                 return false;
             }
         }

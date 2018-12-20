@@ -151,7 +151,6 @@ namespace NetChat.Server.Console
                 catch (SocketException e)
                 {
                     ContinueAccepting = false;
-                    //MessageBox.Show(e.ToString());
                 }
             }
         }

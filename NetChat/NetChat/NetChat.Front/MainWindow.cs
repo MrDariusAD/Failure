@@ -4,7 +4,6 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace NetChat.Front {
     public partial class MainWindow : Form
@@ -30,12 +29,10 @@ namespace NetChat.Front {
             else
                 cm.MenuItems.Add("Verbindung trennen", new EventHandler(DestroyConnection));
             if (_server == null)
-                //Es ist nur bei INITSERVER so
                 cm.MenuItems.Add("Server erstellen", new EventHandler(InitServer));
             else
                 cm.MenuItems.Add("Server beenden", new EventHandler(EndServer));
             cm.Show(this, new System.Drawing.Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
-            //Hier ist es nomal groß
         }
 
         private void EndServer(object sender, EventArgs e)
@@ -74,10 +71,13 @@ namespace NetChat.Front {
             ShowMessage("INFO", $"Verbinde zu {GlobalVariable.IP}:{GlobalVariable.Port} - With the Username: {GlobalVariable.UserName}");
             _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName, GlobalVariable.PW);
             if (_connection.SocketIsNull())
+            {
                 _connection = null;
+                return;
+            }
             if (_connection.IsInit())
             {
-                ChatUpdater = new Thread(updater);
+                ChatUpdater = new Thread(Updater);
                 ChatUpdater.Start();
                 ShowMessage("INFO", "Eine Verbindung wurde hergestellt");
             }
@@ -90,12 +90,12 @@ namespace NetChat.Front {
             ShowMessage(user, msg);
         }
 
-        private void updater()
+        private void Updater()
         {
             KeepUpdating = true;
             while (KeepUpdating)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
                 if (_connection == null)
                     break;
                 foreach (Client.Core.Message m in _connection.RecievedMessages.Where(x => x != null).ToList())
@@ -121,21 +121,26 @@ namespace NetChat.Front {
 
         private void ChatTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
-            {
-                Send(ChatTextBox.Text);
-                e.Handled = true;
-            }
+                if(e.KeyCode == Keys.Enter)
+                {
+                    Send(ChatTextBox.Text);
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                }
         }
 
         private void Send(string text)
         {
-            Logger.Debug("True");
             if (text.Length == 0)
-            {
                 return;
-            }
-            if (_connection == null) {
+            if (text[0] == '/')
+                if (TryHandleLocal(text))
+                {
+                    ChatTextBox.Text = "";
+                    return;
+                }
+            if (_connection == null)
+            {
                 MessageBox.Show("Bitte zuerst Verbindung herstellen", "Keine Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -151,8 +156,30 @@ namespace NetChat.Front {
                     _connection = null;
                 ShowMessage("INFO", "Der Server ist nicht mehr erreichbar. Die Verbindung wurde beendet");
             }
-            Logger.Debug("False");
             stillSending = false;
+        }
+
+        private bool TryHandleLocal(string text)
+        {
+            text = text.ToLower();
+            switch (text)
+            {
+                case "/clear":
+                    Chat.Items.Clear();
+                    break;
+                case "/blyat":
+                    DoBlyat();
+                    break;
+                default:
+                    return false;
+            }
+            return true;
+        }
+
+        private void DoBlyat()
+        {
+            Senden.Text = "сука блять";
+            this.Text = "Йíэт Chaт";
         }
 
         private bool IsCommand(String text)

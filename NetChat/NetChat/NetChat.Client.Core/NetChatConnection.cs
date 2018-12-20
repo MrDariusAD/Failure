@@ -34,6 +34,7 @@ namespace NetChat.Client.Core {
                 SendNudes(m);
             }
         }
+
         public bool SendNudes(Message message)
         {
             if (!_socket.IsInit)

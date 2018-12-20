@@ -19,14 +19,14 @@ namespace NetChat.Client.Core {
 
         public Message(string receivedMessage) {
             string[] seperator = {"-/-"};
-            var proerties = receivedMessage.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
+            string[] proerties = receivedMessage.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
             IsCommand = proerties[0].ToUpper().Contains("TRUE");
             Username = proerties[1];
-            Content = proerties[2];
+            Content = proerties[2].Replace("#\\#", "");
 
         }
         public override string ToString() {
-            return $"{IsCommand}-/-{Username}-/-{Content}";
+            return $"{IsCommand}-/-{Username}-/-{Content}#\\#";
         }
     }
 }
