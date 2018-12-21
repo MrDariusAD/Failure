@@ -13,15 +13,15 @@ namespace NetChat.Front {
         {
             if(e.KeyCode == Keys.Enter)
             {
-                GlobalVariable.UserName = UserNameTextBox.Text;
+                GlobalVariable.USERNAME = UserNameTextBox.Text;
             }
         }
 
         private void Optionen_Load(object sender, EventArgs e)
         {
-            UserNameTextBox.Text = GlobalVariable.UserName;
+            UserNameTextBox.Text = GlobalVariable.USERNAME;
             pwTextBox.Text = GlobalVariable.PW;
-            PortTextBox.Text = GlobalVariable.Port.ToString();
+            PortTextBox.Text = GlobalVariable.PORT.ToString();
             IPTextBox.Text = GlobalVariable.IP;
         }
 
@@ -46,7 +46,7 @@ namespace NetChat.Front {
 
             if (e.KeyCode == Keys.Enter)
             {
-                GlobalVariable.Port = int.Parse(IPTextBox.Text);
+                GlobalVariable.PORT = int.Parse(IPTextBox.Text);
             }
         }
 
@@ -69,9 +69,9 @@ namespace NetChat.Front {
 
         private void Optionen_FormClosing(object sender, FormClosingEventArgs e)
         {
-            GlobalVariable.UserName = UserNameTextBox.Text;
+            GlobalVariable.USERNAME = UserNameTextBox.Text;
             GlobalVariable.PW = pwTextBox.Text;
-            GlobalVariable.Port = int.Parse(PortTextBox.Text); 
+            GlobalVariable.PORT = int.Parse(PortTextBox.Text); 
             GlobalVariable.IP = IPTextBox.Text;
             GlobalVariable.SafeToTemp();
         }

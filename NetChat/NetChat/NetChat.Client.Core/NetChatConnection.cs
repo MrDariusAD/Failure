@@ -10,7 +10,7 @@ namespace NetChat.Client.Core {
         public int ConnectionPort { get; }
         public string Username { get; }
         public List<Message> RecievedMessages;
-        private NetChatSocket _socket;
+        private NetChatSocket NetSocket;
         private Thread updateMessages;
         public static bool ContinueWaiting = true;
 
@@ -21,10 +21,10 @@ namespace NetChat.Client.Core {
             ConnectionPort = connectionPort;
             Username = username;
 
-            _socket = new NetChatSocket(ConnectionUrl, connectionPort);
-            if (!_socket.IsInit)
+            NetSocket = new NetChatSocket(ConnectionUrl, connectionPort);
+            if (!NetSocket.IsInit)
             {
-                _socket = null;
+                NetSocket = null;
             }
             else
             {
@@ -37,34 +37,41 @@ namespace NetChat.Client.Core {
 
         public bool SendNudes(Message message)
         {
-            if (!_socket.IsInit)
+            if (NetSocket == null)
+                return false;
+            if (!NetSocket.IsInit)
             {
                 return false;
             }
-            if (_socket.SendMessage(message))
+            if (NetSocket.SendMessage(message))
                 return true;
             return false;
         }
 
         public bool IsInit()
         {
-            return _socket.IsInit;
+            return NetSocket.IsInit;
         }
 
         public void Destroy()
         {
-            _socket.DestroyConnection();
+            if (NetSocket != null)
+            {
+                NetSocket.DestroyConnection();
+                while (NetSocket.IsInit) ;
+                NetSocket = null;
+            }
         }
 
         public void ChatUpdater()
         {
-            if (!_socket.IsInit)
+            if (!NetSocket.IsInit)
                 return;
             while (ContinueWaiting)
             {
                 try
                 {
-                    if (_socket._socket.Available == 0)
+                    if (NetSocket._socket.Available == 0)
                         continue;
                 }
                 catch (ObjectDisposedException)
@@ -72,8 +79,13 @@ namespace NetChat.Client.Core {
                     Destroy();
                     break;
                 }
-                byte[] readBytes = new byte[_socket._socket.Available];
-                int size = _socket._socket.Receive(readBytes);
+                catch(NullReferenceException)
+                {
+                    RecievedMessages.Add(new Message("Verbindung geschlossen", false, "INFO"));
+                    break;
+                }
+                byte[] readBytes = new byte[NetSocket._socket.Available];
+                int size = NetSocket._socket.Receive(readBytes);
                 string received = Encoding.ASCII.GetString(readBytes);
                 Console.WriteLine("Client - Received Raw: " + received);
                 Message receivedMessage = new Message(received);
@@ -92,11 +104,17 @@ namespace NetChat.Client.Core {
                 RecievedMessages.Add(endingMessage);
                 Destroy();
             }
+            if(receivedMessage.Content == "/pwKick")
+            {
+                Message endingMessage = new Message("Der Server hat sie gekickt", true, "INFO");
+                RecievedMessages.Add(endingMessage);
+                Destroy();
+            }
         }
 
         public bool SocketIsNull()
         {
-            if (_socket == null)
+            if (NetSocket == null)
                 return true;
             return false;
         }

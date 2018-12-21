@@ -5,7 +5,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace NetChat.Server.Console {
+namespace NetChat.Server.Console
+{
     public class Connection
     {
         private string Pw;
@@ -15,6 +16,7 @@ namespace NetChat.Server.Console {
         public Thread Thread { get; set; }
         private string Username { get; set; }
         private List<Message> RecievedMessages { get; set; }
+        private bool validatedViaPassword = false;
 
         public Connection(Socket socket, NetChatServerSocket ServerSocket, String pw)
         {
@@ -22,7 +24,6 @@ namespace NetChat.Server.Console {
             this.ServerSocket = ServerSocket;
             Socket = socket ?? throw new ArgumentNullException(nameof(socket));
             Thread = new Thread(ProcessMessages);
-            Username = "#Unknown";
             RecievedMessages = new List<Message>();
             StartThread();
         }
@@ -31,6 +32,7 @@ namespace NetChat.Server.Console {
         {
             while (true)
             {
+                System.Threading.Thread.CurrentThread.Join(500);
                 try
                 {
                     if (Socket.Available == 0)
@@ -59,19 +61,36 @@ namespace NetChat.Server.Console {
             }
         }
 
+        public void SendMessage(String message, bool command = false)
+        {
+            Message m = new Message(message, command, "Server");
+            SendMessage(m);
+        }
+
+        public void SendMessage(Message message)
+        {
+            byte[] KickMSG = Encoding.ASCII.GetBytes(message.ToString());
+            Socket.Send(KickMSG);
+        }
+
         private void singleMessage(string received)
         {
             Message receivedMessage = new Message(received);
+            CheckNameChange(receivedMessage);
             if (receivedMessage.IsCommand)
             {
                 if (receivedMessage.Content.StartsWith("/pw:"))
                 {
                     if (!IsPasswortValide(receivedMessage.Content))
                     {
-                        Message m = new Message("Das Passwort ist falsch", false, "Server");
-                        byte[] messageAsBytes = Encoding.ASCII.GetBytes(m.ToString());
-                        Socket.Send(messageAsBytes);
+                        SendMessage("Das Passwort ist falsch");
                         Close();
+                    }
+                    else
+                    {
+                        validatedViaPassword = true;
+                        Message m = new Message(receivedMessage.Username + " ist den Chatroom beigetreten", false, "Server");
+                        ServerSocket.SendToOthers(m);
                     }
                 }
                 else
@@ -79,8 +98,32 @@ namespace NetChat.Server.Console {
             }
             else
             {
+                if (!validatedViaPassword)
+                {
+                    SendMessage("/pwKick", true);
+                    Thread.Sleep(20);
+                    Close();
+                }
                 ServerSocket.SendToOthers(receivedMessage);
                 RecievedMessages.Add(receivedMessage);
+            }
+        }
+
+        private void CheckNameChange(Message receivedMessage)
+        {
+            if (Username == null)
+            {
+                Username = receivedMessage.Username;
+            }
+            else
+            {
+                if (Username != receivedMessage.Username)
+                {
+                    Message nameChangeMessage = new Message(Username + " hat sich zu " + receivedMessage.Username + " umbenannt", false, "Server");
+                    ServerSocket.SendToOthers(nameChangeMessage);
+                    Username = receivedMessage.Username;
+                }
+
             }
         }
 

@@ -28,7 +28,7 @@ namespace NetChat.Server.Console
 
         public void ClearNullThreads()
         {
-            foreach (var nullConnection in Connections.Where(x => !x.Thread.IsAlive).ToList())
+            foreach (Connection nullConnection in Connections.Where(x => !x.Thread.IsAlive).ToList())
             {
                 Connections.Remove(nullConnection);
             }
@@ -41,8 +41,7 @@ namespace NetChat.Server.Console
             {
                 try
                 {
-                    byte[] messageAsBytes = Encoding.ASCII.GetBytes(toSend.ToString());
-                    others.Socket.Send(messageAsBytes);
+                    others.SendMessage(toSend);
                 }
                 catch (Exception)
                 {
@@ -60,7 +59,8 @@ namespace NetChat.Server.Console
         {
             if (receivedMessage.Content.ToLower().Contains("/kill"))
                 DestroyServer();
-            if (receivedMessage.Content.ToLower().Contains("/msg")) {
+            if (receivedMessage.Content.ToLower().Contains("/msg"))
+            {
                 String msg = receivedMessage.Content.Substring(5);
                 if (String.IsNullOrEmpty(msg))
                     return;
@@ -78,6 +78,12 @@ namespace NetChat.Server.Console
             NullClearerThread.Abort();
         }
 
+        public void EndConnection(Connection deadConnection)
+        {
+            Connections.Remove(deadConnection);
+
+        }
+
         public NetChatServerSocket(string ip, int port, String pw)
         {
             this.pw = pw;
@@ -90,8 +96,8 @@ namespace NetChat.Server.Console
 
         public static string GetLocalIPAddress()
         {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
@@ -114,10 +120,9 @@ namespace NetChat.Server.Console
             }
         }
 
-        public void InitSocket(string ipAdressString, int port)
+        private void InitSocket(string ipAdressString, int port)
         {
-            Socket = new Socket(AddressFamily.InterNetwork,
-                SocketType.Stream, ProtocolType.Tcp);
+            Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Logger.Debug("Init Server on " + ipAdressString + ":" + port);
             IpAddress = IPAddress.Parse(ipAdressString);
             RemoteEp = new IPEndPoint(IpAddress, port);
@@ -136,7 +141,7 @@ namespace NetChat.Server.Console
             AccepterThread.Abort();
         }
 
-        public void ConnectionAccepter()
+        private void ConnectionAccepter()
         {
             while (ContinueAccepting)
             {
@@ -148,7 +153,7 @@ namespace NetChat.Server.Console
                     Connections.Add(connection);
                     ConnectedClients++;
                 }
-                catch (SocketException e)
+                catch (SocketException)
                 {
                     ContinueAccepting = false;
                 }

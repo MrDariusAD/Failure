@@ -27,6 +27,7 @@ namespace NetChat.Front {
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.OuterBox = new System.Windows.Forms.Panel();
             this.ChatTextBox = new System.Windows.Forms.TextBox();
             this.Senden = new System.Windows.Forms.Button();
@@ -40,28 +41,25 @@ namespace NetChat.Front {
             this.OuterBox.Controls.Add(this.ChatTextBox);
             this.OuterBox.Controls.Add(this.Senden);
             this.OuterBox.Controls.Add(this.Chat);
-            this.OuterBox.Location = new System.Drawing.Point(24, 23);
-            this.OuterBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.OuterBox.Location = new System.Drawing.Point(12, 12);
             this.OuterBox.Name = "OuterBox";
-            this.OuterBox.Size = new System.Drawing.Size(1552, 819);
+            this.OuterBox.Size = new System.Drawing.Size(776, 426);
             this.OuterBox.TabIndex = 0;
             this.OuterBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             // 
             // ChatTextBox
             // 
-            this.ChatTextBox.Location = new System.Drawing.Point(40, 762);
-            this.ChatTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ChatTextBox.Location = new System.Drawing.Point(20, 396);
             this.ChatTextBox.Name = "ChatTextBox";
-            this.ChatTextBox.Size = new System.Drawing.Size(1292, 31);
+            this.ChatTextBox.Size = new System.Drawing.Size(648, 20);
             this.ChatTextBox.TabIndex = 2;
             this.ChatTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ChatTextBox_KeyDown);
             // 
             // Senden
             // 
-            this.Senden.Location = new System.Drawing.Point(1348, 762);
-            this.Senden.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Senden.Location = new System.Drawing.Point(674, 396);
             this.Senden.Name = "Senden";
-            this.Senden.Size = new System.Drawing.Size(150, 44);
+            this.Senden.Size = new System.Drawing.Size(75, 23);
             this.Senden.TabIndex = 1;
             this.Senden.Text = "Senden";
             this.Senden.UseVisualStyleBackColor = true;
@@ -70,23 +68,23 @@ namespace NetChat.Front {
             // Chat
             // 
             this.Chat.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Chat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.Chat.ForeColor = System.Drawing.Color.LimeGreen;
             this.Chat.FormattingEnabled = true;
-            this.Chat.ItemHeight = 25;
-            this.Chat.Location = new System.Drawing.Point(40, 42);
-            this.Chat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Chat.Location = new System.Drawing.Point(20, 22);
             this.Chat.Name = "Chat";
-            this.Chat.Size = new System.Drawing.Size(1454, 704);
+            this.Chat.Size = new System.Drawing.Size(729, 368);
             this.Chat.TabIndex = 0;
             this.Chat.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1600, 865);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.OuterBox);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "NetChat";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);

@@ -18,8 +18,9 @@ namespace NetChat.Client.Core {
             {
                 InitSocket(ipAdressString, port);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Logger.Error(e);
                 MessageBox.Show("Die Verbindung ist fehlgeschlagen", "Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -69,6 +70,7 @@ namespace NetChat.Client.Core {
         public void DestroyConnection()
         {
             _socket.Close();
+            IsInit = false;
         }
     }
 }

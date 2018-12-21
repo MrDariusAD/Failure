@@ -1,6 +1,8 @@
 ﻿using NetChat.Client.Core;
 using NetChat.Server.Console;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -8,11 +10,11 @@ using System.Windows.Forms;
 namespace NetChat.Front {
     public partial class MainWindow : Form
     {
-        private NetChatServer _server;
-        private NetChatConnection _connection;
-        private Thread ChatUpdater;
-        private bool KeepUpdating = true;
-        private bool stillSending;
+        private NetChatServer       _server;
+        private NetChatConnection   _connection;
+        private Thread              ChatUpdater;
+        private bool                KeepUpdating = true;
+        private bool                stillSending;
 
         public MainWindow()
         {
@@ -56,9 +58,9 @@ namespace NetChat.Front {
         private void InitServer(object sender, EventArgs e)
         {
             ShowMessage("INFO", "Der Server wird gestartet" );
-            _server = new NetChatServer(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.PW);
+            _server = new NetChatServer(GlobalVariable.IP, GlobalVariable.PORT, GlobalVariable.PW);
             _server.StartServer();
-            ShowMessage("INFO", "Der Server wurde gestartet - IP: " + GlobalVariable.IP + ":" + GlobalVariable.Port);
+            ShowMessage("INFO", "Der Server wurde gestartet - IP: " + GlobalVariable.IP + ":" + GlobalVariable.PORT);
 
             //if (null == System.Windows.Application.Current)
             //{
@@ -68,8 +70,8 @@ namespace NetChat.Front {
 
         private void InitConnection(object sender, EventArgs e)
         {
-            ShowMessage("INFO", $"Verbinde zu {GlobalVariable.IP}:{GlobalVariable.Port} - With the Username: {GlobalVariable.UserName}");
-            _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.Port, GlobalVariable.UserName, GlobalVariable.PW);
+            ShowMessage("INFO", $"Verbinde zu {GlobalVariable.IP}:{GlobalVariable.PORT} - With the Username: {GlobalVariable.USERNAME}");
+            _connection = new NetChatConnection(GlobalVariable.IP, GlobalVariable.PORT, GlobalVariable.USERNAME, GlobalVariable.PW);
             if (_connection.SocketIsNull())
             {
                 _connection = null;
@@ -95,19 +97,13 @@ namespace NetChat.Front {
             KeepUpdating = true;
             while (KeepUpdating)
             {
-                Thread.Sleep(1000);
+                Thread.CurrentThread.Join(1000);
                 if (_connection == null)
                     break;
                 foreach (Client.Core.Message m in _connection.RecievedMessages.Where(x => x != null).ToList())
                 {
                     delUpdateListBox delUpdate = new delUpdateListBox(UpdateListBox);
                     this.Chat.BeginInvoke(delUpdate, new String[]{ m.Username, m.Content} );
-                    //System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
-                    //{
-                    //    Chat.Items.Add($"[{m.Username}] {m.Content}");
-                    //    Chat.SelectedIndex = Chat.Items.Count - 1;
-                    //}));
-
                 }
                 _connection.RecievedMessages.Clear();
             }
@@ -148,7 +144,7 @@ namespace NetChat.Front {
                 return;
             stillSending = true;
             ChatTextBox.Clear();
-            Client.Core.Message m = new Client.Core.Message(text, IsCommand(text), GlobalVariable.UserName);
+            Client.Core.Message m = new Client.Core.Message(text, IsCommand(text), GlobalVariable.USERNAME);
             if(!_connection.SendNudes(m))
             {
                 if (!_connection.IsInit())
@@ -170,6 +166,12 @@ namespace NetChat.Front {
                 case "/blyat":
                     DoBlyat();
                     break;
+                case "/help":
+                    ShowMessage(GlobalVariable.USERNAME, "/help");
+                    ShowMessage("HELP", "/clear - Löscht alle Nachrichten");
+                    ShowMessage("HELP", "/kill - Beendet den Server");
+                    ShowMessage("HELP", "/mgs - Schickt eine Nachricht seitens des Servers");
+                    break;
                 default:
                     return false;
             }
@@ -180,6 +182,17 @@ namespace NetChat.Front {
         {
             Senden.Text = "сука блять";
             this.Text = "Йíэт Chaт";
+            try
+            {
+                Console.WriteLine(Path.GetDirectoryName(Application.ExecutablePath) + "/flag.png");
+                Image img = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "/flag.png");
+                BackgroundImage = img;
+                OuterBox.BackgroundImage = img;
+                BackColor = Color.Black;
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private bool IsCommand(String text)

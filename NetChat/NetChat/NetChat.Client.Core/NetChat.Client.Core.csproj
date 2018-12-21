@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Message.cs" />
-    <Compile Include="MessageTest.cs" />
     <Compile Include="NetChatConnection.cs" />
     <Compile Include="NetChatSocket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
