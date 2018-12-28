@@ -12,14 +12,21 @@ namespace Testing
 {
     public class TestFullConnection
     {
+
+        /// <summary>
+        /// Erstellt einen Server.
+        /// Verbindet sich zum Server.
+        /// Sendet 'Test'
+        /// Empfängt 'Test'
+        /// </summary>
         [Fact]
         public void TestConnection()
         {
-            NetChatServerSocket netChatServerSocket = new NetChatServerSocket("127.0.0.1", 4308, "passwort");
-            NetChatConnection netChatConnection;
+            ServerSocket netChatServerSocket = new ServerSocket(4308, "passwort");
+            ClientConnection netChatConnection;
             netChatServerSocket.StartListening();
             netChatServerSocket.StartNullClearerThread();
-            netChatConnection = new NetChatConnection(NetChatServerSocket.GetLocalIPAddress(), 4308, "I3lackRacer", "passwort");
+            netChatConnection = new ClientConnection(ServerSocket.GetLocalIPAddress(), 4308, "I3lackRacer", "passwort");
 
             Message message = new Message("Test", false, "I3lackRacer");
             netChatConnection.SendNudes(message);
@@ -29,7 +36,7 @@ namespace Testing
 
             Assert.Contains("I3lackRacer ist den Chatroom beigetreten", netChatConnection.RecievedMessages[0].Content);
             Assert.Contains("Test", netChatConnection.RecievedMessages[1].Content);
-
+            
             netChatServerSocket.DestroyServer();
             netChatConnection.Destroy();
 

@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace NetChat.Server.Console
 {
-    public class NetChatServerSocket
+    public class ServerSocket
     {
 
         public Socket Socket { get; set; }
@@ -19,16 +19,17 @@ namespace NetChat.Server.Console
         public string RemoteIp { get; set; }
         public int ConnectedClients { get; set; }
         public Thread AccepterThread { get; set; }
-        public List<Connection> Connections { get; set; }
+        public List<ServerConnection> Connections { get; set; }
+        public bool isRunning = true;
 
-        private string pw;
+        private readonly string pw;
 
         public Thread NullClearerThread { get; set; }
         public bool ContinueAccepting = true;
 
         public void ClearNullThreads()
         {
-            foreach (Connection nullConnection in Connections.Where(x => !x.Thread.IsAlive).ToList())
+            foreach (ServerConnection nullConnection in Connections.Where(x => !x.Thread.IsAlive).ToList())
             {
                 Connections.Remove(nullConnection);
             }
@@ -36,8 +37,8 @@ namespace NetChat.Server.Console
 
         public void SendToOthers(Message toSend)
         {
-            List<Connection> ToBeRemoved = new List<Connection>();
-            foreach (Connection others in Connections)
+            List<ServerConnection> ToBeRemoved = new List<ServerConnection>();
+            foreach (ServerConnection others in Connections)
             {
                 try
                 {
@@ -48,7 +49,7 @@ namespace NetChat.Server.Console
                     ToBeRemoved.Add(others);
                 }
             }
-            foreach (Connection DeadConnection in ToBeRemoved)
+            foreach (ServerConnection DeadConnection in ToBeRemoved)
             {
                 DeadConnection.Close();
                 Connections.Remove(DeadConnection);
@@ -73,22 +74,23 @@ namespace NetChat.Server.Console
         {
             NullClearerThread.Start();
         }
+
         public void StopNullClearerThread()
         {
             NullClearerThread.Abort();
         }
 
-        public void EndConnection(Connection deadConnection)
+        public void EndConnection(ServerConnection deadConnection)
         {
             Connections.Remove(deadConnection);
 
         }
 
-        public NetChatServerSocket(string ip, int port, String pw)
+        public ServerSocket(int port, String pw)
         {
             this.pw = pw;
             NullClearerThread = new Thread(ClearNullThreads);
-            Connections = new List<Connection>();
+            Connections = new List<ServerConnection>();
             ConnectedClients = 0;
             InitSocket(GetLocalIPAddress(), port);
             RemoteIp = RemoteEp.Address.ToString();
@@ -107,17 +109,21 @@ namespace NetChat.Server.Console
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
+        /// <summary>
+        /// Beendet den Server
+        /// </summary>
         public void DestroyServer()
         {
             Message endingMessage = new Message("/endConnection", true, "Server");
             SendToOthers(endingMessage);
             ContinueAccepting = false;
             Socket.Close();
-            foreach (Connection c in Connections)
+            foreach (ServerConnection c in Connections)
             {
                 c.Close();
                 c.StopThread();
             }
+            isRunning = false;
         }
 
         private void InitSocket(string ipAdressString, int port)
@@ -138,6 +144,7 @@ namespace NetChat.Server.Console
 
         public void StopListening()
         {
+            throw new NotImplementedException("Die 'Thread.Abort()'-Methode hängt sich immer auf - Nicht benutzen ^w^ ▄︻̷┻̿═━一😉 ☠ ☭");
             AccepterThread.Abort();
         }
 
@@ -148,7 +155,7 @@ namespace NetChat.Server.Console
                 try
                 {
                     Socket worksocket = Socket.Accept();
-                    Connection connection = new Connection(worksocket, this, pw);
+                    ServerConnection connection = new ServerConnection(worksocket, this, pw);
                     System.Console.WriteLine($"Neue Connection: {RemoteIp}");
                     Connections.Add(connection);
                     ConnectedClients++;

@@ -19,7 +19,7 @@ namespace NetChat.Front {
             }catch(Exception e)
             {
                 Logger.Error(e.ToString());
-                MessageBox.Show("This error will also be Logged in the Logger.Log - " + Logger.path  + "\n\n" + e.ToString(), "Error NetChat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This error will also be logged in the Logger.Log - " + Logger.path  + "\n\n" + e.ToString(), "Error NetChat", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -4,10 +4,10 @@ namespace NetChat.Server.Console {
 
     public class NetChatServer {
 
-        public  NetChatServerSocket Socket { get; }
+        public  ServerSocket Socket { get; }
 
-        public NetChatServer(String ip, int port, string pw) {
-            Socket = new NetChatServerSocket(ip, port, pw);
+        public NetChatServer(int port, string pw) {
+            Socket = new ServerSocket(port, pw);
         }
 
         public void StartServer() {
@@ -19,6 +19,15 @@ namespace NetChat.Server.Console {
         {
             Socket.StopNullClearerThread();
             Socket.DestroyServer();
+        }
+
+        public bool isRunning()
+        {
+            if (Socket == null)
+                return false;
+            if (!Socket.isRunning)
+                return false;
+            return true;
         }
     }
 }

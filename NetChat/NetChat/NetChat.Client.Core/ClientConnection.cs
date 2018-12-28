@@ -4,24 +4,24 @@ using System.Text;
 using System.Threading;
 
 namespace NetChat.Client.Core {
-    public class NetChatConnection
+    public class ClientConnection
     {
         public string ConnectionUrl { get; }
         public int ConnectionPort { get; }
         public string Username { get; }
         public List<Message> RecievedMessages;
-        private NetChatSocket NetSocket;
+        private ClientSocket NetSocket;
         private Thread updateMessages;
         public static bool ContinueWaiting = true;
 
-        public NetChatConnection(string connectionUrl, int connectionPort, string username, string password)
+        public ClientConnection(string connectionUrl, int connectionPort, string username, string password)
         {
             RecievedMessages = new List<Message>();
             ConnectionUrl = connectionUrl;
             ConnectionPort = connectionPort;
             Username = username;
 
-            NetSocket = new NetChatSocket(ConnectionUrl, connectionPort);
+            NetSocket = new ClientSocket(ConnectionUrl, connectionPort);
             if (!NetSocket.IsInit)
             {
                 NetSocket = null;
@@ -50,6 +50,8 @@ namespace NetChat.Client.Core {
 
         public bool IsInit()
         {
+            if (NetSocket == null)
+                return false;
             return NetSocket.IsInit;
         }
 
@@ -86,7 +88,7 @@ namespace NetChat.Client.Core {
                 }
                 byte[] readBytes = new byte[NetSocket._socket.Available];
                 int size = NetSocket._socket.Receive(readBytes);
-                string received = Encoding.ASCII.GetString(readBytes);
+                string received = Encoding.UTF8.GetString(readBytes);
                 Console.WriteLine("Client - Received Raw: " + received);
                 Message receivedMessage = new Message(received);
                 if (receivedMessage.IsCommand)

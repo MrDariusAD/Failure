@@ -3,6 +3,12 @@
 namespace NetChat.Front {
     partial class MainWindow
     {
+
+        private System.Windows.Forms.Panel OuterBox;
+        private System.Windows.Forms.TextBox ChatTextBox;
+        private System.Windows.Forms.Button Senden;
+        private System.Windows.Forms.ListBox Chat;
+
         /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
@@ -96,11 +102,6 @@ namespace NetChat.Front {
             this.ResumeLayout(false);
 
         }
-
-        private System.Windows.Forms.Panel OuterBox;
-        private System.Windows.Forms.TextBox ChatTextBox;
-        private System.Windows.Forms.Button Senden;
-        private System.Windows.Forms.ListBox Chat;
     }
 }
 

@@ -57,9 +57,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
+    <Compile Include="ServerConnection.cs" />
     <Compile Include="NetChatServer.cs" />
-    <Compile Include="NetChatServerSocket.cs" />
+    <Compile Include="ServerSocket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

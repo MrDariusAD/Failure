@@ -5,14 +5,14 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace NetChat.Client.Core {
-    public class NetChatSocket
+    public class ClientSocket
     {
         public Socket _socket;
         private IPAddress _ipAdress;
         private IPEndPoint _remoteEp;
         public bool IsInit { get; private set; }
 
-        public NetChatSocket(string ipAdressString, int port)
+        public ClientSocket(string ipAdressString, int port)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace NetChat.Client.Core {
 
         public bool SendMessage(Message message)
         {
-            byte[] messageAsBytes = Encoding.ASCII.GetBytes(message.ToString());
+            byte[] messageAsBytes = Encoding.UTF8.GetBytes(message.ToString());
             try
             {
                 _socket.Send(messageAsBytes);
@@ -55,16 +55,6 @@ namespace NetChat.Client.Core {
                 Logger.Error(e);
                 return false;
             }
-        }
-
-        private bool SocketConnected()
-        {
-            bool part1 = _socket.Poll(1000, SelectMode.SelectRead);
-            bool part2 = (_socket.Available == 0);
-            if (part1 && part2)
-                return false;
-            else
-                return true;
         }
 
         public void DestroyConnection()

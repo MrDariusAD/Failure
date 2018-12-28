@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resource", "Resource", "{25
 		..\..\..\..\..\Desktop\flag.png = ..\..\..\..\..\Desktop\flag.png
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChat.Front.WPF", "..\..\..\..\..\source\repos\NetChat.Front.WPF\NetChat.Front.WPF\NetChat.Front.WPF.csproj", "{B2AEEA6E-B768-483A-AE1C-DD0B73D2CE39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{CF8B8CFA-452C-4E5B-9CA4-6AB41A22A4DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF8B8CFA-452C-4E5B-9CA4-6AB41A22A4DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF8B8CFA-452C-4E5B-9CA4-6AB41A22A4DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2AEEA6E-B768-483A-AE1C-DD0B73D2CE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2AEEA6E-B768-483A-AE1C-DD0B73D2CE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2AEEA6E-B768-483A-AE1C-DD0B73D2CE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2AEEA6E-B768-483A-AE1C-DD0B73D2CE39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{3634230B-0184-466F-8B12-ED55FB679788} = {DC1DACDA-37D5-4867-AA10-18FB7EF8C5B3}
 		{7C553BD7-BAD3-4665-846A-8C6A6265700C} = {E2AE4C60-6310-4902-815F-778CB8DA9AC7}
 		{CF8B8CFA-452C-4E5B-9CA4-6AB41A22A4DC} = {E2F0DC39-A80F-460E-92F6-72912ED6F39D}
+		{B2AEEA6E-B768-483A-AE1C-DD0B73D2CE39} = {DC1DACDA-37D5-4867-AA10-18FB7EF8C5B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {18BDC0DF-DB93-4333-8F8E-53215CAEEEA1}

@@ -7,18 +7,19 @@ using System.Threading;
 
 namespace NetChat.Server.Console
 {
-    public class Connection
+    public class ServerConnection
     {
         private string Pw;
 
-        private NetChatServerSocket ServerSocket { get; }
+        private ServerSocket ServerSocket { get; }
         public Socket Socket { get; set; }
         public Thread Thread { get; set; }
         private string Username { get; set; }
         private List<Message> RecievedMessages { get; set; }
         private bool validatedViaPassword = false;
+        private bool ContinueReceiving = true;
 
-        public Connection(Socket socket, NetChatServerSocket ServerSocket, String pw)
+        public ServerConnection(Socket socket, ServerSocket ServerSocket, String pw)
         {
             this.Pw = pw;
             this.ServerSocket = ServerSocket;
@@ -30,9 +31,9 @@ namespace NetChat.Server.Console
 
         public void ProcessMessages()
         {
-            while (true)
+            while (ContinueReceiving)
             {
-                System.Threading.Thread.CurrentThread.Join(500);
+                System.Threading.Thread.CurrentThread.Join(20);
                 try
                 {
                     if (Socket.Available == 0)
@@ -45,7 +46,7 @@ namespace NetChat.Server.Console
                 }
                 byte[] readBytes = new byte[Socket.Available];
                 int size = Socket.Receive(readBytes);
-                string received = Encoding.ASCII.GetString(readBytes);
+                string received = Encoding.UTF8.GetString(readBytes);
                 System.Console.WriteLine($"Server - Neue Nachricht erhalten: {received}");
                 Logger.Debug($"Server - Neue Nachricht erhalten: {received}");
                 // Für den Fall das während der Verarbeitungszeit 2 Nachrichten reingekommen sind
@@ -69,7 +70,7 @@ namespace NetChat.Server.Console
 
         public void SendMessage(Message message)
         {
-            byte[] KickMSG = Encoding.ASCII.GetBytes(message.ToString());
+            byte[] KickMSG = Encoding.UTF8.GetBytes(message.ToString());
             Socket.Send(KickMSG);
         }
 
@@ -101,7 +102,7 @@ namespace NetChat.Server.Console
                 if (!validatedViaPassword)
                 {
                     SendMessage("/pwKick", true);
-                    Thread.Sleep(20);
+                    Thread.Join(20);
                     Close();
                 }
                 ServerSocket.SendToOthers(receivedMessage);
@@ -143,7 +144,7 @@ namespace NetChat.Server.Console
 
         public void StopThread()
         {
-            Thread.Abort();
+            ContinueReceiving = false;
         }
 
         internal void Close()
