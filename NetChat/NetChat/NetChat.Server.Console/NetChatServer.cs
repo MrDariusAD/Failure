@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace NetChat.Server.Console {
 
     public class NetChatServer {

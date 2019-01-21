@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using NetChat.Client.Core;
 using NetChat.Server.Console;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using System.Threading;
 
 namespace Testing
 {
