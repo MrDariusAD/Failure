@@ -7,18 +7,26 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace NetChat.Front {
+namespace NetChat.Front
+{
     public partial class MainWindow : Form
     {
-        private NetChatServer       _server;
-        private ClientConnection   _connection;
-        private Thread              ChatUpdater;
-        private bool                KeepUpdating = true;
-        private bool                stillSending;
+        private NetChatServer _server;
+        private ClientConnection _connection;
+        private Thread ChatUpdater;
+        private bool KeepUpdating = true;
+        private bool stillSending;
 
+        #region Konstructor
         public MainWindow()
         {
             InitializeComponent();
+        }
+        #endregion
+        #region Events
+        private void MainWindow_Activated(object sender, EventArgs e)
+        {
+            this.ChatTextBox.Focus();
         }
 
         private void MainWindow_MouseDown(object sender, MouseEventArgs e)
@@ -37,20 +45,9 @@ namespace NetChat.Front {
             cm.Show(this, new System.Drawing.Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
         }
 
-        private bool IsConnectionDead()
-        {
-            return _connection == null || !_connection.IsInit() || _connection.SocketIsNull();
-        }
-
         private void EndServer(object sender, EventArgs e)
         {
             DestroyServer();
-        }
-
-        private void DestroyServer()
-        {
-            _server.Destroy();
-            _server = null;
         }
 
         private void DestroyConnection(object sender, EventArgs e)
@@ -62,15 +59,51 @@ namespace NetChat.Front {
 
         private void InitServer(object sender, EventArgs e)
         {
-            ShowMessage("INFO", "Der Server wird gestartet" );
+            ShowMessage("INFO", "Der Server wird gestartet");
             _server = new NetChatServer(GlobalVariable.PORT, GlobalVariable.PW);
             _server.StartServer();
             ShowMessage("INFO", "Der Server wurde gestartet - IP: " + GlobalVariable.IP + ":" + GlobalVariable.PORT);
+        }
 
-            //if (null == System.Windows.Application.Current)
-            //{
-            //    new System.Windows.Application();
-            //}
+        private void ChatTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Send(ChatTextBox.Text);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ClientConnection.ContinueWaiting = false;
+            KeepUpdating = false;
+            GlobalVariable.SafeToTemp();
+            if (_server != null)
+                DestroyServer();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            GlobalVariable.LoadFromTemp();
+            ResizeWindow();
+        }
+
+        private void Senden_Click(object sender, EventArgs e)
+        {
+            Send(ChatTextBox.Text);
+        }
+
+        private void MainWindow_Resize(object sender, EventArgs e)
+        {
+            ResizeWindow();
+        }
+
+        private void Options(object sender, EventArgs e)
+        {
+            Optionen o = new Optionen();
+            o.ShowDialog();
         }
 
         private void InitConnection(object sender, EventArgs e)
@@ -89,7 +122,57 @@ namespace NetChat.Front {
                 ShowMessage("INFO", "Eine Verbindung wurde hergestellt");
             }
         }
+        #endregion
+        #region Methoden
+        private bool IsCommand(String text)
+        {
+            if (text[0] == '/')
+                return true;
+            return false;
+        }
 
+        public void ShowMessage(String user, String msg)
+        {
+            Logger.Info($"[{user}] {msg}");
+            Chat.Items.Add($"[{user}] {msg}");
+            Chat.SelectedIndex = Chat.Items.Count - 1;
+        }
+
+        private void DestroyServer()
+        {
+            _server.Destroy();
+            _server = null;
+        }
+
+        private bool IsConnectionDead()
+        {
+            return _connection == null || !_connection.IsInit() || _connection.SocketIsNull();
+        }
+
+        public void ResizeWindow()
+        {
+            int x = this.Width,
+               y = this.Height;
+            OuterBox.Width = x - 60;
+            OuterBox.Height = y - 80;
+            OuterBox.Top = 22;
+            OuterBox.Left = 22;
+            x = OuterBox.Width;
+            y = OuterBox.Height;
+            Chat.Width = x - 40;
+            Chat.Height = y - 50;
+            Chat.Left = 20;
+            Chat.Top = 20;
+            ChatTextBox.Width = x - 130;
+            ChatTextBox.Height = 20;
+            Senden.Height = 20;
+            Senden.Width = 80;
+            Senden.Left = x - 100;
+            ChatTextBox.Top = y - 27;
+            Senden.Top = ChatTextBox.Top;
+        }
+
+        #region Update from Outer
         private delegate void delUpdateListBox(String user, String text);
 
         private void UpdateListBox(String user, String msg)
@@ -108,28 +191,12 @@ namespace NetChat.Front {
                 foreach (Client.Core.Message m in _connection?.RecievedMessages.Where(x => x != null).ToList())
                 {
                     delUpdateListBox delUpdate = new delUpdateListBox(UpdateListBox);
-                    this.Chat.BeginInvoke(delUpdate, new String[]{ m.Username, m.Content} );
+                    this.Chat.BeginInvoke(delUpdate, new String[] { m.Username, m.Content });
                 }
                 _connection?.RecievedMessages.Clear();
             }
         }
-
-        private void Options(object sender, EventArgs e)
-        {
-            Optionen o = new Optionen();
-            o.ShowDialog();
-        }
-
-        private void ChatTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-                if(e.KeyCode == Keys.Enter)
-                {
-                    Send(ChatTextBox.Text);
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                }
-        }
-
+        #endregion
         private void Send(string text)
         {
             if (text.Length == 0)
@@ -150,11 +217,11 @@ namespace NetChat.Front {
             stillSending = true;
             ChatTextBox.Clear();
             Client.Core.Message m = new Client.Core.Message(text, IsCommand(text), GlobalVariable.USERNAME);
-            if(!_connection.SendNudes(m))
+            if (!_connection.SendNudes(m))
             {
                 if (!_connection.IsInit())
                     _connection.Destroy();
-                    _connection = null;
+                _connection = null;
                 ShowMessage("INFO", "Der Server ist nicht mehr erreichbar. Die Verbindung wurde beendet");
             }
             stillSending = false;
@@ -199,66 +266,6 @@ namespace NetChat.Front {
             {
             }
         }
-
-        private bool IsCommand(String text)
-        {
-            if (text[0] == '/')
-                return true;
-            return false;
-        }
-
-        public void ShowMessage(String user, String msg)
-        {
-            Logger.Info($"[{user}] {msg}");
-            Chat.Items.Add($"[{user}] {msg}");
-            Chat.SelectedIndex = Chat.Items.Count - 1;
-        }
-
-        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ClientConnection.ContinueWaiting = false;
-            KeepUpdating = false;
-            GlobalVariable.SafeToTemp();
-            if(_server != null)
-                DestroyServer();
-        }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-            GlobalVariable.LoadFromTemp();
-            ResizeWindow();
-        }
-        
-        private void Senden_Click(object sender, EventArgs e) {
-            Send(ChatTextBox.Text);
-        }
-
-        private void MainWindow_Resize(object sender, EventArgs e)
-        {
-            ResizeWindow();
-        }
-
-        public void ResizeWindow()
-        {
-            int x = this.Width,
-               y = this.Height;
-            OuterBox.Width = x - 60;
-            OuterBox.Height = y - 80;
-            OuterBox.Top = 22;
-            OuterBox.Left = 22;
-            x = OuterBox.Width;
-            y = OuterBox.Height;
-            Chat.Width = x - 40;
-            Chat.Height = y - 50;
-            Chat.Left = 20;
-            Chat.Top = 20;
-            ChatTextBox.Width = x - 130;
-            ChatTextBox.Height = 20;
-            Senden.Height = 20;
-            Senden.Width = 80;
-            Senden.Left = x - 100;
-            ChatTextBox.Top = y - 27;
-            Senden.Top = ChatTextBox.Top;
-        }
+        #endregion
     }
 }

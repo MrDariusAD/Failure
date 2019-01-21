@@ -21,7 +21,7 @@ namespace NetChat.Client.Core {
             catch (Exception e)
             {
                 Logger.Error(e);
-                MessageBox.Show("Die Verbindung ist fehlgeschlagen", "Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Die Verbindung ist fehlgeschlagen\n\nERROR: '{e.Message}'", "Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             IsInit = true;
