@@ -22,6 +22,8 @@ namespace NetChat.Client.Core {
         }
 
         public Message(string receivedMessage) {
+            char[] toRemove = {'\n', '\r'};
+            receivedMessage = receivedMessage.Trim(toRemove);
             string[] seperator = {"-/-"};
             var proerties = receivedMessage.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
             IsCommand = proerties[0].ToUpper().Contains("TRUE");
