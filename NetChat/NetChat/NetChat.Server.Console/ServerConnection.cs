@@ -5,8 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace NetChat.Server.Console
-{
+namespace NetChat.Server.Console {
     public class ServerConnection
     {
         private string Pw;

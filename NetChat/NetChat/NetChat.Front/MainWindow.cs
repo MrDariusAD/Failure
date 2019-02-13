@@ -2,13 +2,11 @@
 using NetChat.Server.Console;
 using System;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace NetChat.Front
-{
+namespace NetChat.Front {
     public partial class MainWindow : Form
     {
         private NetChatServer _server;
@@ -16,7 +14,7 @@ namespace NetChat.Front
         private Thread ChatUpdater;
         private bool KeepUpdating = true;
         private bool stillSending;
-
+        
         #region Konstructor
         public MainWindow()
         {

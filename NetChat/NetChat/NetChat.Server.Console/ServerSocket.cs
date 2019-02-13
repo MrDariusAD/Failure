@@ -6,8 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace NetChat.Server.Console
-{
+namespace NetChat.Server.Console {
     public class ServerSocket
     {
 

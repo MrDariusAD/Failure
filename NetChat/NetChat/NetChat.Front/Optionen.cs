@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace NetChat.Front
-{
+namespace NetChat.Front {
     public partial class Optionen : Form
     {
         public Optionen()

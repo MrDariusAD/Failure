@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Security.AccessControl;
-using Xunit.Sdk;
 
 namespace NetChat.Client.Core {
     public class Message {

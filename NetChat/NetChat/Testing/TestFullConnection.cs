@@ -1,10 +1,9 @@
-﻿using System;
-using NetChat.Client.Core;
+﻿using NetChat.Client.Core;
 using NetChat.Server.Console;
+using System;
 using Xunit;
 
-namespace Testing
-{
+namespace Testing {
     public class TestFullConnection
     {
 

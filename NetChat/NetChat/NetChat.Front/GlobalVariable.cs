@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
 
 namespace NetChat.Front {
     public static class GlobalVariable
