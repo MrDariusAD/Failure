@@ -207,6 +207,11 @@ namespace NetChat.Front
                     ChatTextBox.Text = "";
                     return;
                 }
+            if (text.Contains("\n"))
+            {
+                text.Replace("\n", "");
+            }
+
             if (_connection == null)
             {
                 MessageBox.Show("Bitte zuerst Verbindung herstellen", "Keine Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -242,7 +247,7 @@ namespace NetChat.Front
                     ShowMessage(GlobalVariable.USERNAME, "/help");
                     ShowMessage("HELP", "/clear - Löscht alle Nachrichten");
                     ShowMessage("HELP", "/kill - Beendet den Server");
-                    ShowMessage("HELP", "/mgs - Schickt eine Nachricht seitens des Servers");
+                    ShowMessage("HELP", "/msg - Schickt eine Nachricht seitens des Servers");
                     break;
                 default:
                     return false;
@@ -254,12 +259,13 @@ namespace NetChat.Front
         {
             Senden.Text = "сука блять";
             this.Text = "Йíэт Chaт";
+            this.OuterBox.BackColor = Color.Transparent;
             try
             {
                 Console.WriteLine(Path.GetDirectoryName(Application.ExecutablePath) + "/flag.png");
                 Image img = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "/flag.png");
                 BackgroundImage = img;
-                OuterBox.BackgroundImage = img;
+                //OuterBox.BackgroundImage = img;
                 BackColor = Color.Black;
             }
             catch (Exception)

@@ -15,6 +15,14 @@ namespace NetChat.Client.Core {
             if (content[0] == '/')
                 this.IsCommand = true;
             Username = username;
+            if(content.Contains("\n"))
+            {
+                content.Replace("\n", "");
+            }
+            if (username.Contains("\n"))
+            {
+                username.Replace("\n", "");
+            }
         }
 
         public Message(string receivedMessage) {

@@ -14,6 +14,10 @@ namespace NetChat.Front
         {
             if (e.KeyCode == Keys.Enter)
             {
+                if (UserNameTextBox.Text.Contains("\n"))
+                {
+                    UserNameTextBox.Text.Replace("\n", "");
+                }
                 GlobalVariable.USERNAME = UserNameTextBox.Text;
             }
         }
