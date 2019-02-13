@@ -9,23 +9,21 @@ namespace NetChat.Client.Core {
 
         public Message(string content, bool isCommand, string username) {
             Content = content ?? "";
-            IsCommand = isCommand;
-            if (content[0] == '/')
-                this.IsCommand = true;
+            IsCommand = isCommand || content != null && content[0] == '/';
             Username = username;
-            if(content.Contains("\n"))
+            if(content != null && content.Contains("\n"))
             {
-                content.Replace("\n", "");
+                Content = content.Replace("\n", "");
             }
-            if (username.Contains("\n"))
+            if (username != null && username.Contains("\n"))
             {
-                username.Replace("\n", "");
+                Username = username.Replace("\n", "");
             }
         }
 
         public Message(string receivedMessage) {
             string[] seperator = {"-/-"};
-            string[] proerties = receivedMessage.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
+            var proerties = receivedMessage.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
             IsCommand = proerties[0].ToUpper().Contains("TRUE");
             Username = proerties[1];
             Content = proerties[2].Replace("#\\#", "");

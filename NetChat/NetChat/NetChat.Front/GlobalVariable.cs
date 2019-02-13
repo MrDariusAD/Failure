@@ -5,33 +5,32 @@ namespace NetChat.Front {
     public static class GlobalVariable
     {
 
-        private static string PATH = System.IO.Path.GetTempPath() + "NetChat.config";
-        public static string USERNAME = "User" + new Random().Next();
-        public static string IP = "127.0.0.1";
-        public static int PORT = 4308;
-        public static string PW = "1234";
+        private static readonly string Path = System.IO.Path.GetTempPath() + "NetChat.config";
+        public static string Username = "User" + new Random().Next();
+        public static string Ip = "127.0.0.1";
+        public static int Port = 4308;
+        public static string Pw = "1234";
 
         public static void SafeToTemp()
         {
             string[] content =
             {
-                "User:" + USERNAME,
-                "IP:" + IP,
-                "Port:" + PORT,
-                "PW:" + PW
+                "User:" + Username,
+                "IP:" + Ip,
+                "Port:" + Port,
+                "PW:" + Pw
             };
-            File.WriteAllLines(PATH, content);
+            File.WriteAllLines(Path, content);
         }
 
         public static void LoadFromTemp()
         {
-            if(File.Exists(PATH)) {
-                string[] content = File.ReadAllLines(PATH);
-                USERNAME = content[0].Replace("User:", "");
-                IP = content[1].Replace("IP:", "");
-                PORT = int.Parse(content[2].Replace("Port:", ""));
-                PW = content[3].Replace("PW:", "");
-            }
+            if (!File.Exists(Path)) return;
+            var content = File.ReadAllLines(Path);
+            Username = content[0].Replace("User:", "");
+            Ip = content[1].Replace("IP:", "");
+            Port = int.Parse(content[2].Replace("Port:", ""));
+            Pw = content[3].Replace("PW:", "");
         }
     }
 }

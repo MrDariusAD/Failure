@@ -20,13 +20,8 @@ namespace NetChat.Server.Console {
             Socket.DestroyServer();
         }
 
-        public bool isRunning()
-        {
-            if (Socket == null)
-                return false;
-            if (!Socket.isRunning)
-                return false;
-            return true;
+        public bool IsRunning() {
+            return Socket != null && Socket.IsRunning;
         }
     }
 }

@@ -10,8 +10,8 @@ namespace NetChat.Client.Core {
         public int ConnectionPort { get; }
         public string Username { get; }
         public List<Message> RecievedMessages;
-        private ClientSocket NetSocket;
-        private Thread updateMessages;
+        private ClientSocket _netSocket;
+        private Thread _updateMessages;
         public static bool ContinueWaiting = true;
 
         public ClientConnection(string connectionUrl, int connectionPort, string username, string password)
@@ -21,59 +21,59 @@ namespace NetChat.Client.Core {
             ConnectionPort = connectionPort;
             Username = username;
 
-            NetSocket = new ClientSocket(ConnectionUrl, connectionPort);
-            if (!NetSocket.IsInit)
+            _netSocket = new ClientSocket(ConnectionUrl, connectionPort);
+            if (!_netSocket.IsInit)
             {
-                NetSocket = null;
+                _netSocket = null;
             }
             else
             {
-                updateMessages = new Thread(ChatUpdater);
-                updateMessages.Start();
-                Message m = new Message("/pw:" + password, true, username);
+                _updateMessages = new Thread(ChatUpdater);
+                _updateMessages.Start();
+                var m = new Message("/pw:" + password, true, username);
                 SendNudes(m);
             }
         }
 
         public bool SendNudes(Message message)
         {
-            if (NetSocket == null)
+            if (_netSocket == null)
                 return false;
-            if (!NetSocket.IsInit)
+            if (!_netSocket.IsInit)
             {
                 return false;
             }
-            if (NetSocket.SendMessage(message))
+            if (_netSocket.SendMessage(message))
                 return true;
             return false;
         }
 
         public bool IsInit()
         {
-            if (NetSocket == null)
+            if (_netSocket == null)
                 return false;
-            return NetSocket.IsInit;
+            return _netSocket.IsInit;
         }
 
         public void Destroy()
         {
-            if (NetSocket != null)
+            if (_netSocket != null)
             {
-                NetSocket.DestroyConnection();
-                while (NetSocket.IsInit) ;
-                NetSocket = null;
+                _netSocket.DestroyConnection();
+                while (_netSocket.IsInit) ;
+                _netSocket = null;
             }
         }
 
         public void ChatUpdater()
         {
-            if (!NetSocket.IsInit)
+            if (!_netSocket.IsInit)
                 return;
             while (ContinueWaiting)
             {
                 try
                 {
-                    if (NetSocket._socket.Available == 0)
+                    if (_netSocket.Socket.Available == 0)
                         continue;
                 }
                 catch (ObjectDisposedException)
@@ -86,11 +86,11 @@ namespace NetChat.Client.Core {
                     RecievedMessages.Add(new Message("Verbindung geschlossen", false, "INFO"));
                     break;
                 }
-                byte[] readBytes = new byte[NetSocket._socket.Available];
-                int size = NetSocket._socket.Receive(readBytes);
-                string received = Encoding.UTF8.GetString(readBytes);
+                var readBytes = new byte[_netSocket.Socket.Available];
+                var size = _netSocket.Socket.Receive(readBytes);
+                var received = Encoding.UTF8.GetString(readBytes);
                 Console.WriteLine("Client - Received Raw: " + received);
-                Message receivedMessage = new Message(received);
+                var receivedMessage = new Message(received);
                 if (receivedMessage.IsCommand)
                     HandleCommand(receivedMessage);
                 else
@@ -102,23 +102,20 @@ namespace NetChat.Client.Core {
         {
             if(receivedMessage.Content == "/endConnection")
             {
-                Message endingMessage = new Message("Der Server wurde beendet und die Verbindung getrennt", true, "INFO");
+                var endingMessage = new Message("Der Server wurde beendet und die Verbindung getrennt", true, "INFO");
                 RecievedMessages.Add(endingMessage);
                 Destroy();
             }
             if(receivedMessage.Content == "/pwKick")
             {
-                Message endingMessage = new Message("Der Server hat sie gekickt", true, "INFO");
+                var endingMessage = new Message("Der Server hat sie gekickt", true, "INFO");
                 RecievedMessages.Add(endingMessage);
                 Destroy();
             }
         }
 
-        public bool SocketIsNull()
-        {
-            if (NetSocket == null)
-                return true;
-            return false;
+        public bool SocketIsNull() {
+            return _netSocket == null;
         }
     }
 }

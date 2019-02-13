@@ -1,153 +1,136 @@
-﻿using NetChat.Client.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using NetChat.Client.Core;
 
-namespace NetChat.Server.Console {
+namespace NetChat.Server.Console
+{
     public class ServerConnection
     {
-        private string Pw;
+        private readonly string _pw;
+        private bool _continueReceiving = true;
+        private bool _validatedViaPassword;
 
-        private ServerSocket ServerSocket { get; }
-        public Socket Socket { get; set; }
-        public Thread Thread { get; set; }
-        private string Username { get; set; }
-        private List<Message> RecievedMessages { get; set; }
-        private bool validatedViaPassword = false;
-        private bool ContinueReceiving = true;
-
-        public ServerConnection(Socket socket, ServerSocket ServerSocket, String pw)
-        {
-            this.Pw = pw;
-            this.ServerSocket = ServerSocket;
+        public ServerConnection(Socket socket, ServerSocket serverSocket, string pw) {
+            _pw = pw;
+            ServerSocket = serverSocket;
             Socket = socket ?? throw new ArgumentNullException(nameof(socket));
             Thread = new Thread(ProcessMessages);
             RecievedMessages = new List<Message>();
             StartThread();
         }
 
-        public void ProcessMessages()
-        {
-            while (ContinueReceiving)
-            {
-                System.Threading.Thread.CurrentThread.Join(20);
-                try
-                {
+        private ServerSocket ServerSocket { get; }
+        public Socket Socket { get; set; }
+        public Thread Thread { get; set; }
+        private string Username { get; set; }
+        private List<Message> RecievedMessages { get; }
+
+        public void ProcessMessages() {
+            while (_continueReceiving) {
+                Thread.CurrentThread.Join(20);
+                try {
                     if (Socket.Available == 0)
                         continue;
                 }
-                catch (ObjectDisposedException)
-                {
+                catch (ObjectDisposedException) {
                     Close();
                     break;
                 }
-                byte[] readBytes = new byte[Socket.Available];
-                int size = Socket.Receive(readBytes);
-                string received = Encoding.UTF8.GetString(readBytes);
+
+                var readBytes = new byte[Socket.Available];
+                Socket.Receive(readBytes);
+                var received = Encoding.UTF8.GetString(readBytes);
                 System.Console.WriteLine($"Server - Neue Nachricht erhalten: {received}");
                 Logger.Debug($"Server - Neue Nachricht erhalten: {received}");
                 // Für den Fall das während der Verarbeitungszeit 2 Nachrichten reingekommen sind
-                string[] proerties = received.Split("#\\#".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                foreach (string m in proerties)
-                {
+                var proerties = received.Split("#\\#".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                foreach (var m in proerties)
                     // Es wird gebrüft ob der string was enhällt weil das letzte Feld immer leer sein wird
                     if (m.Length > 1)
-                        singleMessage(m);
-                }
+                        SingleMessage(m);
                 //if (receivedMessage.Username != Username)
                 //    Username = receivedMessage.Username;
             }
         }
 
-        public void SendMessage(String message, bool command = false)
-        {
-            Message m = new Message(message, command, "Server");
+        public void SendMessage(string message, bool command = false) {
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            var m = new Message(message, command, "Server");
             SendMessage(m);
         }
 
-        public void SendMessage(Message message)
-        {
-            byte[] KickMSG = Encoding.UTF8.GetBytes(message.ToString());
-            Socket.Send(KickMSG);
+        public void SendMessage(Message message) {
+            var kickMsg = Encoding.UTF8.GetBytes(message.ToString());
+            Socket.Send(kickMsg);
         }
 
-        private void singleMessage(string received)
-        {
-            Message receivedMessage = new Message(received);
+        private void SingleMessage(string received) {
+            var receivedMessage = new Message(received);
             CheckNameChange(receivedMessage);
-            if (receivedMessage.IsCommand)
-            {
-                if (receivedMessage.Content.StartsWith("/pw:"))
-                {
-                    if (!IsPasswortValide(receivedMessage.Content))
-                    {
+            if (receivedMessage.IsCommand) {
+                if (receivedMessage.Content.StartsWith("/pw:")) {
+                    if (!IsPasswortValide(receivedMessage.Content)) {
                         SendMessage("Das Passwort ist falsch");
                         Close();
                     }
-                    else
-                    {
-                        validatedViaPassword = true;
-                        Message m = new Message(receivedMessage.Username + " ist den Chatroom beigetreten", false, "Server");
+                    else {
+                        _validatedViaPassword = true;
+                        var m = new Message(receivedMessage.Username + " ist den Chatroom beigetreten", false,
+                            "Server");
                         ServerSocket.SendToOthers(m);
                     }
                 }
-                else
+                else {
                     ServerSocket.HandleCommand(receivedMessage);
+                }
             }
-            else
-            {
-                if (!validatedViaPassword)
-                {
+            else {
+                if (!_validatedViaPassword) {
                     SendMessage("/pwKick", true);
                     Thread.Join(20);
                     Close();
                 }
+
                 ServerSocket.SendToOthers(receivedMessage);
                 RecievedMessages.Add(receivedMessage);
             }
         }
 
-        private void CheckNameChange(Message receivedMessage)
-        {
-            if (Username == null)
-            {
+        private void CheckNameChange(Message receivedMessage) {
+            if (Username == null) {
                 Username = receivedMessage.Username;
             }
-            else
-            {
-                if (Username != receivedMessage.Username)
-                {
-                    Message nameChangeMessage = new Message(Username + " hat sich zu " + receivedMessage.Username + " umbenannt", false, "Server");
+            else {
+                if (Username != receivedMessage.Username) {
+                    var nameChangeMessage =
+                        new Message(Username + " hat sich zu " + receivedMessage.Username + " umbenannt", false,
+                            "Server");
                     ServerSocket.SendToOthers(nameChangeMessage);
                     Username = receivedMessage.Username;
                 }
-
             }
         }
 
-        private bool IsPasswortValide(string pw)
-        {
+        private bool IsPasswortValide(string pw) {
             pw = pw.Substring(4);
             System.Console.WriteLine("PW: " + pw);
-            if (Pw == pw)
+            if (_pw == pw)
                 return true;
             return false;
         }
 
-        public void StartThread()
-        {
+        public void StartThread() {
             Thread.Start();
         }
 
-        public void StopThread()
-        {
-            ContinueReceiving = false;
+        public void StopThread() {
+            _continueReceiving = false;
         }
 
-        internal void Close()
-        {
+        internal void Close() {
             Socket.Close();
         }
     }
