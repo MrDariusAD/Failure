@@ -19,11 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E2F0DC39-A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{CF8B8CFA-452C-4E5B-9CA4-6AB41A22A4DC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resource", "Resource", "{25898553-3D0D-4F44-B467-5A24E95CDE56}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\..\Desktop\flag.png = ..\..\..\..\..\Desktop\flag.png
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetChat.Front.WPF", "..\..\..\..\..\source\repos\NetChat.Front.WPF\NetChat.Front.WPF\NetChat.Front.WPF.csproj", "{B2AEEA6E-B768-483A-AE1C-DD0B73D2CE39}"
 EndProject
 Global

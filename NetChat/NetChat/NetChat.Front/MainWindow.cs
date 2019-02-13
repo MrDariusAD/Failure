@@ -262,11 +262,12 @@ namespace NetChat.Front
             this.OuterBox.BackColor = Color.Transparent;
             try
             {
-                Console.WriteLine(Path.GetDirectoryName(Application.ExecutablePath) + "/flag.png");
-                Image img = Image.FromFile(Path.GetDirectoryName(Application.ExecutablePath) + "/flag.png");
+                Console.WriteLine("DOING BLYAT! CYKA");
+                Image img = Image.FromFile("flag.png");
                 BackgroundImage = img;
                 //OuterBox.BackgroundImage = img;
                 BackColor = Color.Black;
+                Console.WriteLine("DID BLYAT! CYKA");
             }
             catch (Exception)
             {

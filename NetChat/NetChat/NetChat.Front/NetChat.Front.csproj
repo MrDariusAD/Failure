@@ -119,6 +119,11 @@
       <Name>NetChat.Server.Console</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="flag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
