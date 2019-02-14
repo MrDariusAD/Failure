@@ -69,33 +69,41 @@ namespace NetChat.Client.Core {
         {
             if (!_netSocket.IsInit)
                 return;
+            String rawForError = "";
             while (ContinueWaiting)
             {
-                try
+                try {
+                        if (_netSocket.Socket.Available == 0)
+                            continue;
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                        Destroy();
+                        break;
+                    }
+                    catch (NullReferenceException)
+                    {
+                        RecievedMessages.Add(new Message("Verbindung geschlossen", false, "INFO"));
+                        break;
+                    }
+                    try
+                    {
+                    var readBytes = new byte[_netSocket.Socket.Available];
+                    var size = _netSocket.Socket.Receive(readBytes);
+                    var received = Encoding.UTF8.GetString(readBytes);
+                    rawForError = received;
+                    Console.WriteLine("Client - Received Raw: " + received);
+                    var receivedMessage = new Message(received);
+                    if (receivedMessage.IsCommand)
+                        HandleCommand(receivedMessage);
+                    else
+                        RecievedMessages.Add(receivedMessage);
+                } catch(Exception e)
                 {
-                    if (_netSocket.Socket.Available == 0)
-                        continue;
+                    Logger.Error(rawForError);
+                    Logger.Error(e);
                 }
-                catch (ObjectDisposedException)
-                {
-                    Destroy();
-                    break;
                 }
-                catch(NullReferenceException)
-                {
-                    RecievedMessages.Add(new Message("Verbindung geschlossen", false, "INFO"));
-                    break;
-                }
-                var readBytes = new byte[_netSocket.Socket.Available];
-                var size = _netSocket.Socket.Receive(readBytes);
-                var received = Encoding.UTF8.GetString(readBytes);
-                Console.WriteLine("Client - Received Raw: " + received);
-                var receivedMessage = new Message(received);
-                if (receivedMessage.IsCommand)
-                    HandleCommand(receivedMessage);
-                else
-                    RecievedMessages.Add(receivedMessage);
-            }
         }
 
         private void HandleCommand(Message receivedMessage)
