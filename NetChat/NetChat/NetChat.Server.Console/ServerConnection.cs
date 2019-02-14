@@ -39,20 +39,23 @@ namespace NetChat.Server.Console
                     Close();
                     break;
                 }
-
-                var readBytes = new byte[Socket.Available];
-                Socket.Receive(readBytes);
-                var received = Encoding.UTF8.GetString(readBytes);
-                System.Console.WriteLine($"Server - Neue Nachricht erhalten: {received}");
-                Logger.Debug($"Server - Neue Nachricht erhalten: {received}");
-                // Für den Fall das während der Verarbeitungszeit 2 Nachrichten reingekommen sind
-                var proerties = received.Split("#\\#".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                foreach (var m in proerties)
-                    // Es wird gebrüft ob der string was enhällt weil das letzte Feld immer leer sein wird
-                    if (m.Length > 1)
-                        SingleMessage(m);
-                //if (receivedMessage.Username != Username)
-                //    Username = receivedMessage.Username;
+                try
+                {
+                    var readBytes = new byte[Socket.Available];
+                    Socket.Receive(readBytes);
+                    var received = Encoding.UTF8.GetString(readBytes);
+                    System.Console.WriteLine($"Server - Neue Nachricht erhalten: {received}");
+                    Logger.Debug($"Server - Neue Nachricht erhalten: {received}");
+                    // Für den Fall das während der Verarbeitungszeit 2 Nachrichten reingekommen sind
+                    var proerties = received.Split("#\\#".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var m in proerties)
+                        // Es wird gebrüft ob der string was enhällt weil das letzte Feld immer leer sein wird
+                        if (m.Length > 1)
+                            SingleMessage(m);
+                }catch(Exception e)
+                {
+                    Logger.Error(e);
+                }
             }
         }
 

@@ -69,7 +69,6 @@ namespace NetChat.Client.Core {
         {
             if (!_netSocket.IsInit)
                 return;
-            String rawForError = "";
             while (ContinueWaiting)
             {
                 try {
@@ -91,7 +90,6 @@ namespace NetChat.Client.Core {
                     var readBytes = new byte[_netSocket.Socket.Available];
                     var size = _netSocket.Socket.Receive(readBytes);
                     var received = Encoding.UTF8.GetString(readBytes);
-                    rawForError = received;
                     Console.WriteLine("Client - Received Raw: " + received);
                     var receivedMessage = new Message(received);
                     if (receivedMessage.IsCommand)
@@ -100,7 +98,6 @@ namespace NetChat.Client.Core {
                         RecievedMessages.Add(receivedMessage);
                 } catch(Exception e)
                 {
-                    Logger.Error(rawForError);
                     Logger.Error(e);
                 }
                 }
