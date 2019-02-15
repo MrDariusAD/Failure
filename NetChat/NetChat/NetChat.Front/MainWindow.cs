@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace NetChat.Front
 {
@@ -133,6 +134,7 @@ namespace NetChat.Front
 
         public void ShowMessage(String user, String msg)
         {
+            Notifiy(user, msg);
             Logger.Info($"[{user}] {msg}");
             Chat.Items.Add($"[{user}] {msg}");
             Chat.SelectedIndex = Chat.Items.Count - 1;
@@ -253,6 +255,20 @@ namespace NetChat.Front
                     return false;
             }
             return true;
+        }
+
+        private void Notifiy(String sender, String msg)
+        {
+            if (!this.Focused)
+            {
+                NotifyIcon notifyIcon = new NotifyIcon();
+                notifyIcon.Icon = SystemIcons.Application;
+                notifyIcon.BalloonTipTitle = sender;
+                notifyIcon.BalloonTipText = msg;
+                notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
+                notifyIcon.Visible = true;
+                notifyIcon.ShowBalloonTip(30000);
+            }
         }
 
         private void DoBlyat()
