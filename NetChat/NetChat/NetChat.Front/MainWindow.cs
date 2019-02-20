@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using NetChat.Client.Core;
 using NetChat.Server.Console;
 using Message = NetChat.Client.Core.Message;
-using Tulpep.NotificationWindow;
 
 namespace NetChat.Front {
     public partial class MainWindow : Form
