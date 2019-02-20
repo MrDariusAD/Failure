@@ -1,15 +1,27 @@
-﻿using NetChat.Client.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using NetChat.Client.Core;
 
 namespace NetChat.Server.Console
 {
     public class ServerSocket
     {
+        private readonly string _pw;
+        public bool ContinueAccepting = true;
+        public bool IsRunning = true;
+
+        public ServerSocket(int port, string pw) {
+            _pw = pw;
+            NullClearerThread = new Thread(ClearNullThreads);
+            Connections = new List<ServerConnection>();
+            ConnectedClients = 0;
+            InitSocket(GetLocalIpAddress(), port);
+            RemoteIp = RemoteEp.Address.ToString();
+        }
 
         public Socket Socket { get; set; }
         public IPEndPoint RemoteEp { get; set; }
@@ -18,114 +30,75 @@ namespace NetChat.Server.Console
         public int ConnectedClients { get; set; }
         public Thread AccepterThread { get; set; }
         public List<ServerConnection> Connections { get; set; }
-        public bool isRunning = true;
-
-        private readonly string pw;
 
         public Thread NullClearerThread { get; set; }
-        public bool ContinueAccepting = true;
 
-        public void ClearNullThreads()
-        {
-            foreach (ServerConnection nullConnection in Connections.Where(x => !x.Thread.IsAlive).ToList())
-            {
+        public void ClearNullThreads() {
+            foreach (var nullConnection in Connections.Where(x => !x.Thread.IsAlive).ToList())
                 Connections.Remove(nullConnection);
-            }
         }
 
-        public void SendToOthers(Message toSend)
-        {
-            List<ServerConnection> ToBeRemoved = new List<ServerConnection>();
-            foreach (ServerConnection others in Connections)
-            {
-                try
-                {
+        public void SendToOthers(Message toSend) {
+            var toBeRemoved = new List<ServerConnection>();
+            foreach (var others in Connections)
+                try {
                     others.SendMessage(toSend);
                 }
-                catch (Exception)
-                {
-                    ToBeRemoved.Add(others);
+                catch (Exception) {
+                    toBeRemoved.Add(others);
                 }
-            }
-            foreach (ServerConnection DeadConnection in ToBeRemoved)
-            {
-                DeadConnection.Close();
-                Connections.Remove(DeadConnection);
+
+            foreach (var deadConnection in toBeRemoved) {
+                deadConnection.Close();
+                Connections.Remove(deadConnection);
             }
         }
 
-        internal void HandleCommand(Message receivedMessage)
-        {
+        internal void HandleCommand(Message receivedMessage) {
             if (receivedMessage.Content.ToLower().Contains("/kill"))
                 DestroyServer();
-            if (receivedMessage.Content.ToLower().Contains("/msg"))
-            {
-                String msg = receivedMessage.Content.Substring(5);
-                if (String.IsNullOrEmpty(msg))
+            if (receivedMessage.Content.ToLower().Contains("/msg")) {
+                var msg = receivedMessage.Content.Substring(5);
+                if (string.IsNullOrEmpty(msg))
                     return;
-                Message m = new Message(msg, false, "Server");
+                var m = new Message(msg, false, "Server");
                 SendToOthers(m);
             }
         }
 
-        public void StartNullClearerThread()
-        {
+        public void StartNullClearerThread() {
             NullClearerThread.Start();
         }
 
-        public void StopNullClearerThread()
-        {
+        public void StopNullClearerThread() {
             NullClearerThread.Abort();
         }
 
-        public void EndConnection(ServerConnection deadConnection)
-        {
-            Connections.Remove(deadConnection);
-
-        }
-
-        public ServerSocket(int port, String pw)
-        {
-            this.pw = pw;
-            NullClearerThread = new Thread(ClearNullThreads);
-            Connections = new List<ServerConnection>();
-            ConnectedClients = 0;
-            InitSocket(GetLocalIPAddress(), port);
-            RemoteIp = RemoteEp.Address.ToString();
-        }
-
-        public static string GetLocalIPAddress()
-        {
-            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (IPAddress ip in host.AddressList)
-            {
+        public static string GetLocalIpAddress() {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
                     return ip.ToString();
-                }
-            }
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
         /// <summary>
-        /// Beendet den Server
+        ///     Beendet den Server
         /// </summary>
-        public void DestroyServer()
-        {
-            Message endingMessage = new Message("/endConnection", true, "Server");
+        public void DestroyServer() {
+            var endingMessage = new Message("/endConnection", true, "Server");
             SendToOthers(endingMessage);
             ContinueAccepting = false;
             Socket.Close();
-            foreach (ServerConnection c in Connections)
-            {
+            foreach (var c in Connections) {
                 c.Close();
                 c.StopThread();
             }
-            isRunning = false;
+
+            IsRunning = false;
         }
 
-        private void InitSocket(string ipAdressString, int port)
-        {
+        private void InitSocket(string ipAdressString, int port) {
             Socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Logger.Debug("Init Server on " + ipAdressString + ":" + port);
             IpAddress = IPAddress.Parse(ipAdressString);
@@ -133,36 +106,24 @@ namespace NetChat.Server.Console
             Socket.Bind(RemoteEp);
         }
 
-        public void StartListening()
-        {
+        public void StartListening() {
             Socket.Listen(25);
             AccepterThread = new Thread(ConnectionAccepter);
             AccepterThread.Start();
         }
 
-        public void StopListening()
-        {
-            throw new NotImplementedException("Die 'Thread.Abort()'-Methode hängt sich immer auf - Nicht benutzen ^w^ ▄︻̷┻̿═━一😉 ☠ ☭");
-            AccepterThread.Abort();
-        }
-
-        private void ConnectionAccepter()
-        {
+        private void ConnectionAccepter() {
             while (ContinueAccepting)
-            {
-                try
-                {
-                    Socket worksocket = Socket.Accept();
-                    ServerConnection connection = new ServerConnection(worksocket, this, pw);
+                try {
+                    var worksocket = Socket.Accept();
+                    var connection = new ServerConnection(worksocket, this, _pw);
                     System.Console.WriteLine($"Neue Connection: {RemoteIp}");
                     Connections.Add(connection);
                     ConnectedClients++;
                 }
-                catch (SocketException)
-                {
+                catch (SocketException) {
                     ContinueAccepting = false;
                 }
-            }
         }
     }
 }

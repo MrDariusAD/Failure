@@ -1,23 +1,22 @@
-﻿using NetChat.Client.Core;
-using NetChat.Server.Console;
-using System;
+﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using NetChat.Client.Core;
+using NetChat.Server.Console;
+using Message = NetChat.Client.Core.Message;
 using Tulpep.NotificationWindow;
 
-namespace NetChat.Front
-{
+namespace NetChat.Front {
     public partial class MainWindow : Form
     {
         private NetChatServer _server;
         private ClientConnection _connection;
-        private Thread ChatUpdater;
-        private bool KeepUpdating = true;
-        private bool stillSending;
-
+        private Thread _chatUpdater;
+        private bool _keepUpdating = true;
+        private bool _stillSending;
+        
         #region Konstructor
         public MainWindow()
         {
@@ -27,23 +26,23 @@ namespace NetChat.Front
         #region Events
         private void MainWindow_Activated(object sender, EventArgs e)
         {
-            this.ChatTextBox.Focus();
+            ChatTextBox.Focus();
         }
 
         private void MainWindow_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Right) return;
-            ContextMenu cm = new ContextMenu();
-            cm.MenuItems.Add("Optionen", new EventHandler(Options));
+            var cm = new ContextMenu();
+            cm.MenuItems.Add("Optionen", Options);
             if (IsConnectionDead())
-                cm.MenuItems.Add("Verbindung herstellen", new EventHandler(InitConnection));
+                cm.MenuItems.Add("Verbindung herstellen", InitConnection);
             else
-                cm.MenuItems.Add("Verbindung trennen", new EventHandler(DestroyConnection));
-            if (_server == null || !_server.isRunning())
-                cm.MenuItems.Add("Server erstellen", new EventHandler(InitServer));
+                cm.MenuItems.Add("Verbindung trennen", DestroyConnection);
+            if (_server == null || !_server.IsRunning())
+                cm.MenuItems.Add("Server erstellen", InitServer);
             else
-                cm.MenuItems.Add("Server beenden", new EventHandler(EndServer));
-            cm.Show(this, new System.Drawing.Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
+                cm.MenuItems.Add("Server beenden", EndServer);
+            cm.Show(this, new Point(e.X + ((Control)sender).Left + 20, e.Y + ((Control)sender).Top + 30));
         }
 
         private void EndServer(object sender, EventArgs e)
@@ -53,7 +52,7 @@ namespace NetChat.Front
 
         private void DestroyConnection(object sender, EventArgs e)
         {
-            KeepUpdating = false;
+            _keepUpdating = false;
             _connection.Destroy();
             _connection = null;
         }
@@ -61,9 +60,9 @@ namespace NetChat.Front
         private void InitServer(object sender, EventArgs e)
         {
             ShowMessage("INFO", "Der Server wird gestartet");
-            _server = new NetChatServer(GlobalVariable.PORT, GlobalVariable.PW);
+            _server = new NetChatServer(GlobalVariable.Port, GlobalVariable.Pw);
             _server.StartServer();
-            ShowMessage("INFO", "Der Server wurde gestartet - IP: " + GlobalVariable.IP + ":" + GlobalVariable.PORT);
+            ShowMessage("INFO", "Der Server wurde gestartet - IP: " + GlobalVariable.Ip + ":" + GlobalVariable.Port);
         }
 
         private void ChatTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -79,7 +78,7 @@ namespace NetChat.Front
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             ClientConnection.ContinueWaiting = false;
-            KeepUpdating = false;
+            _keepUpdating = false;
             GlobalVariable.SafeToTemp();
             if (_server != null)
                 DestroyServer();
@@ -103,36 +102,34 @@ namespace NetChat.Front
 
         private void Options(object sender, EventArgs e)
         {
-            Optionen o = new Optionen();
+            var o = new Optionen();
             o.ShowDialog();
         }
 
         private void InitConnection(object sender, EventArgs e)
         {
-            ShowMessage("INFO", $"Verbinde zu {GlobalVariable.IP}:{GlobalVariable.PORT} - With the Username: {GlobalVariable.USERNAME}");
-            _connection = new ClientConnection(GlobalVariable.IP, GlobalVariable.PORT, GlobalVariable.USERNAME, GlobalVariable.PW);
-            if (_connection.SocketIsNull())
-            {
-                _connection = null;
-                return;
-            }
-            if (_connection.IsInit())
-            {
-                ChatUpdater = new Thread(Updater);
-                ChatUpdater.Start();
+            ShowMessage("INFO", $"Verbinde zu {GlobalVariable.Ip}:{GlobalVariable.Port} - With the Username: {GlobalVariable.Username}");
+            _connection = new ClientConnection(GlobalVariable.Ip, GlobalVariable.Port, GlobalVariable.Username, GlobalVariable.Pw);
+            if (!_connection.SocketIsNull()) {
+                if (!_connection.IsInit()) return;
+                _chatUpdater = new Thread(Updater);
+                _chatUpdater.Start();
                 ShowMessage("INFO", "Eine Verbindung wurde hergestellt");
+            }
+            else {
+                _connection = null;
             }
         }
         #endregion
         #region Methoden
-        private bool IsCommand(String text)
+        private bool IsCommand(string text)
         {
             if (text[0] == '/')
                 return true;
             return false;
         }
 
-        public void ShowMessage(String user, String msg)
+        public void ShowMessage(string user, string msg)
         {
             Notifiy(user, msg);
             Logger.Info($"[{user}] {msg}");
@@ -153,8 +150,8 @@ namespace NetChat.Front
 
         public void ResizeWindow()
         {
-            int x = this.Width,
-               y = this.Height;
+            int x = Width,
+               y = Height;
             OuterBox.Width = x - 60;
             OuterBox.Height = y - 80;
             OuterBox.Top = 22;
@@ -184,16 +181,16 @@ namespace NetChat.Front
 
         private void Updater()
         {
-            KeepUpdating = true;
-            while (KeepUpdating && !IsConnectionDead())
+            _keepUpdating = true;
+            while (_keepUpdating && !IsConnectionDead())
             {
                 Thread.CurrentThread.Join(20);
                 if (_connection == null)
                     break;
-                foreach (Client.Core.Message m in _connection?.RecievedMessages.Where(x => x != null).ToList())
+                foreach (Message m in _connection?.RecievedMessages.Where(x => x != null).ToList())
                 {
-                    delUpdateListBox delUpdate = new delUpdateListBox(UpdateListBox);
-                    this.Chat.BeginInvoke(delUpdate, new String[] { m.Username, m.Content });
+                    delUpdateListBox delUpdate = UpdateListBox;
+                    Chat.BeginInvoke(delUpdate, m.Username, m.Content);
                 }
                 _connection?.RecievedMessages.Clear();
             }
@@ -216,14 +213,14 @@ namespace NetChat.Front
 
             if (_connection == null)
             {
-                MessageBox.Show("Bitte zuerst Verbindung herstellen", "Keine Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(@"Bitte zuerst Verbindung herstellen", @"Keine Verbindung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (stillSending)
+            if (_stillSending)
                 return;
-            stillSending = true;
+            _stillSending = true;
             ChatTextBox.Clear();
-            Client.Core.Message m = new Client.Core.Message(text, IsCommand(text), GlobalVariable.USERNAME);
+            var m = new Message(text, IsCommand(text), GlobalVariable.Username);
             if (!_connection.SendNudes(m))
             {
                 if (!_connection.IsInit())
@@ -231,7 +228,7 @@ namespace NetChat.Front
                 _connection = null;
                 ShowMessage("INFO", "Der Server ist nicht mehr erreichbar. Die Verbindung wurde beendet");
             }
-            stillSending = false;
+            _stillSending = false;
         }
 
         private bool TryHandleLocal(string text)
@@ -246,7 +243,7 @@ namespace NetChat.Front
                     DoBlyat();
                     break;
                 case "/help":
-                    ShowMessage(GlobalVariable.USERNAME, "/help");
+                    ShowMessage(GlobalVariable.Username, "/help");
                     ShowMessage("HELP", "/clear - Löscht alle Nachrichten");
                     ShowMessage("HELP", "/kill - Beendet den Server");
                     ShowMessage("HELP", "/msg - Schickt eine Nachricht seitens des Servers");
@@ -273,20 +270,20 @@ namespace NetChat.Front
 
         private void DoBlyat()
         {
-            Senden.Text = "сука блять";
-            this.Text = "Йíэт Chaт";
-            this.OuterBox.BackColor = Color.Transparent;
+            Senden.Text = @"сука блять";
+            Text = @"Йíэт Chaт";
+            OuterBox.BackColor = Color.Transparent;
             try
             {
-                Console.WriteLine("DOING BLYAT! CYKA");
+                Console.WriteLine(@"DOING BLYAT! CYKA");
                 Image img = Image.FromFile("flag.png");
                 BackgroundImage = img;
                 //OuterBox.BackgroundImage = img;
                 BackColor = Color.Black;
-                Console.WriteLine("DID BLYAT! CYKA");
+                Console.WriteLine(@"DID BLYAT! CYKA");
             }
-            catch (Exception)
-            {
+            catch (Exception) {
+                // ignored
             }
         }
         #endregion

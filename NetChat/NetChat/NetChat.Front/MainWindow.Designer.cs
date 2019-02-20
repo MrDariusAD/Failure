@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace NetChat.Front {
+﻿namespace NetChat.Front {
     partial class MainWindow
     {
 

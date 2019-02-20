@@ -1,10 +1,9 @@
-﻿using System;
-using NetChat.Client.Core;
+﻿using NetChat.Client.Core;
 using NetChat.Server.Console;
+using System;
 using Xunit;
 
-namespace Testing
-{
+namespace Testing {
     public class TestFullConnection
     {
 
@@ -17,13 +16,12 @@ namespace Testing
         [Fact]
         public void TestConnection()
         {
-            ServerSocket netChatServerSocket = new ServerSocket(4308, "passwort");
-            ClientConnection netChatConnection;
+            var netChatServerSocket = new ServerSocket(4308, "passwort");
             netChatServerSocket.StartListening();
             netChatServerSocket.StartNullClearerThread();
-            netChatConnection = new ClientConnection(ServerSocket.GetLocalIPAddress(), 4308, "I3lackRacer", "passwort");
+            var netChatConnection = new ClientConnection(ServerSocket.GetLocalIpAddress(), 4308, "I3lackRacer", "passwort");
 
-            Message message = new Message("Test", false, "I3lackRacer");
+            var message = new Message("Test", false, "I3lackRacer");
             netChatConnection.SendNudes(message);
             while (netChatConnection.RecievedMessages.Count == 0);
             Console.WriteLine(netChatConnection.RecievedMessages.ToString());

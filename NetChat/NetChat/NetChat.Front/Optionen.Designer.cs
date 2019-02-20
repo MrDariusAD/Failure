@@ -35,7 +35,7 @@
             this.pwTextBox = new System.Windows.Forms.TextBox();
             this.IPTextBox = new System.Windows.Forms.TextBox();
             this.PortTextBox = new System.Windows.Forms.TextBox();
-            SafeInfo = new System.Windows.Forms.Label();
+            this.SafeInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // UserName
@@ -88,7 +88,7 @@
             this.pwTextBox.Name = "pwTextBox";
             this.pwTextBox.Size = new System.Drawing.Size(150, 20);
             this.pwTextBox.TabIndex = 7;
-            this.pwTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pwTextBox_KeyDown);
+            this.pwTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PwTextBox_KeyDown);
             // 
             // IPTextBox
             // 
@@ -110,21 +110,21 @@
             // 
             // SafeInfo
             // 
-            SafeInfo.AutoSize = true;
-            SafeInfo.ForeColor = System.Drawing.Color.LimeGreen;
-            SafeInfo.Location = new System.Drawing.Point(87, 173);
-            SafeInfo.Name = "SafeInfo";
-            SafeInfo.Size = new System.Drawing.Size(195, 13);
-            SafeInfo.TabIndex = 10;
-            SafeInfo.Text = "OPTIONEN WURDEN GESPEICHERT";
-            SafeInfo.Visible = false;
+            this.SafeInfo.AutoSize = true;
+            this.SafeInfo.ForeColor = System.Drawing.Color.LimeGreen;
+            this.SafeInfo.Location = new System.Drawing.Point(55, 179);
+            this.SafeInfo.Name = "SafeInfo";
+            this.SafeInfo.Size = new System.Drawing.Size(195, 13);
+            this.SafeInfo.TabIndex = 10;
+            this.SafeInfo.Text = "OPTIONEN WURDEN GESPEICHERT";
+            this.SafeInfo.Visible = false;
             // 
             // Optionen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(294, 201);
-            this.Controls.Add(SafeInfo);
+            this.Controls.Add(this.SafeInfo);
             this.Controls.Add(this.PortTextBox);
             this.Controls.Add(this.IPTextBox);
             this.Controls.Add(this.pwTextBox);
@@ -152,6 +152,6 @@
         private System.Windows.Forms.TextBox pwTextBox;
         private System.Windows.Forms.TextBox IPTextBox;
         private System.Windows.Forms.TextBox PortTextBox;
-        public static System.Windows.Forms.Label SafeInfo;
+        public System.Windows.Forms.Label SafeInfo;
     }
 }
