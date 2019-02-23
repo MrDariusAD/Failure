@@ -13,6 +13,13 @@ namespace NetChat.Server.Console
         private readonly string _pw;
         public bool ContinueAccepting = true;
         public bool IsRunning = true;
+        public Socket Socket { get; set; }
+        public IPEndPoint RemoteEp { get; set; }
+        public IPAddress IpAddress { get; set; }
+        public string RemoteIp { get; set; }
+        public int ConnectedClients { get; set; }
+        public Thread AccepterThread { get; set; }
+        public List<ServerConnection> Connections { get; set; }
 
         public ServerSocket(int port, string pw) {
             _pw = pw;
@@ -23,13 +30,15 @@ namespace NetChat.Server.Console
             RemoteIp = RemoteEp.Address.ToString();
         }
 
-        public Socket Socket { get; set; }
-        public IPEndPoint RemoteEp { get; set; }
-        public IPAddress IpAddress { get; set; }
-        public string RemoteIp { get; set; }
-        public int ConnectedClients { get; set; }
-        public Thread AccepterThread { get; set; }
-        public List<ServerConnection> Connections { get; set; }
+        public ServerConnection GetServerConnectionByName(string username)
+        {
+            foreach(ServerConnection connection in Connections)
+            {
+                if (connection.Username == username)
+                    return connection;
+            }
+            return null;
+        }
 
         public Thread NullClearerThread { get; set; }
 
@@ -57,6 +66,17 @@ namespace NetChat.Server.Console
         internal void HandleCommand(Message receivedMessage) {
             if (receivedMessage.Content.ToLower().Contains("/kill"))
                 DestroyServer();
+            if (receivedMessage.Content.ToLower().Contains("/list"))
+            {
+                string userlist = "Users: Server ";
+                foreach(ServerConnection connection in Connections)
+                {
+                    userlist += connection.Username + " ";
+                }
+                Message message = new Message(userlist, false, "Server");
+                ServerConnection toBeSendConnection = GetServerConnectionByName(receivedMessage.Username);
+                toBeSendConnection?.SendMessage(message);
+            } 
             if (receivedMessage.Content.ToLower().Contains("/msg")) {
                 var msg = receivedMessage.Content.Substring(5);
                 if (string.IsNullOrEmpty(msg))

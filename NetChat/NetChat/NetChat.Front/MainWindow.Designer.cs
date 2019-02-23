@@ -92,6 +92,7 @@
             this.Name = "MainWindow";
             this.Text = "NetChat";
             this.Activated += new System.EventHandler(this.MainWindow_Activated);
+            this.Deactivate += new System.EventHandler(this.MainWindow_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);

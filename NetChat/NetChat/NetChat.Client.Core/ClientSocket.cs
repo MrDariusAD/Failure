@@ -59,7 +59,9 @@ namespace NetChat.Client.Core {
 
         public void DestroyConnection()
         {
+            Console.WriteLine(1);
             Socket.Close();
+            Console.WriteLine(2);
             IsInit = false;
         }
     }

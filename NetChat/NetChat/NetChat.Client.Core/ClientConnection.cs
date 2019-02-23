@@ -60,7 +60,7 @@ namespace NetChat.Client.Core {
             if (_netSocket != null)
             {
                 _netSocket.DestroyConnection();
-                while (_netSocket.IsInit) ;
+                while (_netSocket != null && _netSocket.IsInit);
                 _netSocket = null;
             }
         }
@@ -91,6 +91,7 @@ namespace NetChat.Client.Core {
                     var size = _netSocket.Socket.Receive(readBytes);
                     var received = Encoding.UTF8.GetString(readBytes);
                     Console.WriteLine("Client - Received Raw: " + received);
+                    received = received.Replace("\n", "");
                     var receivedMessage = new Message(received);
                     if (receivedMessage.IsCommand)
                         HandleCommand(receivedMessage);

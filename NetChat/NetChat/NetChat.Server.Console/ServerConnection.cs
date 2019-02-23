@@ -25,7 +25,7 @@ namespace NetChat.Server.Console
         private ServerSocket ServerSocket { get; }
         public Socket Socket { get; set; }
         public Thread Thread { get; set; }
-        private string Username { get; set; }
+        public string Username { get; set; }
         private List<Message> RecievedMessages { get; }
 
         public void ProcessMessages() {
@@ -49,9 +49,12 @@ namespace NetChat.Server.Console
                     // Für den Fall das während der Verarbeitungszeit 2 Nachrichten reingekommen sind
                     var proerties = received.Split("#\\#".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                     foreach (var m in proerties)
+                    {
                         // Es wird gebrüft ob der string was enhällt weil das letzte Feld immer leer sein wird
+                        m = m.Replace("\n", "");
                         if (m.Length > 1)
                             SingleMessage(m);
+                    }
                 }catch(Exception e)
                 {
                     Logger.Error(e);

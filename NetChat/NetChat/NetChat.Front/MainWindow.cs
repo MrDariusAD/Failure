@@ -15,7 +15,8 @@ namespace NetChat.Front {
         private Thread _chatUpdater;
         private bool _keepUpdating = true;
         private bool _stillSending;
-        
+        private bool fokus = true;
+
         #region Konstructor
         public MainWindow()
         {
@@ -25,6 +26,8 @@ namespace NetChat.Front {
         #region Events
         private void MainWindow_Activated(object sender, EventArgs e)
         {
+            Console.WriteLine("Fokus: True");
+            fokus = true;
             ChatTextBox.Focus();
         }
 
@@ -255,7 +258,7 @@ namespace NetChat.Front {
 
         private void Notifiy(String sender, String msg)
         {
-            if (!this.Focused)
+            if (!fokus)
             {
                 NotifyIcon notifyIcon = new NotifyIcon();
                 notifyIcon.Icon = SystemIcons.Application;
@@ -286,5 +289,11 @@ namespace NetChat.Front {
             }
         }
         #endregion
+
+        private void MainWindow_Deactivate(object sender, EventArgs e)
+        {
+            Console.WriteLine("Fokus: False");
+            fokus = false;
+        }
     }
 }
