@@ -1,0 +1,52 @@
+@startuml
+
+actor u as "User"
+participant fe as "Front End"
+participant s as "Server (WebAPI)"
+participant dbapi as "Datenbank API"
+database db as "Datenbank"
+
+activate db
+activate u
+u -> fe: "Klicke erstelle Plan Button"
+activate fe
+fe -> s: "WebApi Request: erstelle Plan"
+activate s
+s -> dbapi: "Hole Daten der Personen"
+activate dbapi
+dbapi -> db: "Lade Liste der Personen"
+dbapi <-- db: "return Liste der Personen"
+s <-- dbapi: "return Liste der Personen"
+deactivate dbapi
+loop "Für jeden Tag"
+loop "Für jede Person"
+alt "Person kann an dem Tag"
+s -> s: Weise Person dem Tag zu
+else "Person kann nicht"
+s -> s: Nächste Person
+end
+end
+s -> s: Füge Tag dem Plan hinzu
+end
+activate dbapi
+s -> dbapi: "Speichere Plan
+dbapi -> db: "Speichere Plan"
+dbapi <- db: "Plan gespeichert"
+s <-- dbapi: "Plan gespeichert"
+deactivate dbapi
+alt "Plan erfolgreich erstellt"
+fe <-- s: "Status Code: 200 (OK)"
+else "Plan konnte nicht erstellt werden"
+fe <-- s: "Status Code: 500 (Internal Server Error)"
+end
+deactivate s
+alt "Status Code: 200 (OK)"
+u <-- fe: "Plan wurde erfolgreich erstellt"
+else "Status Code: 500 (Internal Server Error)"
+u <-- fe: "Plan konnte nicht erstellt werden"
+end
+deactivate fe
+deactivate u
+
+
+@enduml

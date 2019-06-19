@@ -1,0 +1,238 @@
+.gitattributes
+.gitignore
+Der COOLE Tim/schule/Schule/Cross Memes/_buildpath.xml
+Der COOLE Tim/schule/Schule/Cross Memes/_project.xml
+Der COOLE Tim/schule/Schule/Cross Memes/account.php
+Der COOLE Tim/schule/Schule/Cross Memes/content.php
+Der COOLE Tim/schule/Schule/Cross Memes/cookie_test.php
+Der COOLE Tim/schule/Schule/Cross Memes/delect_formular.php
+Der COOLE Tim/schule/Schule/Cross Memes/impressum.php
+Der COOLE Tim/schule/Schule/Cross Memes/index.php
+Der COOLE Tim/schule/Schule/Cross Memes/login.php
+Der COOLE Tim/schule/Schule/Cross Memes/login_formular.php
+Der COOLE Tim/schule/Schule/Cross Memes/meme (1).sql
+Der COOLE Tim/schule/Schule/Cross Memes/phpmyadmin (1).sql
+Der COOLE Tim/schule/Schule/Cross Memes/phpmyadmin (2).sql
+Der COOLE Tim/schule/Schule/Cross Memes/phpmyadmin (3).sql
+Der COOLE Tim/schule/Schule/Cross Memes/search.php
+Der COOLE Tim/schule/Schule/Cross Memes/source/aZ3M9Rn_460sv.mp4
+Der COOLE Tim/schule/Schule/Cross Memes/source/account.css
+Der COOLE Tim/schule/Schule/Cross Memes/source/content.css
+Der COOLE Tim/schule/Schule/Cross Memes/source/dump.png
+Der COOLE Tim/schule/Schule/Cross Memes/source/hot.png
+Der COOLE Tim/schule/Schule/Cross Memes/source/index.css
+Der COOLE Tim/schule/Schule/Cross Memes/source/key.png
+Der COOLE Tim/schule/Schule/Cross Memes/source/login.css
+Der COOLE Tim/schule/Schule/Cross Memes/source/person.png
+Der COOLE Tim/schule/Schule/Cross Memes/source/rmd.png
+Der COOLE Tim/schule/Schule/Cross Memes/source/search.css
+Der COOLE Tim/schule/Schule/Cross Memes/source/search.png
+Der COOLE Tim/schule/Schule/Cross Memes/source/small.png
+Der COOLE Tim/schule/Schule/Cross Memes/source/upload.css
+Der COOLE Tim/schule/Schule/Cross Memes/test.php
+Der COOLE Tim/schule/Schule/Cross Memes/upload.php
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/2018-09-14-bbk-strukturierte-modellierung.png
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/AE-MS-LJ-1.1 Struktogramme.docx
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/Lernschrittplaner.docx
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/Namen_Eintragen.nsd
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/Namen_Eintragen.png
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/PseudoCode.png
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/PseudoCode2.png
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/Pseudocode.txt
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/checkliste-strukturierte-modellierun1g.ods
+Der COOLE Tim/schule/Schule/LF 6 - Struckturierte Modelierung/checkliste-strukturierte-modellierung.ods
+Der COOLE Tim/schule/Schule/php/_buildpath.xml
+Der COOLE Tim/schule/Schule/php/_project.xml
+Der COOLE Tim/schule/Schule/php/applications.html
+Der COOLE Tim/schule/Schule/php/bitnami.css
+Der COOLE Tim/schule/Schule/php/cookie_test.php
+Der COOLE Tim/schule/Schule/php/favicon.ico
+Der COOLE Tim/schule/Schule/php/formular.html
+Der COOLE Tim/schule/Schule/php/formulare.php
+Der COOLE Tim/schule/Schule/php/index.php
+Der COOLE Tim/schule/Schule/php/login.php
+Der COOLE Tim/schule/Schule/php/login_formular.php
+Der COOLE Tim/schule/Schule/php/not_index.php
+Der COOLE Tim/schule/Schule/php/source/index.css
+Der COOLE Tim/schule/Schule/php/source/login.css
+Der COOLE Tim/schule/Schule/php/source/upload.css
+Der COOLE Tim/schule/Schule/php/test.php
+Der COOLE Tim/schule/Schule/php/upload.php
+Der COOLE Tim/schule/Schule/php/uploads/a.jpg
+Der COOLE Tim/schule/Schule/php/uploads/b.jpg
+Der COOLE Tim/schule/Schule/php/uploads/c.jpg
+NetChat/NetChat.Front.sln
+NetChat/NetChat.Front/NetChat.Front.csproj
+NetChat/NetChat/ConsoleApp1/App.config
+NetChat/NetChat/ConsoleApp1/ConsoleApp1.csproj
+NetChat/NetChat/ConsoleApp1/Program.cs
+NetChat/NetChat/ConsoleApp1/Properties/AssemblyInfo.cs
+NetChat/NetChat/Graphicloads-100-Flat-2-Chat-2.ico
+NetChat/NetChat/Logging/Logger.cs
+NetChat/NetChat/Logging/Logging.csproj
+NetChat/NetChat/Logging/Properties/AssemblyInfo.cs
+NetChat/NetChat/NetChat.Client.Core/Message.cs
+NetChat/NetChat/NetChat.Client.Core/NetChat.Client.Core.csproj
+NetChat/NetChat/NetChat.Client.Core/NetChat.Client.Core.v3.ncrunchproject
+NetChat/NetChat/NetChat.Client.Core/NetChatConnection.cs
+NetChat/NetChat/NetChat.Client.Core/NetChatSocket.cs
+NetChat/NetChat/NetChat.Client.Core/Properties/AssemblyInfo.cs
+NetChat/NetChat/NetChat.Client.Core/packages.config
+NetChat/NetChat/NetChat.Front/App.config
+NetChat/NetChat/NetChat.Front/GlobalVariable.cs
+NetChat/NetChat/NetChat.Front/MainWindow.Designer.cs
+NetChat/NetChat/NetChat.Front/MainWindow.cs
+NetChat/NetChat/NetChat.Front/MainWindow.resx
+NetChat/NetChat/NetChat.Front/NetChat.Front.csproj
+NetChat/NetChat/NetChat.Front/NetChat.Front.v3.ncrunchproject
+NetChat/NetChat/NetChat.Front/Optionen.Designer.cs
+NetChat/NetChat/NetChat.Front/Optionen.cs
+NetChat/NetChat/NetChat.Front/Optionen.resx
+NetChat/NetChat/NetChat.Front/Program.cs
+NetChat/NetChat/NetChat.Front/Properties/AssemblyInfo.cs
+NetChat/NetChat/NetChat.Front/Properties/Resources.Designer.cs
+NetChat/NetChat/NetChat.Front/Properties/Resources.resx
+NetChat/NetChat/NetChat.Front/Properties/Settings.Designer.cs
+NetChat/NetChat/NetChat.Front/Properties/Settings.settings
+NetChat/NetChat/NetChat.Front/packages.config
+NetChat/NetChat/NetChat.Server.Console/App.config
+NetChat/NetChat/NetChat.Server.Console/Connection.cs
+NetChat/NetChat/NetChat.Server.Console/NetChat.Server.Console.csproj
+NetChat/NetChat/NetChat.Server.Console/NetChat.Server.Console.v3.ncrunchproject
+NetChat/NetChat/NetChat.Server.Console/NetChatServer.cs
+NetChat/NetChat/NetChat.Server.Console/NetChatServerSocket.cs
+NetChat/NetChat/NetChat.Server.Console/Program.cs
+NetChat/NetChat/NetChat.Server.Console/Properties/AssemblyInfo.cs
+NetChat/NetChat/NetChat.Server.Console/packages.config
+NetChat/NetChat/NetChat.sln
+NetChat/NetChat/NetChat.v3.ncrunchsolution
+NetChat/NetChat/Testing/MessageTest.cs
+NetChat/NetChat/Testing/Properties/AssemblyInfo.cs
+NetChat/NetChat/Testing/TestFullConnection.cs
+NetChat/NetChat/Testing/Testing.csproj
+NetChat/NetChat/Testing/packages.config
+NetChat/NetChat/russian.ico
+README.md
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/.editorconfig"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/.gitignore"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/README.md"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/angular.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/e2e/protractor.conf.js"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/e2e/src/app.e2e-spec.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/e2e/src/app.po.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/e2e/tsconfig.e2e.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/package-lock.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/package.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/app.component.css"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/app.component.html"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/app.component.spec.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/app.component.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/app.module.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/hero.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/heroes/heroes.component.css"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/heroes/heroes.component.html"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/heroes/heroes.component.spec.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/app/heroes/heroes.component.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/assets/.gitkeep"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/browserslist"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/environments/environment.prod.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/environments/environment.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/favicon.ico"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/index.html"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/karma.conf.js"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/main.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/polyfills.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/styles.css"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/test.ts"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/tsconfig.app.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/tsconfig.spec.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/src/tslint.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/tsconfig.json"
+"Salih/Arbeit\303\234bungen/AngularTourOfHeroes/angular-tour-of-heroes/tslint.json"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1.sln"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1/Class1.cs"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1/Properties/AssemblyInfo.cs"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1/Reiseunternehmen.csproj"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1/Reiseunternehmen.sln"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1/Reiseunternehmen.v3.ncrunchproject"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1/app.config"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ClassLibrary1/packages.config"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ReiseunternehmenTests/Properties/AssemblyInfo.cs"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ReiseunternehmenTests/RavenApiTests.cs"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ReiseunternehmenTests/ReiseunternehmenTests.csproj"
+"Salih/Arbeit\303\234bungen/ClassLibrary1/ReiseunternehmenTests/packages.config"
+"Salih/Arbeit\303\234bungen/ConsoleApp1/ConsoleApp1.sln"
+"Salih/Arbeit\303\234bungen/ConsoleApp1/ConsoleApp1/App.config"
+"Salih/Arbeit\303\234bungen/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj"
+"Salih/Arbeit\303\234bungen/ConsoleApp1/ConsoleApp1/Program.cs"
+"Salih/Arbeit\303\234bungen/ConsoleApp1/ConsoleApp1/Properties/AssemblyInfo.cs"
+"Salih/Arbeit\303\234bungen/ConsoleApplication1/ConsoleApplication1.sln"
+"Salih/Arbeit\303\234bungen/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.cpp"
+"Salih/Arbeit\303\234bungen/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.vcxproj"
+"Salih/Arbeit\303\234bungen/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.vcxproj.filters"
+"Salih/Arbeit\303\234bungen/ConsoleApplication1/ConsoleApplication1/stdafx.cpp"
+"Salih/Arbeit\303\234bungen/ConsoleApplication1/ConsoleApplication1/stdafx.h"
+"Salih/Arbeit\303\234bungen/ConsoleApplication1/ConsoleApplication1/targetver.h"
+"Salih/Arbeit\303\234bungen/ConsoleApplication2/ConsoleApplication2.sln"
+"Salih/Arbeit\303\234bungen/ConsoleApplication2/ConsoleApplication2/ClassDiagram.cd"
+"Salih/Arbeit\303\234bungen/ConsoleApplication2/ConsoleApplication2/ConsoleApplication2.cpp"
+"Salih/Arbeit\303\234bungen/ConsoleApplication2/ConsoleApplication2/ConsoleApplication2.vcxproj"
+"Salih/Arbeit\303\234bungen/ConsoleApplication2/ConsoleApplication2/ConsoleApplication2.vcxproj.filters"
+"Salih/Arbeit\303\234bungen/ConsoleApplication2/ConsoleApplication2/pch.cpp"
+"Salih/Arbeit\303\234bungen/ConsoleApplication2/ConsoleApplication2/pch.h"
+"Salih/Arbeit\303\234bungen/WpfApp1/.gitattributes"
+"Salih/Arbeit\303\234bungen/WpfApp1/.gitignore"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1.sln"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1.v3.ncrunchsolution"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Anmeldung.xaml"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Anmeldung.xaml.cs"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/App.config"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/App.xaml"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/App.xaml.cs"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Properties/AssemblyInfo.cs"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Properties/Resources.Designer.cs"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Properties/Resources.resx"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Properties/Settings.Designer.cs"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Properties/Settings.settings"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Start.xaml"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/Start.xaml.cs"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/WpfApp1.csproj"
+"Salih/Arbeit\303\234bungen/WpfApp1/WpfApp1/WpfApp1.v3.ncrunchproject"
+Salih/Wochen/3/Bilder/LagerManagementTool/Programmablaufplan/bestandsliste.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Programmablaufplan/einkauf.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Programmablaufplan/getListObject.png
+"Salih/Wochen/3/Bilder/LagerManagementTool/Programmablaufplan/hauptmen\303\274.png"
+Salih/Wochen/3/Bilder/LagerManagementTool/Programmablaufplan/is_number.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Programmablaufplan/main.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Programmablaufplan/verkauf.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Struktogramm/bestandsliste.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Struktogramm/einkauf.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Struktogramm/getListObject.png
+"Salih/Wochen/3/Bilder/LagerManagementTool/Struktogramm/hauptmen\303\274.png"
+Salih/Wochen/3/Bilder/LagerManagementTool/Struktogramm/main.png
+Salih/Wochen/3/Bilder/LagerManagementTool/Struktogramm/verkauf.png
+"Salih/Wochen/3/Bilder/Pharmazentralnummer Pr\303\274fer/Programmablaufplan/Main.png"
+"Salih/Wochen/3/Bilder/Pharmazentralnummer Pr\303\274fer/Programmablaufplan/hauptmen\303\274.png"
+"Salih/Wochen/3/Bilder/Pharmazentralnummer Pr\303\274fer/Programmablaufplan/nummerPruefen.png"
+"Salih/Wochen/3/Bilder/Pharmazentralnummer Pr\303\274fer/Struktogramm/hauptmen\303\274.png"
+"Salih/Wochen/3/Bilder/Pharmazentralnummer Pr\303\274fer/Struktogramm/main.png"
+"Salih/Wochen/3/Bilder/Pharmazentralnummer Pr\303\274fer/Struktogramm/nummerPruefen.png"
+Salih/Wochen/3/LagerManagement.sgf
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1.sln
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.cpp
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.h
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.vcxproj
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.vcxproj.filters
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/LagerObjekt.cpp
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/LagerObjekt.h
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/pch.cpp
+Salih/Wochen/3/LagerManagementTool/ConsoleApplication1/ConsoleApplication1/pch.h
+Salih/Wochen/3/LagerManagementTool_Pseudocode.cpp
+"Salih/Wochen/3/Pharmazentralnummer Pr\303\274fer.sgf"
+Salih/Wochen/3/Pharmazentralnummer/Pharmazentralnummer.sln
+Salih/Wochen/3/Pharmazentralnummer/Pharmazentralnummer/App.config
+Salih/Wochen/3/Pharmazentralnummer/Pharmazentralnummer/Pharmazentralnummer.csproj
+Salih/Wochen/3/Pharmazentralnummer/Pharmazentralnummer/Program.cs
+Salih/Wochen/3/Pharmazentralnummer/Pharmazentralnummer/Properties/AssemblyInfo.cs
+Salih/Wochen/3/PharmazentralnummerPseudocode.cs
+Salih/ravendb

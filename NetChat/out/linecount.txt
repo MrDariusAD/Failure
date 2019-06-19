@@ -1,0 +1,402 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2018-12-27 15:32:46
+count workspace : c:\Users\racer\Documents\GitHub\Failure\NetChat
+total files : 390
+total code lines : 99418
+total comment lines : 226
+total blank lines : 320
+
+listOfFiles, code is 0, comment is 0, blank is 0.
+NetChat.Front.sln, code is 25, comment is 0, blank is 0.
+NetChat.Front\NetChat.Front.csproj, code is 97, comment is 0, blank is 0.
+NetChat\.vs\NetChat\v15\.suo, it is a binary file.
+NetChat\.vs\NetChat\v15\Server\sqlite3\storage.ide, it is a binary file.
+NetChat\.vs\NetChat\v15\Server\sqlite3\storage.ide-shm, it is a binary file.
+NetChat\.vs\NetChat\v15\Server\sqlite3\storage.ide-wal, it is a binary file.
+NetChat\ConsoleApp1\App.config, code is 6, comment is 0, blank is 0.
+NetChat\ConsoleApp1\ConsoleApp1.csproj, code is 53, comment is 0, blank is 0.
+NetChat\ConsoleApp1\Program.cs, code is 11, comment is 0, blank is 1.
+NetChat\ConsoleApp1\Properties\AssemblyInfo.cs, code is 15, comment is 17, blank is 4.
+NetChat\Graphicloads-100-Flat-2-Chat-2.ico, it is a binary file.
+NetChat\Logging\bin\Debug\Logging.dll, it is a binary file.
+NetChat\Logging\bin\Debug\Logging.pdb, it is a binary file.
+NetChat\Logging\Logger.cs, code is 42, comment is 0, blank is 9.
+NetChat\Logging\Logging.csproj, code is 48, comment is 0, blank is 0.
+NetChat\Logging\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache, it is a binary file.
+NetChat\Logging\obj\Debug\Logging.csproj.CoreCompileInputs.cache, code is 1, comment is 0, blank is 0.
+NetChat\Logging\obj\Debug\Logging.csproj.FileListAbsolute.txt, code is 6, comment is 0, blank is 0.
+NetChat\Logging\obj\Debug\Logging.csprojAssemblyReference.cache, it is a binary file.
+NetChat\Logging\obj\Debug\Logging.dll, it is a binary file.
+NetChat\Logging\obj\Debug\Logging.pdb, it is a binary file.
+NetChat\Logging\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs, code is 0, comment is 0, blank is 0.
+NetChat\Logging\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs, code is 0, comment is 0, blank is 0.
+NetChat\Logging\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs, code is 0, comment is 0, blank is 0.
+NetChat\Logging\Properties\AssemblyInfo.cs, code is 15, comment is 17, blank is 4.
+NetChat\NetChat.Client.Core\bin\Debug\FluentAssertions.dll, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\FluentAssertions.pdb, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\FluentAssertions.xml, code is 5283, comment is 0, blank is 3.
+NetChat\NetChat.Client.Core\bin\Debug\Logging.dll, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\Logging.pdb, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\NetChat.Client.Core.dll, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\NetChat.Client.Core.pdb, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.abstractions.dll, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.assert.dll, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.assert.xml, code is 1504, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.core.dll, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.execution.desktop.dll, it is a binary file.
+NetChat\NetChat.Client.Core\bin\Debug\xunit.execution.desktop.xml, code is 2837, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\Message.cs, code is 27, comment is 0, blank is 5.
+NetChat\NetChat.Client.Core\NetChat.Client.Core.csproj, code is 89, comment is 1, blank is 0.
+NetChat\NetChat.Client.Core\NetChat.Client.Core.v3.ncrunchproject, code is 5, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\NetChatConnection.cs, code is 113, comment is 0, blank is 9.
+NetChat\NetChat.Client.Core\NetChatSocket.cs, code is 70, comment is 0, blank is 6.
+NetChat\NetChat.Client.Core\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache, it is a binary file.
+NetChat\NetChat.Client.Core\obj\Debug\NetChat.Client.Core.csproj.CopyComplete, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\obj\Debug\NetChat.Client.Core.csproj.CoreCompileInputs.cache, code is 1, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\obj\Debug\NetChat.Client.Core.csproj.FileListAbsolute.txt, code is 20, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\obj\Debug\NetChat.Client.Core.csprojAssemblyReference.cache, it is a binary file.
+NetChat\NetChat.Client.Core\obj\Debug\NetChat.Client.Core.dll, it is a binary file.
+NetChat\NetChat.Client.Core\obj\Debug\NetChat.Client.Core.pdb, it is a binary file.
+NetChat\NetChat.Client.Core\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\packages.config, code is 11, comment is 0, blank is 0.
+NetChat\NetChat.Client.Core\Properties\AssemblyInfo.cs, code is 14, comment is 17, blank is 4.
+NetChat\NetChat.Front\App.config, code is 6, comment is 0, blank is 0.
+NetChat\NetChat.Front\bin\Debug\flag.png, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\Logging.dll, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\Logging.pdb, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\NetChat.Client.Core.dll, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\NetChat.Client.Core.pdb, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\NetChat.Front.exe, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\NetChat.Front.exe.config, code is 6, comment is 0, blank is 0.
+NetChat\NetChat.Front\bin\Debug\NetChat.Front.pdb, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\NetChat.Server.Console.exe, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\NetChat.Server.Console.exe.config, code is 6, comment is 0, blank is 0.
+NetChat\NetChat.Front\bin\Debug\NetChat.Server.Console.pdb, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\xunit.abstractions.dll, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\NetChat.Front\bin\Debug\xunit.runner.visualstudio.testadapter.dll, it is a binary file.
+NetChat\NetChat.Front\GlobalVariable.cs, code is 34, comment is 0, blank is 4.
+NetChat\NetChat.Front\MainWindow.cs, code is 231, comment is 4, blank is 24.
+NetChat\NetChat.Front\MainWindow.Designer.cs, code is 74, comment is 26, blank is 7.
+NetChat\NetChat.Front\MainWindow.resx, code is 30, comment is 0, blank is 6.
+NetChat\NetChat.Front\NetChat.Front.csproj, code is 130, comment is 0, blank is 0.
+NetChat\NetChat.Front\NetChat.Front.v3.ncrunchproject, code is 8, comment is 0, blank is 0.
+NetChat\NetChat.Front\obj\Debug\DesignTimeResolveAssemblyReferences.cache, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.csproj.CopyComplete, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.csproj.CoreCompileInputs.cache, code is 1, comment is 0, blank is 0.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.csproj.FileListAbsolute.txt, code is 23, comment is 0, blank is 0.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.csproj.GenerateResource.cache, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.csprojAssemblyReference.cache, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.exe, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.MainWindow.resources, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.Optionen.resources, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.pdb, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\NetChat.Front.Properties.Resources.resources, it is a binary file.
+NetChat\NetChat.Front\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Front\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Front\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Front\obj\Debug\TempPE\Properties.Resources.Designer.cs.dll, it is a binary file.
+NetChat\NetChat.Front\Optionen.cs, code is 69, comment is 0, blank is 10.
+NetChat\NetChat.Front\Optionen.Designer.cs, code is 110, comment is 41, blank is 6.
+NetChat\NetChat.Front\Optionen.resx, code is 30, comment is 0, blank is 6.
+NetChat\NetChat.Front\packages.config, code is 5, comment is 0, blank is 0.
+NetChat\NetChat.Front\Program.cs, code is 22, comment is 3, blank is 1.
+NetChat\NetChat.Front\Properties\AssemblyInfo.cs, code is 14, comment is 17, blank is 4.
+NetChat\NetChat.Front\Properties\Resources.Designer.cs, code is 32, comment is 23, blank is 10.
+NetChat\NetChat.Front\Properties\Resources.resx, code is 30, comment is 0, blank is 6.
+NetChat\NetChat.Front\Properties\Settings.Designer.cs, code is 13, comment is 9, blank is 5.
+NetChat\NetChat.Front\Properties\Settings.settings, code is 7, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\App.config, code is 6, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\bin\Debug\Logging.dll, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\Logging.pdb, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\NetChat.Client.Core.dll, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\NetChat.Client.Core.pdb, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\NetChat.Server.Console.exe, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\NetChat.Server.Console.exe.config, code is 6, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\bin\Debug\NetChat.Server.Console.pdb, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.abstractions.dll, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.assert.dll, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.assert.xml, code is 1504, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.core.dll, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.execution.desktop.dll, it is a binary file.
+NetChat\NetChat.Server.Console\bin\Debug\xunit.execution.desktop.xml, code is 2837, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\Connection.cs, code is 137, comment is 4, blank is 13.
+NetChat\NetChat.Server.Console\NetChat.Server.Console.csproj, code is 92, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\NetChat.Server.Console.v3.ncrunchproject, code is 8, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\NetChatServer.cs, code is 18, comment is 0, blank is 6.
+NetChat\NetChat.Server.Console\NetChatServerSocket.cs, code is 146, comment is 3, blank is 18.
+NetChat\NetChat.Server.Console\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache, it is a binary file.
+NetChat\NetChat.Server.Console\obj\Debug\NetChat.Server.Console.csproj.CopyComplete, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\obj\Debug\NetChat.Server.Console.csproj.CoreCompileInputs.cache, code is 1, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\obj\Debug\NetChat.Server.Console.csproj.FileListAbsolute.txt, code is 20, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\obj\Debug\NetChat.Server.Console.csprojAssemblyReference.cache, it is a binary file.
+NetChat\NetChat.Server.Console\obj\Debug\NetChat.Server.Console.exe, it is a binary file.
+NetChat\NetChat.Server.Console\obj\Debug\NetChat.Server.Console.pdb, it is a binary file.
+NetChat\NetChat.Server.Console\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs, code is 0, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\packages.config, code is 10, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\Program.cs, code is 11, comment is 0, blank is 0.
+NetChat\NetChat.Server.Console\Properties\AssemblyInfo.cs, code is 14, comment is 17, blank is 4.
+NetChat\NetChat.sln, code is 73, comment is 0, blank is 0.
+NetChat\NetChat.v3.ncrunchsolution, code is 6, comment is 0, blank is 0.
+NetChat\packages\FluentAssertions.5.4.2\.signature.p7s, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\FluentAssertions.5.4.2.nupkg, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\net45\FluentAssertions.dll, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\net45\FluentAssertions.pdb, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\net45\FluentAssertions.xml, code is 5283, comment is 0, blank is 3.
+NetChat\packages\FluentAssertions.5.4.2\lib\net47\FluentAssertions.dll, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\net47\FluentAssertions.pdb, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\net47\FluentAssertions.xml, code is 5283, comment is 0, blank is 3.
+NetChat\packages\FluentAssertions.5.4.2\lib\netcoreapp2.0\FluentAssertions.dll, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netcoreapp2.0\FluentAssertions.pdb, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netcoreapp2.0\FluentAssertions.xml, code is 5283, comment is 0, blank is 3.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard1.3\FluentAssertions.dll, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard1.3\FluentAssertions.pdb, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard1.3\FluentAssertions.xml, code is 8176, comment is 0, blank is 7.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard1.6\FluentAssertions.dll, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard1.6\FluentAssertions.pdb, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard1.6\FluentAssertions.xml, code is 8176, comment is 0, blank is 7.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard2.0\FluentAssertions.dll, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard2.0\FluentAssertions.pdb, it is a binary file.
+NetChat\packages\FluentAssertions.5.4.2\lib\netstandard2.0\FluentAssertions.xml, code is 8428, comment is 0, blank is 7.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\.signature.p7s, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\_common\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\_common\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\_common\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\_common\xunit.runner.visualstudio.testadapter.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\net20\more.xunit.runner.visualstudio.props, code is 26, comment is 0, blank is 0.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\netcoreapp1.0\more.xunit.runner.visualstudio.props, code is 21, comment is 0, blank is 0.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\netcoreapp1.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.xml, code is 1626, comment is 0, blank is 0.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.deps.json, code is 64, comment is 0, blank is 0.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\uap10.0\more.xunit.runner.visualstudio.props, code is 21, comment is 0, blank is 0.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\uap10.0\more.xunit.runner.visualstudio.targets, code is 24, comment is 0, blank is 0.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\uap10.0\xunit.runner.reporters.netstandard11.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\uap10.0\xunit.runner.utility.netstandard11.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\uap10.0\xunit.runner.visualstudio.uwp.dll, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\build\uap10.0\xunit.runner.visualstudio.uwp.pri, it is a binary file.
+NetChat\packages\more.xunit.runner.visualstudio.2.3.1\more.xunit.runner.visualstudio.2.3.1.nupkg, it is a binary file.
+NetChat\packages\xunit.2.4.0\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.2.4.0\xunit.2.4.0.nupkg, it is a binary file.
+NetChat\packages\xunit.2.4.1\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.2.4.1\xunit.2.4.1.nupkg, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.2\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.2\lib\net35\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.2\lib\net35\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\packages\xunit.abstractions.2.0.2\lib\netstandard1.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.2\lib\netstandard1.0\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\packages\xunit.abstractions.2.0.2\lib\netstandard2.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.2\lib\netstandard2.0\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\packages\xunit.abstractions.2.0.2\xunit.abstractions.2.0.2.nupkg, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.3\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.3\lib\net35\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.3\lib\net35\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\packages\xunit.abstractions.2.0.3\lib\netstandard1.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.3\lib\netstandard1.0\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\packages\xunit.abstractions.2.0.3\lib\netstandard2.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.abstractions.2.0.3\lib\netstandard2.0\xunit.abstractions.xml, code is 749, comment is 0, blank is 0.
+NetChat\packages\xunit.abstractions.2.0.3\xunit.abstractions.2.0.3.nupkg, it is a binary file.
+NetChat\packages\xunit.analyzers.0.10.0\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll, it is a binary file.
+NetChat\packages\xunit.analyzers.0.10.0\tools\install.ps1, code is 225, comment is 0, blank is 6.
+NetChat\packages\xunit.analyzers.0.10.0\tools\uninstall.ps1, code is 231, comment is 1, blank is 7.
+NetChat\packages\xunit.analyzers.0.10.0\xunit.analyzers.0.10.0.nupkg, it is a binary file.
+NetChat\packages\xunit.assert.2.4.0\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.assert.2.4.0\lib\netstandard1.1\xunit.assert.dll, it is a binary file.
+NetChat\packages\xunit.assert.2.4.0\lib\netstandard1.1\xunit.assert.xml, code is 1504, comment is 0, blank is 0.
+NetChat\packages\xunit.assert.2.4.0\lib\netstandard2.0\xunit.assert.dll, it is a binary file.
+NetChat\packages\xunit.assert.2.4.0\lib\netstandard2.0\xunit.assert.xml, code is 1504, comment is 0, blank is 0.
+NetChat\packages\xunit.assert.2.4.0\xunit.assert.2.4.0.nupkg, it is a binary file.
+NetChat\packages\xunit.assert.2.4.1\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.assert.2.4.1\lib\netstandard1.1\xunit.assert.dll, it is a binary file.
+NetChat\packages\xunit.assert.2.4.1\lib\netstandard1.1\xunit.assert.xml, code is 1504, comment is 0, blank is 0.
+NetChat\packages\xunit.assert.2.4.1\xunit.assert.2.4.1.nupkg, it is a binary file.
+NetChat\packages\xunit.core.2.4.0\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.core.2.4.0\build\xunit.core.props, code is 12, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.0\build\xunit.core.targets, code is 17, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.0\buildMultiTargeting\xunit.core.props, code is 12, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.0\buildMultiTargeting\xunit.core.targets, code is 17, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.0\xunit.core.2.4.0.nupkg, it is a binary file.
+NetChat\packages\xunit.core.2.4.1\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.core.2.4.1\build\xunit.core.props, code is 12, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.1\build\xunit.core.targets, code is 17, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.1\buildMultiTargeting\xunit.core.props, code is 12, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.1\buildMultiTargeting\xunit.core.targets, code is 17, comment is 0, blank is 4.
+NetChat\packages\xunit.core.2.4.1\xunit.core.2.4.1.nupkg, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.0\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\net452\xunit.core.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\net452\xunit.core.dll.tdnet, code is 5, comment is 0, blank is 0.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\net452\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\net452\xunit.runner.tdnet.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\net452\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\netstandard1.1\xunit.core.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\netstandard1.1\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\netstandard2.0\xunit.core.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.0\lib\netstandard2.0\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\packages\xunit.extensibility.core.2.4.0\xunit.extensibility.core.2.4.0.nupkg, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.1\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.dll.tdnet, code is 5, comment is 0, blank is 0.
+NetChat\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.runner.tdnet.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.1\lib\net452\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.1\lib\netstandard1.1\xunit.core.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.core.2.4.1\lib\netstandard1.1\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\packages\xunit.extensibility.core.2.4.1\xunit.extensibility.core.2.4.1.nupkg, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.0\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.0\lib\net452\xunit.execution.desktop.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.0\lib\net452\xunit.execution.desktop.xml, code is 2837, comment is 0, blank is 0.
+NetChat\packages\xunit.extensibility.execution.2.4.0\lib\netstandard1.1\xunit.execution.dotnet.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.0\lib\netstandard1.1\xunit.execution.dotnet.xml, code is 2826, comment is 0, blank is 0.
+NetChat\packages\xunit.extensibility.execution.2.4.0\lib\netstandard2.0\xunit.execution.dotnet.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.0\lib\netstandard2.0\xunit.execution.dotnet.xml, code is 2826, comment is 0, blank is 0.
+NetChat\packages\xunit.extensibility.execution.2.4.0\xunit.extensibility.execution.2.4.0.nupkg, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.1\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.1\lib\net452\xunit.execution.desktop.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.1\lib\net452\xunit.execution.desktop.xml, code is 2837, comment is 0, blank is 0.
+NetChat\packages\xunit.extensibility.execution.2.4.1\lib\netstandard1.1\xunit.execution.dotnet.dll, it is a binary file.
+NetChat\packages\xunit.extensibility.execution.2.4.1\lib\netstandard1.1\xunit.execution.dotnet.xml, code is 2826, comment is 0, blank is 0.
+NetChat\packages\xunit.extensibility.execution.2.4.1\xunit.extensibility.execution.2.4.1.nupkg, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\build\xunit.runner.console.props, code is 27, comment is 0, blank is 5.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net452\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net452\xunit.console.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net452\xunit.console.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net452\xunit.console.x86.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net452\xunit.console.x86.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net452\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net452\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net461\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net461\xunit.console.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net461\xunit.console.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net461\xunit.console.x86.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net461\xunit.console.x86.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net461\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net461\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net462\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net462\xunit.console.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net462\xunit.console.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net462\xunit.console.x86.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net462\xunit.console.x86.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net462\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net462\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net46\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net46\xunit.console.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net46\xunit.console.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net46\xunit.console.x86.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net46\xunit.console.x86.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net46\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net46\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net471\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net471\xunit.console.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net471\xunit.console.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net471\xunit.console.x86.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net471\xunit.console.x86.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net471\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net471\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net472\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net472\xunit.console.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net472\xunit.console.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net472\xunit.console.x86.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net472\xunit.console.x86.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net472\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net472\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net47\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net47\xunit.console.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net47\xunit.console.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net47\xunit.console.x86.exe, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net47\xunit.console.x86.exe.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net47\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\net47\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.console.deps.json, code is 67, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.console.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.console.dll.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.console.runtimeconfig.json, code is 9, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp1.0\xunit.runner.utility.netcoreapp10.xml, code is 1586, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.console.deps.json, code is 171, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.console.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.console.dll.config, code is 7, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.console.runtimeconfig.json, code is 9, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll, it is a binary file.
+NetChat\packages\xunit.runner.console.2.4.1\tools\netcoreapp2.0\xunit.runner.utility.netcoreapp10.xml, code is 1586, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.console.2.4.1\xunit.runner.console.2.4.1.nupkg, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\.signature.p7s, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\_common\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\_common\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\_common\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\_common\xunit.runner.visualstudio.testadapter.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props, code is 26, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\netcoreapp1.0\xunit.abstractions.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.xml, code is 1586, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.deps.json, code is 67, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\netcoreapp1.0\xunit.runner.visualstudio.props, code is 21, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\uap10.0\xunit.runner.reporters.netstandard11.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\uap10.0\xunit.runner.utility.uwp10.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\uap10.0\xunit.runner.utility.uwp10.pri, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\uap10.0\xunit.runner.visualstudio.props, code is 13, comment is 0, blank is 2.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\uap10.0\xunit.runner.visualstudio.targets, code is 23, comment is 0, blank is 0.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\uap10.0\xunit.runner.visualstudio.uwp.testadapter.dll, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\build\uap10.0\xunit.runner.visualstudio.uwp.testadapter.pri, it is a binary file.
+NetChat\packages\xunit.runner.visualstudio.2.4.1\xunit.runner.visualstudio.2.4.1.nupkg, it is a binary file.
+NetChat\russian.ico, it is a binary file.
+NetChat\Testing\bin\Debug\Logging.dll, it is a binary file.
+NetChat\Testing\bin\Debug\Logging.pdb, it is a binary file.
+NetChat\Testing\bin\Debug\NetChat.Client.Core.dll, it is a binary file.
+NetChat\Testing\bin\Debug\NetChat.Client.Core.pdb, it is a binary file.
+NetChat\Testing\bin\Debug\NetChat.Front.exe, it is a binary file.
+NetChat\Testing\bin\Debug\NetChat.Front.exe.config, code is 6, comment is 0, blank is 0.
+NetChat\Testing\bin\Debug\NetChat.Front.pdb, it is a binary file.
+NetChat\Testing\bin\Debug\NetChat.Server.Console.exe, it is a binary file.
+NetChat\Testing\bin\Debug\NetChat.Server.Console.exe.config, code is 6, comment is 0, blank is 0.
+NetChat\Testing\bin\Debug\NetChat.Server.Console.pdb, it is a binary file.
+NetChat\Testing\bin\Debug\Testing.dll, it is a binary file.
+NetChat\Testing\bin\Debug\Testing.pdb, it is a binary file.
+NetChat\Testing\bin\Debug\xunit.abstractions.dll, it is a binary file.
+NetChat\Testing\bin\Debug\xunit.assert.dll, it is a binary file.
+NetChat\Testing\bin\Debug\xunit.assert.xml, code is 1504, comment is 0, blank is 0.
+NetChat\Testing\bin\Debug\xunit.core.dll, it is a binary file.
+NetChat\Testing\bin\Debug\xunit.core.xml, code is 730, comment is 0, blank is 6.
+NetChat\Testing\bin\Debug\xunit.execution.desktop.dll, it is a binary file.
+NetChat\Testing\bin\Debug\xunit.execution.desktop.xml, code is 2837, comment is 0, blank is 0.
+NetChat\Testing\bin\Debug\xunit.runner.reporters.net452.dll, it is a binary file.
+NetChat\Testing\bin\Debug\xunit.runner.utility.net452.dll, it is a binary file.
+NetChat\Testing\bin\Debug\xunit.runner.visualstudio.testadapter.dll, it is a binary file.
+NetChat\Testing\MessageTest.cs, code is 20, comment is 3, blank is 5.
+NetChat\Testing\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache, it is a binary file.
+NetChat\Testing\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs, code is 0, comment is 0, blank is 0.
+NetChat\Testing\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs, code is 0, comment is 0, blank is 0.
+NetChat\Testing\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs, code is 0, comment is 0, blank is 0.
+NetChat\Testing\obj\Debug\Testing.csproj.CopyComplete, code is 0, comment is 0, blank is 0.
+NetChat\Testing\obj\Debug\Testing.csproj.CoreCompileInputs.cache, code is 1, comment is 0, blank is 0.
+NetChat\Testing\obj\Debug\Testing.csproj.FileListAbsolute.txt, code is 27, comment is 0, blank is 0.
+NetChat\Testing\obj\Debug\Testing.csprojAssemblyReference.cache, it is a binary file.
+NetChat\Testing\obj\Debug\Testing.dll, it is a binary file.
+NetChat\Testing\obj\Debug\Testing.pdb, it is a binary file.
+NetChat\Testing\packages.config, code is 12, comment is 0, blank is 0.
+NetChat\Testing\Properties\AssemblyInfo.cs, code is 15, comment is 17, blank is 4.
+NetChat\Testing\TestFullConnection.cs, code is 34, comment is 6, blank is 6.
+NetChat\Testing\Testing.csproj, code is 101, comment is 0, blank is 0.
+===============================================================================

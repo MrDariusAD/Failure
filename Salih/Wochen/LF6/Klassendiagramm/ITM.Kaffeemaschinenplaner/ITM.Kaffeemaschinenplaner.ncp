@@ -1,0 +1,101 @@
+<Project>
+  <Name>ITM.Kaffeemaschinenplaner</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Name>ITM.Kaffeemaschinenplaner.Core</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Plan</Name>
+        <Access>Public</Access>
+        <Location left="116" top="91" />
+        <Size width="501" height="219" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public List&lt;Person&gt; Personen</Member>
+        <Member type="Field">public DateTime DienstplanMonatAlsDatum</Member>
+        <Member type="Field">public List&lt;Kaffeemaschinenreinigungsdienst&gt; Dienstplan</Member>
+        <Member type="Method">public void ErstellePlan()</Member>
+        <Member type="Method">private Person HoleEineVerfügbarePerson(DateTime heute, bool istFreitag)</Member>
+        <Member type="Method">public Workbook ErstellePlanAlsExcel()</Member>
+        <Member type="Method">private void setzeZellenStyle(Worksheet seite, Cell zelle, Color farbe, bool fetteSchrift, bool thin)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Person</Name>
+        <Access>Public</Access>
+        <Location left="633" top="604" />
+        <Size width="330" height="332" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string Username { get; set; }</Member>
+        <Member type="Property">public string Passwort { get; set; }</Member>
+        <Member type="Property">public List&lt;DateTime&gt; DatenAnDenManNichtKann { get; set; }</Member>
+        <Member type="Property">public int AnzahlZugeordneteReinigungen { get; set; }</Member>
+        <Member type="Property">public int AnzahlZugeordneterFreitage { get; set; }</Member>
+        <Member type="Property">public bool IsAdmin { get; set; }</Member>
+        <Member type="Property">public bool Ignore { get; set; }</Member>
+        <Member type="Method">public bool KannPersonAnDiesemDatum(DateTime zielDatum)</Member>
+        <Member type="Method">public static string CreateMd5(string input)</Member>
+        <Member type="Method">public override string ToString()</Member>
+        <Member type="Method">public bool PruefePasswort(string passwortEingabe)</Member>
+        <Member type="Method">public bool PruefePasswortMd5(string passwortEingabe)</Member>
+        <Member type="Method">public bool PasswortAendern(string altesPwMd5, string neuesPwMd5)</Member>
+        <Member type="Method">public PersonInDienstSaveModel ToPersonInDienstSaveModel()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PersonInDienstSaveModel</Name>
+        <Access>Public</Access>
+        <Location left="1306" top="604" />
+        <Size width="324" height="149" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public PersonInDienstSaveModel()</Member>
+        <Member type="Constructor">public PersonInDienstSaveModel(string name, string username)</Member>
+        <Member type="Property">public string Name { get; set; }</Member>
+        <Member type="Property">public string Username { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Kaffeemaschinenreinigungsdienst</Name>
+        <Access>Public</Access>
+        <Location left="750" top="149" />
+        <Size width="372" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Kaffeemaschinenreinigungsdienst(DateTime datum, Person person)</Member>
+        <Member type="Property">public PersonInDienstSaveModel Person { get; set; }</Member>
+        <Member type="Property">public DateTime Datum { get; set; }</Member>
+        <Member type="Method">public override string ToString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>642</X>
+          <Y>199</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
