@@ -1,0 +1,81 @@
+@startuml
+
+object "Carl : Person" as Carl {
+  name: "Carl"
+  playlistIds: [1]
+}
+
+object "Sophia : Person" as Sophia {
+  name: "Sophia"
+  playlistIds: [2]
+}
+
+object "1 : Playlist" as 1 {
+  playlistId: 1
+  name: "Carls Lieblingslieder"
+  songIds: [91,92,93,94,95,96]
+}
+
+object "2 : Playlist" as 2 {
+  playlistId: 2
+  name: "Sophias Lieblingslieder"
+  songIds: [91,97,94,96,98]
+}
+
+
+object "91 : Song" as 91 {
+  Id: 91
+  name: "Shape Of You - Ed Sheeran"
+}
+
+object "92 : Song" as 92 {
+  Id: 92
+  name: "Unforgettable - French Montana feat. Swae Lee"
+}
+
+object "93 : Song" as 93 {
+  Id: 93
+  name: "Something Just Like This - The Chainsmokers & Coldplay"
+}
+
+object "94 : Song" as 94 {
+  Id: 94
+  name: "Galway Girl - Ed Sheeran"
+}
+
+object "95 : Song" as 95 {
+  Id: 95
+  name: "Swalla - Jason Derulo feat. Nicki Minaj & Ty Dolla $ign"
+}
+
+object "96 : Song" as 96 {
+  Id: 96
+  name: "Thunder - Imagine Dragons"
+}
+
+object "97 : Song" as 97 {
+  Id: 97
+  name: "OK - Robin Schulz feat. James Blunt"
+}
+
+object "98 : Song" as 98 {
+  Id: 98
+  name: "There’s Nothing Holdin' Me Back - Shawn Mendes"
+}
+
+Carl o-- 1
+Sophia o-- 2
+
+1 o-- 91
+1 o-- 92
+1 o-- 93
+1 o-- 94
+1 o-- 95
+1 o-- 96
+2 o-- 91
+2 o-- 97
+2 o-- 94
+2 o-- 96
+2 o-- 98
+
+@enduml

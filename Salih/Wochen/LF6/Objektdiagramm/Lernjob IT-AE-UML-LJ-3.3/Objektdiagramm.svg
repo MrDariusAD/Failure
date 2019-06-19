@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="298px" preserveAspectRatio="none" style="width:2278px;height:298px;" version="1.1" viewBox="0 0 2278 298" width="2278px" zoomAndPan="magnify"><defs><filter height="300%" id="f1gn7xf2f9ue8u" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="94" x="1225.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="80" x="1232.5" y="21.1387">Carl : Person</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1226.5" x2="1318.5" y1="25.9688" y2="25.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="64" x="1231.5" y="39.251">name: "Carl"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="67" x="1231.5" y="50.8916">playlistIds: [1]</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="113" x="641" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="648" y="21.1387">Sophia : Person</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="642" x2="753" y1="25.9688" y2="25.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="77" x="647" y="39.251">name: "Sophia"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="67" x="647" y="50.8916">playlistIds: [2]</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="60.8906" style="stroke: #A80036; stroke-width: 1.5;" width="151" x="1197" y="117"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="1241" y="130.1387">1 : Playlist</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1198" x2="1347" y1="134.9688" y2="134.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="54" x="1203" y="148.251">playlistId: 1</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="139" x="1203" y="159.8916">name: "Carls Lieblingslieder"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="138" x="1203" y="171.5322">songIds: [91,92,93,94,95,96]</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="60.8906" style="stroke: #A80036; stroke-width: 1.5;" width="164" x="615.5" y="117"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="666" y="130.1387">2 : Playlist</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="616.5" x2="778.5" y1="134.9688" y2="134.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="54" x="621.5" y="148.251">playlistId: 2</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="152" x="621.5" y="159.8916">name: "Sophias Lieblingslieder"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="123" x="621.5" y="171.5322">songIds: [91,97,94,96,98]</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="191" x="602" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="667.5" y="251.1387">91 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="603" x2="792" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="608" y="269.251">Id: 91</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="179" x="608" y="280.8916">name: "Shape Of You - Ed Sheeran"</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="290" x="1264.5" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="1379.5" y="251.1387">92 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1265.5" x2="1553.5" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="1270.5" y="269.251">Id: 92</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="278" x="1270.5" y="280.8916">name: "Unforgettable - French Montana feat. Swae Lee"</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="329" x="1590" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="1724.5" y="251.1387">93 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1591" x2="1918" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="1596" y="269.251">Id: 93</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="317" x="1596" y="280.8916">name: "Something Just Like This - The Chainsmokers &amp; Coldplay"</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="178" x="828.5" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="887.5" y="251.1387">94 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="829.5" x2="1005.5" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="834.5" y="269.251">Id: 94</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="166" x="834.5" y="280.8916">name: "Galway Girl - Ed Sheeran"</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="313" x="1954" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="2080.5" y="251.1387">95 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1955" x2="2266" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="1960" y="269.251">Id: 95</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="301" x="1960" y="280.8916">name: "Swalla - Jason Derulo feat. Nicki Minaj &amp; Ty Dolla $ign"</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="188" x="1041.5" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="1105.5" y="251.1387">96 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1042.5" x2="1228.5" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="1047.5" y="269.251">Id: 96</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="176" x="1047.5" y="280.8916">name: "Thunder - Imagine Dragons"</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="229" x="6" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="90.5" y="251.1387">97 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="234" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="12" y="269.251">Id: 97</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="217" x="12" y="280.8916">name: "OK - Robin Schulz feat. James Blunt"</text><rect fill="#FEFECE" filter="url(#f1gn7xf2f9ue8u)" height="49.25" style="stroke: #A80036; stroke-width: 1.5;" width="296" x="270.5" y="238"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="388.5" y="251.1387">98 : Song</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="271.5" x2="565.5" y1="255.9688" y2="255.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="27" x="276.5" y="269.251">Id: 98</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="284" x="276.5" y="280.8916">name: "There’s Nothing Holdin' Me Back - Shawn Mendes"</text><!--link Carl to 1--><path d="M1272.5,70.2779 C1272.5,85.3311 1272.5,102.4362 1272.5,116.7152 " fill="none" id="Carl-1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="1272.5,57.1704,1268.5,63.1704,1272.5,69.1704,1276.5,63.1704,1272.5,57.1704" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Sophia to 2--><path d="M697.5,70.2779 C697.5,85.3311 697.5,102.4362 697.5,116.7152 " fill="none" id="Sophia-2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="697.5,57.1704,693.5,63.1704,697.5,69.1704,701.5,63.1704,697.5,57.1704" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 1 to 91--><path d="M1183.9583,164.3956 C1091.0774,182.233 940.891,211.3978 811.5,238 C805.5514,239.223 799.4314,240.4958 793.2619,241.79 " fill="none" id="1-91" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="1196.9563,161.9015,1190.31,159.1039,1185.1713,164.1629,1191.8176,166.9605,1196.9563,161.9015" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 1 to 92--><path d="M1319.0804,186.6003 C1339.2098,203.4973 1362.1622,222.7639 1379.9048,237.6573 " fill="none" id="1-92" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="1308.8538,178.016,1310.8776,184.9373,1318.0449,185.7311,1316.0211,178.8099,1308.8538,178.016" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 1 to 93--><path d="M1360.8971,168.5906 C1442.9932,188.1778 1565.2272,217.3415 1651.6598,237.9634 " fill="none" id="1-93" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="1348.0774,165.532,1352.9852,170.8153,1359.7497,168.317,1354.8419,163.0337,1348.0774,165.532" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 1 to 94--><path d="M1184.1673,176.1148 C1125.5189,195.1136 1049.326,219.7958 993.4101,237.9094 " fill="none" id="1-94" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="1196.779,172.0293,1189.8383,170.0731,1185.3631,175.7276,1192.3038,177.6837,1196.779,172.0293" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 1 to 95--><path d="M1361.281,159.4734 C1488.6483,176.6796 1730.588,209.4711 1936.5,238 C1942.2414,238.7955 1948.0889,239.6078 1953.9954,240.4301 " fill="none" id="1-95" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="1348.1958,157.7061,1353.6064,162.4732,1360.0878,159.3123,1354.6772,154.5452,1348.1958,157.7061" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 1 to 96--><path d="M1225.9196,186.6003 C1205.7902,203.4973 1182.8378,222.7639 1165.0952,237.6573 " fill="none" id="1-96" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="1236.1462,178.016,1228.9789,178.8099,1226.9551,185.7311,1234.1224,184.9373,1236.1462,178.016" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 2 to 91--><path d="M697.5,191.3055 C697.5,206.9956 697.5,224.1302 697.5,237.6573 " fill="none" id="2-91" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="697.5,178.016,693.5,184.016,697.5,190.016,701.5,184.016,697.5,178.016" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 2 to 97--><path d="M602.5451,166.4252 C501.8327,186.4978 342.717,218.2107 235.1002,239.6594 " fill="none" id="2-97" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="615.4427,163.8546,608.7766,161.1046,603.6742,166.2003,610.3403,168.9503,615.4427,163.8546" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 2 to 94--><path d="M767.4859,184.0835 C801.0509,201.6289 840.3707,222.1824 870.333,237.8445 " fill="none" id="2-94" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="755.8784,178.016,759.3428,184.3404,766.5131,183.575,763.0488,177.2506,755.8784,178.016" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 2 to 96--><path d="M792.6245,172.4756 C866.5328,191.8808 968.4888,218.65 1041.9856,237.9471 " fill="none" id="2-96" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="779.6274,169.0631,784.4149,174.4557,791.234,172.1106,786.4465,166.718,779.6274,169.0631" style="stroke: #A80036; stroke-width: 1.0;"/><!--link 2 to 98--><path d="M611.2459,183.0528 C568.143,200.8192 517.0606,221.8747 478.3164,237.8445 " fill="none" id="2-98" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="623.4656,178.016,616.394,176.6043,612.3711,182.589,619.4427,184.0007,623.4656,178.016" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+object "Carl : Person" as Carl {
+  name: "Carl"
+  playlistIds: [1]
+}
+
+object "Sophia : Person" as Sophia {
+  name: "Sophia"
+  playlistIds: [2]
+}
+
+object "1 : Playlist" as 1 {
+  playlistId: 1
+  name: "Carls Lieblingslieder"
+  songIds: [91,92,93,94,95,96]
+}
+
+object "2 : Playlist" as 2 {
+  playlistId: 2
+  name: "Sophias Lieblingslieder"
+  songIds: [91,97,94,96,98]
+}
+
+
+object "91 : Song" as 91 {
+  Id: 91
+  name: "Shape Of You - Ed Sheeran"
+}
+
+object "92 : Song" as 92 {
+  Id: 92
+  name: "Unforgettable - French Montana feat. Swae Lee"
+}
+
+object "93 : Song" as 93 {
+  Id: 93
+  name: "Something Just Like This - The Chainsmokers & Coldplay"
+}
+
+object "94 : Song" as 94 {
+  Id: 94
+  name: "Galway Girl - Ed Sheeran"
+}
+
+object "95 : Song" as 95 {
+  Id: 95
+  name: "Swalla - Jason Derulo feat. Nicki Minaj & Ty Dolla $ign"
+}
+
+object "96 : Song" as 96 {
+  Id: 96
+  name: "Thunder - Imagine Dragons"
+}
+
+object "97 : Song" as 97 {
+  Id: 97
+  name: "OK - Robin Schulz feat. James Blunt"
+}
+
+object "98 : Song" as 98 {
+  Id: 98
+  name: "There’s Nothing Holdin' Me Back - Shawn Mendes"
+}
+
+Carl o- - 1
+Sophia o- - 2
+
+1 o- - 91
+1 o- - 92
+1 o- - 93
+1 o- - 94
+1 o- - 95
+1 o- - 96
+2 o- - 91
+2 o- - 97
+2 o- - 94
+2 o- - 96
+2 o- - 98
+@enduml
+
+PlantUML version 1.2019.04(Fri Mar 29 15:44:36 UTC 2019)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_201-heroku-b09
+Operating System: Linux
+OS Version: 4.4.0-1044-aws
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

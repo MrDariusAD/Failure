@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css" type="text/css">
+    <link rel="stylesheet" href="css/customStyles.css" type="text/css">
+    <title>Erklärung LF6 – Objekorientierte Modellierung und Programmierung II</title>
+
+    </head>
+
+    <body>
+        <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"><h2>Einführung</h2></div>
+            <div class="card-body">
+              In der Themenwoche "LF6 – Objekorientierte Modellierung und Programmierung II" ging es um den Einsatz von 
+              Klassen-, Objekt- und Sequenzdiagrammen. Da nicht alle abgegebenen Diagramme alle Kontrollstrukturen enthalten,
+              gebe ich hier eine Erklärung zu den einzelnen Kontrollstrukturen ab.
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"><h2>Klassendiagramme</h2></div>
+            <div class="row" style="margin:0; display: inline-block">
+              <a href="../Klassendiagramm/ITM.Kaffeemaschinenplaner/ITM.Kaffeemaschinenplaner.Core.png"><img class="card-img-top" style="width: 49%; float: left;" src="../Klassendiagramm/ITM.Kaffeemaschinenplaner/ITM.Kaffeemaschinenplaner.Core.png"></a>
+              <a href="../Klassendiagramm/Lernjob IT-AE-UML-LJ-3.3/Spotify2.png"><img class="card-img-top" style="width: 49%; float: left;" src="../Klassendiagramm/Lernjob IT-AE-UML-LJ-3.3/Spotify2.png"></a>
+            </div>
+            <div class="card-body text-center">
+                <h3 class="text-left">Abstrakte Klassen</h3>
+                  Bei abstrakten Klassen wird der Name der Klasse kursiv geschrieben. Alternativ kann man unter den Namen die Bezeichnung 
+                  <strong>"{abstract}"</strong> reinschreiben.
+                <h3 class="text-left">Assoziation</h3>
+                  Eine Assoziation beschreibt eine Verbindung zweier Klassen, welche miteinander <strong>in Beziehung stehen</strong>.
+                  Im UML Klassendiagramm wird diese mit Hilfe eines einfachen Striches abgebildet.
+                <h3 class="text-left">Aggregation</h3>
+                Eine Aggregation beschreibt eine <strong>stärkere</strong> Beziehung zwischen zwei Objekten. Hierbei <strong>besitzt</strong> mindestens
+                eine der beiden Klassen die jeweils andere.
+                Im UML Klassendiagramm wird diese Beziehung mit einem Strich und einer <strong>nicht ausgefüllten</strong> Raute abgebildet. Die Raute befindet sich hierbei 
+                auf der Seite der besitzenden Klasse.
+                <h3 class="text-left">Komposition</h3>
+                  Eine Komposition ist eine sehr besondere Beziehung. Bei einer Komposition ist eine Klasse von einer anderen <strong>abhängig</strong>. 
+                  Man spricht hierbei davon, dass etwas <strong>ein Teil vom ganzen</strong> ist. Sollte also das ganze (z. B. ein Vogel) nicht mehr existieren,
+                  so existiert das Teil (z. B. ein Flügel) auch nicht mehr.
+                  Im UML Klassendiagramm bilden wir diese Beziehung mit einem Strich und einer <strong>ausgefüllten</strong> Raute auf der Seite des ganzen ab.
+                <h3 class="text-left">Vererbung</h3>
+                Bei einer Vererbung, erhält die sogenannte <strong>child class</strong> die Attribute und Methoden der <strong>parent class</strong> vererbt.
+                Diese Beziehung wird im UML Klassendiagramm durch einen Strich mit einem Pfeil gekennzeichnet. Dabei zeigt der Pfeil auf die parent class.
+                <h3 class="text-left">Attribute</h3>
+                  Attribute einer Klasse werden im Klassendiagramm wie folgt dargestellt:<br>
+                  <code>
+                    &lt;Zugriffsmodifier&gt; &lt;Variablenname&gt; : &lt;Datentyp&gt;
+                  </code><br>
+                  Zugriffsmodifier können hierbei ein <strong>'-' für private, ein '+' für public oder ein '#' für protected</strong> sein.<br>
+                  Statische Variablen werden hierbei <u>unterstrichen</u>.
+                <h3 class="text-left">Methoden</h3>
+                  	Methoden sind den Attributen sehr ähnlich. Methoden einer Klasse werden im Klassendiagramm wie folgt dargestellt:<br>
+                    <code>
+                      &lt;Zugriffsmodifier&gt; &lt;Methodenname&gt;(&lt;Liste der Argumente&gt;) : &lt;Datentyp&gt;
+                    </code><br>
+                    Zugriffsmodifier können hierbei ein <strong>'-' für private, ein '+' für public oder ein '#' für protected</strong> sein.<br>
+                    Statische Methoden werden auch hier <u>unterstrichen</u>.
+                <h3 class="text-left">Multiplizität</h3>
+                    Die Multiplizität gibt an, <strong>wie viele</strong> Objekte der Klasse es innerhalb eines Programmes gibt. Multiplizitäten werden wie 
+                    folgt dargestellt:<br>
+                    <code>
+                        &lt;Min&gt;..&lt;Max&gt;
+                    </code><br>
+                    Für den Wert <strong>"unbegrenzt"</strong> setzen wir hier ein <strong>Stern('*')</strong> ein. Multiplizitäten befinden sich immer 
+                    <strong>auf dem Strich</strong> der Beziehung. Hierbei ist zu beachten, dass die Werte an das <strong></strong>gegenüber liegende #
+                    Ende kommen. Sprich sollte eine Playlist 0 bis unendlich Songs beinhalten können, so ist das "0..*" auf die Seite des 
+                    Songs zu packen(siehe Bild).
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"><h2>Objektdiagramme</h2></div>
+            <div class="row" style="margin:0; display: inline-block">
+                <a href="../Objektdiagramm/Lernjob IT-AE-UML-LJ-3.3/Objektdiagramm.svg"><img class="card-img-top" style="width: 100%; float: left;" src="../Objektdiagramm/Lernjob IT-AE-UML-LJ-3.3/Objektdiagramm.svg"></a>
+              </div>
+            <div class="card-body text-center">
+                Objektdiagramme sind Klassendiagrammen sehr ähnlich. Sie unterscheiden sich allerdings darin, dass sie eine Instanz abbilden,
+                und nicht das Programm generell. Dabei wird zu erst die Überschrift aus dem Klassendiagramm mit dem Objektnamen ergänzt 
+                (&lt;Objektname&gt; : &lt;Klassenname&gt;)
+                <h3 class="text-left">Beziehungen</h3>
+                  Beziehungen werden hier genau so wie beim Klassendiagramm dargestellt.
+                <h3 class="text-left">Attribute</h3>
+                  Attribute werden mit dem Inhalt des Attributs ergänzt. Dabei gilt folgende Darstellungsweise:<br>
+                  <code>
+                      &lt;Name des Attributs&gt; = &lt;Inhalt des Attributs&gt;
+                  </code><br>
+                <h3 class="text-left">Methoden</h3>
+                Methoden werden hier genau so wie beim Klassendiagramm dargestellt.
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"><h2>Sequenzdiagramme</h2></div>
+            <a href="../Sequenzdiagramm/Sequenzdiagramm.svg"><img class="card-img-top" style="width: 100%; float: left;" src="../Sequenzdiagramm/Sequenzdiagramm.svg"></a>
+            <div class="card-body text-center">
+                Ein Sequenzdiagramm zeigt die Kommunikation zwischen Objekten innerhalb eines Softwaresystems. 
+                Das Sequenzdiagramm zeigt dabei die beteiligten Objekte, die Aktivitäten, die Nachrichten und die Lebenslinien der Objekte.
+              <h3 class="text-left">Objekte</h3>
+                Als Objekt zählt man in einem Sequenzdiagramm Akteure, sprich reelle Personen welche die Software bedienen, Datenbanken und Objekten 
+                innerhalb der Software. Akteure werden in Form eines Strichmännchens, Datenbanken als Kegel und andere Objekte als Rechteck dargestellt.
+                <h3 class="text-left">Lebenslinien</h3>
+                Lebenslinien werden durch gestrichelte Linien vom Objekt nach unten dargestellt. Das X zeigt hierbei das Ende der Lebenslinie eines Objektes.
+                Lebenslinien zeigen die Lebenszeit einzelner Objekte.
+                <h3 class="text-left">Aktivitäten</h3>
+                Aktivitäten werden im Sequenzdiagramm mit Hilfe eines Balkens auf der Lebenslinie des ausführenden Objektes dargestellt. Aktivitäten zeigen an, 
+                wann die Objekte aktiv sind und Aktionen durchführen.
+                <h3 class="text-left">Nachrichten</h3>
+                Nachrichten zeigen die Interaktion bzw Kommunikation zwischen zwei Objekten. Dabei unterscheidet man zwischen synchronen und asynchronen 
+                Nachrichten. Synchrone Nachrichten werden mit einem ausgefülltem Pfeil und asynchrone mit einem leerem Pfeil dargestellt. Return Nachrichten 
+                werden mit einem gestricheltem Pfeil zurück dargestellt.
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
